@@ -1,0 +1,43 @@
+# Copyright Contributors to the Open Cluster Management project
+apiVersion: operator.open-cluster-management.io/v1
+kind: ClusterManager
+metadata:
+  name: cluster-manager
+spec:
+  registrationImagePullSpec: {{ .Values.hub.registry }}/registration:{{ default .Chart.AppVersion .Values.bundleVersion.registrationImageVersion }}
+  workImagePullSpec: {{ .Values.hub.registry }}/work:{{ default .Chart.AppVersion .Values.bundleVersion.workImageVersion }}
+  placementImagePullSpec: {{ .Values.hub.registry }}/placement:{{ default .Chart.AppVersion .Values.bundleVersion.placementImageVersion }}
+  {{if .Values.bundleVersion.addonManagerImageVersion}}
+  addOnManagerImagePullSpec: {{ .Values.hub.registry }}/addon-manager:{{ default .Chart.AppVersion .Values.bundleVersion.addonManagerImageVersion }}
+  {{end}}
+  deployOption:
+    mode: Default
+  {{if .Values.registrationFeatures}}
+  registrationConfiguration:
+    {{if .Values.autoApprove}}
+    autoApproveUsers:
+    - system:bootstrap:bootstrap-token-{{ .Values.hub.tokenID }}
+    - system:serviceaccount:open-cluster-management:cluster-bootstrap
+    {{end}}
+    featureGates:
+    {{range .Values.registrationFeatures }}
+    - feature: {{ .feature }}
+      mode: {{ .mode }}
+    {{end}}
+  {{end}}
+  {{if .Values.workFeatures}}
+  workConfiguration:
+    featureGates:
+    {{range .Values.workFeatures }}
+    - feature: {{ .feature }}
+      mode: {{ .mode }}
+    {{end}}
+  {{end}}
+  {{if .Values.addonFeatures}}
+  addOnManagerConfiguration:
+    featureGates:
+    {{range .Values.addonFeatures }}
+    - feature: {{ .feature }}
+      mode: {{ .mode }}
+    {{end}}
+  {{end}}

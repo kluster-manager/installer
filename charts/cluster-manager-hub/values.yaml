@@ -1,0 +1,24 @@
+hub:
+  useBootstrapToken: false
+  # randAlpha 6
+  tokenID: ""
+  # randAlpha 16
+  tokenSecret: ""
+  registry: quay.io/open-cluster-management
+
+bundleVersion:
+  registrationImageVersion: ""
+  placementImageVersion: ""
+  workImageVersion: ""
+  operatorImageVersion: ""
+  addonManagerImageVersion: ""
+
+autoApprove: false
+
+registrationFeatures:
+- feature: DefaultClusterSet
+  mode: Enable
+
+workFeatures: []
+
+addonFeatures: []

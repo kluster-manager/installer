@@ -1,0 +1,18 @@
+project:
+  name: Cluster Manager Spoke
+  shortName: Cluster Manager Spoke
+  url: https://github.com/kluster-manager/installer
+  description: Join a Open Cluster Manager Hub
+  app: a Cluster Manager Spoke
+repository:
+  url: https://charts.appscode.com/stable/
+  name: appscode
+chart:
+  name: cluster-manager-spoke
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: cluster-manager-spoke
+  namespace: open-cluster-management

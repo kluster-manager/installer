@@ -1,0 +1,14 @@
+The multicluster hub control plane has been initialized successfully!
+
+You can now register cluster(s) to the hub control plane. Log onto those cluster(s) and run the following command:
+
+    API_SERVER=$(kubectl cluster-info | awk '{print $NF}' | head -1 | tail -2)
+{{- if .Values.hub.useBootstrapToken }}
+    {{ $token := printf "%.%s" .Values.hub.tokenID .Values.hub.tokenSecret }}
+    clusteradm join --hub-token {{ $token }} --hub-apiserver $API_SERVER --wait --cluster-name <cluster_name>
+{{- else }}
+    TOKEN=$(kubectl get secrets cluster-bootstrap-token -n open-cluster-management -o jsonpath='{.data.token}' | base64 -d)
+    clusteradm join --hub-token $TOKEN --hub-apiserver $API_SERVER --wait --cluster-name <cluster_name>
+{{- end }}
+
+Replace <cluster_name> with a cluster name of your choice. For example, cluster1.
