@@ -5,3 +5,12 @@ metadata:
   annotations:
     workload.openshift.io/allowed: "management"
   name: open-cluster-management
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    workload.openshift.io/allowed: "management"
+  name: {{ required "A valid .agentNamespace entry required!" .Values.agentNamespace }}

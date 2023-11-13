@@ -1,4 +1,6 @@
 properties:
+  agentNamespace:
+    type: string
   bundleVersion:
     properties:
       operatorImageVersion:
@@ -65,5 +67,6 @@ properties:
       type: object
     type: array
 required:
+- agentNamespace
 - clusterName
 type: object

@@ -48,6 +48,7 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 |               Parameter                | Description |                   Default                    |
 |----------------------------------------|-------------|----------------------------------------------|
 | clusterName                            |             | <code>""</code>                              |
+| agentNamespace                         |             | <code>""</code>                              |
 | hub.apiServer                          |             | <code>""</code>                              |
 | hub.kubeConfig                         |             | <code>""</code>                              |
 | klusterlet.name                        |             | <code>klusterlet</code>                      |
