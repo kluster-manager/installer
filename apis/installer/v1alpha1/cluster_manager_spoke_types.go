@@ -46,9 +46,6 @@ type ClusterManagerSpokeSpec struct {
 	// ClusterName: the name of the joined cluster on the hub
 	ClusterName string `json:"clusterName"`
 
-	// AgentNamespace: the namespace to deploy the agent
-	AgentNamespace string `json:"agentNamespace"`
-
 	// SpokeHub: Hub information
 	// +optional
 	Hub SpokeHub `json:"hub"`
@@ -91,12 +88,6 @@ type Klusterlet struct {
 	// APIServer: The API Server external URL
 	// +optional
 	APIServer string `json:"apiServer"`
-	// +optional
-	Mode string `json:"mode"`
-	// +optional
-	Name string `json:"name"`
-	// +optional
-	KlusterletNamespace string `json:"klusterletNamespace"`
 }
 
 type SpokeBundleVersion struct {

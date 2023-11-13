@@ -1,6 +1,4 @@
 properties:
-  agentNamespace:
-    type: string
   bundleVersion:
     properties:
       operatorImageVersion:
@@ -24,12 +22,6 @@ properties:
   klusterlet:
     properties:
       apiServer:
-        type: string
-      klusterletNamespace:
-        type: string
-      mode:
-        type: string
-      name:
         type: string
     type: object
   managedKubeconfig:
@@ -67,6 +59,5 @@ properties:
       type: object
     type: array
 required:
-- agentNamespace
 - clusterName
 type: object

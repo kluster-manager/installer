@@ -1,16 +1,11 @@
 clusterName: ""
 
-agentNamespace: ""
-
 hub:
   apiServer: ""
   kubeConfig: ""
 
 klusterlet:
-  name: klusterlet
   apiServer: ""
-  mode: Default
-  klusterletNamespace: open-cluster-management-agent
 
 registry: quay.io/open-cluster-management
 

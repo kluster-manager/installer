@@ -1,16 +1,62 @@
 # Copyright Contributors to the Open Cluster Management project
+
+{{- $mode := "Singleton" -}}
+{{- $agentNamespace := "open-cluster-management-agent" -}}
+{{- $klusterletName := "klusterlet" -}}
+{{- $klusterletNamespace := $agentNamespace -}}
+
+{{- if .Values.managedKubeconfig }}
+
+{{- $mode = "Singleton" -}}
+# add hash suffix to avoid conflict
+{{- $klusterletName = printf "klusterlet-hosted-%s" (randAlphaNum 6) -}}
+{{- $agentNamespace = $klusterletName -}}
+{{- $klusterletNamespace = printf "open-cluster-management-%s" $agentNamespace -}}
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: external-managed-kubeconfig
+  namespace: {{ $agentNamespace }}
+type: Opaque
+data:
+  kubeconfig: {{ .Values.managedKubeconfig }}
+---
+{{- end }}
+
+# Copyright Contributors to the Open Cluster Management project
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    workload.openshift.io/allowed: "management"
+  name: {{ $agentNamespace }}
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bootstrap-hub-kubeconfig
+  namespace: {{ $agentNamespace }}
+type: Opaque
+data:
+  kubeconfig: {{ required "A valid hub.kubeConfig entry required!" .Values.hub.kubeConfig }}
+
+---
+
 apiVersion: operator.open-cluster-management.io/v1
 kind: Klusterlet
 metadata:
-  name: {{ .Values.klusterlet.name }}
+  name: {{ $klusterletName }}
 spec:
   deployOption:
-    mode: {{ .Values.klusterlet.mode }}
+    mode: {{ $mode }}
   registrationImagePullSpec: {{ .Values.registry }}/registration:{{ default .Chart.AppVersion .Values.bundleVersion.registrationImageVersion }}
   workImagePullSpec: {{ .Values.registry }}/work:{{ default .Chart.AppVersion .Values.bundleVersion.registrationImageVersion }}
   imagePullSpec: {{ .Values.registry}}/registration-operator:{{ default .Chart.AppVersion .Values.bundleVersion.operatorImageVersion}}
-  clusterName: {{ required "A valid .clusterName entry required!" .Values.clusterName }}
-  namespace: {{ .Values.klusterlet.klusterletNamespace }}
+  clusterName: {{ required "A valid clusterName entry required!" .Values.clusterName }}
+  namespace: {{ $klusterletNamespace }}
   externalServerURLs:
   {{ if .Values.klusterlet.apiServer }}
   - url: {{ .Values.klusterlet.apiServer }}

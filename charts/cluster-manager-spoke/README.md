@@ -48,13 +48,9 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 |               Parameter                | Description |                   Default                    |
 |----------------------------------------|-------------|----------------------------------------------|
 | clusterName                            |             | <code>""</code>                              |
-| agentNamespace                         |             | <code>""</code>                              |
 | hub.apiServer                          |             | <code>""</code>                              |
 | hub.kubeConfig                         |             | <code>""</code>                              |
-| klusterlet.name                        |             | <code>klusterlet</code>                      |
 | klusterlet.apiServer                   |             | <code>""</code>                              |
-| klusterlet.mode                        |             | <code>Default</code>                         |
-| klusterlet.klusterletNamespace         |             | <code>open-cluster-management-agent</code>   |
 | registry                               |             | <code>quay.io/open-cluster-management</code> |
 | bundleVersion.registrationImageVersion |             | <code>""</code>                              |
 | bundleVersion.placementImageVersion    |             | <code>""</code>                              |
@@ -68,7 +64,7 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=0.1.0 --set klusterlet.name=klusterlet
+$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=0.1.0 --set registry=quay.io/open-cluster-management
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
