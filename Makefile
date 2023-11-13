@@ -228,7 +228,7 @@ gen: codegen manifests
 
 CHART_REGISTRY     ?= appscode
 CHART_REGISTRY_URL ?= https://charts.appscode.com/stable/
-CHART_VERSION      ?=
+CHART_VERSION      ?= 0.1.0
 APP_VERSION        ?= $(CHART_VERSION)
 
 .PHONY: update-charts
@@ -443,3 +443,12 @@ ci: verify check-license lint build unit-tests #cover
 .PHONY: clean
 clean:
 	rm -rf .go bin
+
+.PHONY: push-charts
+push-charts:
+	@helm package charts/cluster-manager-hub
+	@helm package charts/cluster-manager-spoke
+	@helm push cluster-manager-hub-$(CHART_VERSION).tgz oci://ghcr.io/appscode-charts
+	@rm -rf cluster-manager-hub-$(CHART_VERSION).tgz
+	@helm push cluster-manager-spoke-$(CHART_VERSION).tgz oci://ghcr.io/appscode-charts
+	@rm -rf cluster-manager-spoke-$(CHART_VERSION).tgz
