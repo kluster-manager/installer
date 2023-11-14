@@ -1,6 +1,8 @@
 properties:
   bundleVersion:
     properties:
+      clusteradmImageVersion:
+        type: string
       operatorImageVersion:
         type: string
       placementImageVersion:
@@ -16,7 +18,11 @@ properties:
     properties:
       apiServer:
         type: string
+      caData:
+        type: string
       kubeConfig:
+        type: string
+      token:
         type: string
     type: object
   managedKubeconfig:

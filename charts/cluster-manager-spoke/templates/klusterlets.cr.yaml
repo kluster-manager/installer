@@ -34,6 +34,8 @@ metadata:
 
 ---
 
+{{- if .Values.hub.kubeConfig }}
+
 apiVersion: v1
 kind: Secret
 metadata:
@@ -41,7 +43,39 @@ metadata:
   namespace: {{ $agentNamespace }}
 type: Opaque
 data:
-  kubeconfig: {{ required "A valid hub.kubeConfig entry required!" .Values.hub.kubeConfig }}
+  kubeconfig: {{ .Values.hub.kubeConfig }}
+
+{{- else }}
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bootstrap-hub-kubeconfig-generator
+  namespace: open-cluster-management
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade,post-rollback
+spec:
+  ttlSecondsAfterFinished: 0
+  backoffLimit: 3
+  template:
+    spec:
+      serviceAccountName: klusterlet
+      automountServiceAccountToken: true
+      containers:
+      - name: clusteradm
+        image: ghcr.io/kluster-manager/clusteradm:{{ default .Chart.AppVersion .Values.bundleVersion.clusteradmImageVersion }}
+        imagePullPolicy: Always
+        args:
+          - /clusteradm
+          - get
+          - hubconfig
+          - --agent-namespace={{ $agentNamespace }}
+          - --ca-data-enc={{ .Values.hub.caData | b64enc }}
+          - --hub-apiserver={{ .Values.hub.apiServer }}
+          - --hub-token={{ .Values.hub.token }}
+      restartPolicy: Never
+
+{{- end }}
 
 ---
 
@@ -49,7 +83,7 @@ data:
 # helm install cluster-manager-spoke  charts/cluster-manager-spoke --set hub.kubeConfig=abc --set clusterName=abc --dry-run=server
 
 {{- $spokeConfig := (lookup "v1" "ConfigMap" "kube-public" "cluster-info").data.kubeconfig | fromYaml -}}
-{{- $spokeServer := (dig "cluster" "server" "" (first $spokeConfig.clusters)) -}}
+{{- $spokeServer := default (dig "cluster" "server" "" (first $spokeConfig.clusters)) .Values.hub.apiServer -}}
 {{- if not (or (hasPrefix "http://" $spokeServer) (hasPrefix "https://" $spokeServer)) }}
 {{- $spokeServer = "" }}
 {{- end }}

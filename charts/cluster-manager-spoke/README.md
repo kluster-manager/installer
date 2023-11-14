@@ -49,12 +49,15 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 |----------------------------------------|-------------|----------------------------------------------|
 | clusterName                            |             | <code>""</code>                              |
 | hub.apiServer                          |             | <code>""</code>                              |
+| hub.caData                             |             | <code>""</code>                              |
+| hub.token                              |             | <code>""</code>                              |
 | hub.kubeConfig                         |             | <code>""</code>                              |
 | registry                               |             | <code>quay.io/open-cluster-management</code> |
 | bundleVersion.registrationImageVersion |             | <code>""</code>                              |
 | bundleVersion.placementImageVersion    |             | <code>""</code>                              |
 | bundleVersion.workImageVersion         |             | <code>""</code>                              |
 | bundleVersion.operatorImageVersion     |             | <code>""</code>                              |
+| bundleVersion.clusteradmImageVersion   |             | <code>latest</code>                          |
 | managedKubeconfig                      |             | <code>''</code>                              |
 | registrationFeatures                   |             | <code>[]</code>                              |
 | workFeatures                           |             | <code>[]</code>                              |

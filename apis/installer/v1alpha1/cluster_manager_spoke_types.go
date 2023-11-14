@@ -74,6 +74,15 @@ type SpokeHub struct {
 	// APIServer: The API Server external URL
 	// +optional
 	APIServer string `json:"apiServer"`
+
+	// The CA data of the hub api server
+	// +optional
+	CAData string `json:"caData"`
+
+	// The boostrap token to connect to the hub
+	// +optional
+	Token string `json:"token"`
+
 	// KubeConfig: The kubeconfig of the bootstrap secret to connect to the hub
 	// +optional
 	KubeConfig string `json:"kubeConfig"`
@@ -92,6 +101,9 @@ type SpokeBundleVersion struct {
 	// operator image version
 	// +optional
 	OperatorImageVersion string `json:"operatorImageVersion"`
+	// clusteradm image version
+	// +optional
+	ClusteradmImageVersion string `json:"clusteradmImageVersion"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

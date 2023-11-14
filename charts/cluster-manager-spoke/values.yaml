@@ -2,6 +2,8 @@ clusterName: ""
 
 hub:
   apiServer: ""
+  caData: ""
+  token: ""
   kubeConfig: ""
 
 registry: quay.io/open-cluster-management
@@ -11,6 +13,7 @@ bundleVersion:
   placementImageVersion: ""
   workImageVersion: ""
   operatorImageVersion: ""
+  clusteradmImageVersion: latest
 
 managedKubeconfig: ''
 
