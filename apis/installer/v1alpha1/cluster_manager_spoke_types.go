@@ -50,10 +50,6 @@ type ClusterManagerSpokeSpec struct {
 	// +optional
 	Hub SpokeHub `json:"hub"`
 
-	// Klusterlet is the klusterlet related configuration
-	// +optional
-	Klusterlet Klusterlet `json:"klusterlet"`
-
 	// Registry is the image registry related configuration
 	// +optional
 	Registry string `json:"registry"`
@@ -81,13 +77,6 @@ type SpokeHub struct {
 	// KubeConfig: The kubeconfig of the bootstrap secret to connect to the hub
 	// +optional
 	KubeConfig string `json:"kubeConfig"`
-}
-
-// Klusterlet is for templating klusterlet configuration
-type Klusterlet struct {
-	// APIServer: The API Server external URL
-	// +optional
-	APIServer string `json:"apiServer"`
 }
 
 type SpokeBundleVersion struct {

@@ -45,6 +45,15 @@ data:
 
 ---
 
+# Test using:
+# helm install cluster-manager-spoke  charts/cluster-manager-spoke --set hub.kubeConfig=abc --set clusterName=abc --dry-run=server
+
+{{- $spokeConfig := (lookup "v1" "ConfigMap" "kube-public" "cluster-info").data.kubeconfig | fromYaml -}}
+{{- $spokeServer := (dig "cluster" "server" "" (first $spokeConfig.clusters)) -}}
+{{- if not (or (hasPrefix "http://" $spokeServer) (hasPrefix "https://" $spokeServer)) }}
+{{- $spokeServer = "" }}
+{{- end }}
+
 apiVersion: operator.open-cluster-management.io/v1
 kind: Klusterlet
 metadata:
@@ -57,10 +66,10 @@ spec:
   imagePullSpec: {{ .Values.registry}}/registration-operator:{{ default .Chart.AppVersion .Values.bundleVersion.operatorImageVersion}}
   clusterName: {{ required "A valid clusterName entry required!" .Values.clusterName }}
   namespace: {{ $klusterletNamespace }}
+  {{- if $spokeServer }}
   externalServerURLs:
-  {{ if .Values.klusterlet.apiServer }}
-  - url: {{ .Values.klusterlet.apiServer }}
-  {{ end }}
+  - url: {{ $spokeServer }}
+  {{- end }}
   {{if .Values.registrationFeatures}}
   registrationConfiguration:
     featureGates:

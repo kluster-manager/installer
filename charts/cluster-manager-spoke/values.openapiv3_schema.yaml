@@ -19,11 +19,6 @@ properties:
       kubeConfig:
         type: string
     type: object
-  klusterlet:
-    properties:
-      apiServer:
-        type: string
-    type: object
   managedKubeconfig:
     type: string
   registrationFeatures:

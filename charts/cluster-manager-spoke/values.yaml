@@ -4,9 +4,6 @@ hub:
   apiServer: ""
   kubeConfig: ""
 
-klusterlet:
-  apiServer: ""
-
 registry: quay.io/open-cluster-management
 
 bundleVersion:

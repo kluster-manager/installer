@@ -50,7 +50,6 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 | clusterName                            |             | <code>""</code>                              |
 | hub.apiServer                          |             | <code>""</code>                              |
 | hub.kubeConfig                         |             | <code>""</code>                              |
-| klusterlet.apiServer                   |             | <code>""</code>                              |
 | registry                               |             | <code>quay.io/open-cluster-management</code> |
 | bundleVersion.registrationImageVersion |             | <code>""</code>                              |
 | bundleVersion.placementImageVersion    |             | <code>""</code>                              |
