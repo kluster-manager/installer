@@ -1,4 +1,3 @@
-# Copyright Contributors to the Open Cluster Management project
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
@@ -10,7 +9,6 @@ spec:
     listKind: ClusterManagerList
     plural: clustermanagers
     singular: clustermanager
-  preserveUnknownFields: false
   scope: Cluster
   versions:
   - name: v1
@@ -450,9 +448,3 @@ spec:
     storage: true
     subresources:
       status: {}
-status:
-  acceptedNames:
-    kind: ""
-    plural: ""
-  conditions: []
-  storedVersions: []
