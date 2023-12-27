@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "cluster-auth-manager.fullname" . }}
+  labels:
+    {{- include "cluster-auth-manager.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - authentication.appscode.com
+  resources: ["*"]
+  verbs: ["*"]
