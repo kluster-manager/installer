@@ -23,3 +23,10 @@ crd-importer \
 crd-importer \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/operator/v1/0000_00_operator.open-cluster-management.io_klusterlets.crd.yaml \
     --out=./charts/cluster-manager-spoke/crds
+
+crd-importer \
+    --input=https://github.com/kluster-manager/fluxcd-addon/raw/master/crds/fluxcd.open-cluster-management.io_fluxcdconfigs.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
+    --out=./charts/fluxcd-addon-manager/crds
