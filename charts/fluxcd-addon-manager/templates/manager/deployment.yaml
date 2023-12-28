@@ -18,5 +18,5 @@ spec:
       serviceAccountName: fluxcd-addon-manager
       containers:
         - name: fluxcd-addon-manager
-          image: ghcr.io/kluster-manager/fluxcd-addon:latest
+          image: ghcr.io/kluster-manager/fluxcd-addon:v0.0.1
           imagePullPolicy: IfNotPresent
