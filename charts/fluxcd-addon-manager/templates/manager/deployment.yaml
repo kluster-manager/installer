@@ -20,3 +20,5 @@ spec:
         - name: fluxcd-addon-manager
           image: ghcr.io/kluster-manager/fluxcd-addon:v0.0.1
           imagePullPolicy: IfNotPresent
+          args:
+            - manager
