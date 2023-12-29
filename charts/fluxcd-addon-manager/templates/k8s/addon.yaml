@@ -1,0 +1,18 @@
+{{- if not .Values.kubeconfigSecretName }}
+
+{{- $restpl := $.Files.Get "common/addon/namespace.yaml" -}}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/addon/clustermanagementaddon.yaml" -}}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/addon/clustersetsbinding.yaml" -}}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/addon/fluxcd_config.yaml" -}}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
+{{ tpl $restpl $ }}
+
+{{- end }}

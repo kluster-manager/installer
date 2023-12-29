@@ -1,0 +1,27 @@
+# Image registry
+registry: ghcr.io/kluster-manager
+
+# Image of the cluster-gateway instances
+image: cluster-proxy
+
+# Image tag
+tag: latest
+
+# Number of replicas
+replicas: 1
+
+spokeAddonNamespace: "open-cluster-management-cluster-proxy"
+
+proxyServerImage: ghcr.io/kluster-manager/cluster-proxy
+proxyAgentImage: ghcr.io/kluster-manager/cluster-proxy
+
+proxyServer:
+  entrypointLoadBalancer: false
+  entrypointAddress: ""
+  port: 8091
+
+# required for multicluster controlplane
+kubeconfigSecretName: ""
+
+kubectl:
+  image: ghcr.io/appscode/kubectl:1.23

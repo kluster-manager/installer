@@ -1,0 +1,9 @@
+{{- if not .Values.kubeconfigSecretName }}
+
+{{- $restpl := $.Files.Get "common/clustermanagementaddon.yaml" -}}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/managedproxyconfiguration.yaml" -}}
+{{ tpl $restpl $ }}
+
+{{- end }}
