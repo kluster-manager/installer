@@ -1,0 +1,21 @@
+# Image registry
+registry: quay.io/open-cluster-management
+
+# Image of the cluster-gateway instances
+image: cluster-proxy
+
+# Image tag
+tag:
+
+# Number of replicas
+replicas: 1
+
+spokeAddonNamespace: "open-cluster-management-cluster-proxy"
+
+proxyServerImage: quay.io/open-cluster-management/cluster-proxy
+proxyAgentImage: quay.io/open-cluster-management/cluster-proxy
+
+proxyServer:
+  entrypointLoadBalancer: false
+  entrypointAddress: ""
+  port: 8091
