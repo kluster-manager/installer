@@ -8,3 +8,7 @@ kubectl:
 
 fluxcdConfig:
   installCRDs: true
+  helmController:
+    create: true
+  sourceController:
+    create: true

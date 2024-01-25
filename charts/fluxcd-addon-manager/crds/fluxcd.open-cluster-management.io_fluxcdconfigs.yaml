@@ -1,6 +1,7 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  creationTimestamp: null
   name: fluxcdconfigs.fluxcd.open-cluster-management.io
 spec:
   group: fluxcd.open-cluster-management.io
@@ -1010,8 +1011,6 @@ spec:
                         type: boolean
                       create:
                         type: boolean
-                    required:
-                    - create
                     type: object
                   tag:
                     type: string
@@ -1566,8 +1565,6 @@ spec:
                         type: boolean
                       create:
                         type: boolean
-                    required:
-                    - create
                     type: object
                   tag:
                     type: string
@@ -2130,8 +2127,6 @@ spec:
                         type: boolean
                       create:
                         type: boolean
-                    required:
-                    - create
                     type: object
                   tag:
                     type: string
@@ -2721,8 +2716,6 @@ spec:
                         type: object
                       name:
                         type: string
-                    required:
-                    - create
                     type: object
                   serviceAccount:
                     properties:
@@ -2734,8 +2727,6 @@ spec:
                         type: boolean
                       create:
                         type: boolean
-                    required:
-                    - create
                     type: object
                   tag:
                     type: string
@@ -3312,8 +3303,6 @@ spec:
                         type: boolean
                       create:
                         type: boolean
-                    required:
-                    - create
                     type: object
                   tag:
                     type: string
@@ -3355,14 +3344,8 @@ spec:
                                         type: string
                                       pathType:
                                         type: string
-                                    required:
-                                    - path
-                                    - pathType
                                     type: object
                                   type: array
-                              required:
-                              - host
-                              - paths
                               type: object
                             type: array
                           labels:
@@ -3381,12 +3364,6 @@ spec:
                                   type: string
                               type: object
                             type: array
-                        required:
-                        - annotations
-                        - create
-                        - hosts
-                        - labels
-                        - tls
                         type: object
                       service:
                         properties:
@@ -3407,8 +3384,6 @@ spec:
                 properties:
                   create:
                     type: boolean
-                required:
-                - create
                 type: object
               prometheus:
                 properties:
@@ -3436,8 +3411,6 @@ spec:
                               type: array
                           type: object
                         type: array
-                    required:
-                    - create
                     type: object
                 type: object
               rbac:
@@ -3450,8 +3423,6 @@ spec:
                     type: boolean
                   createAggregation:
                     type: boolean
-                required:
-                - create
                 type: object
               sourceController:
                 properties:
@@ -3996,8 +3967,6 @@ spec:
                         type: boolean
                       create:
                         type: boolean
-                    required:
-                    - create
                     type: object
                   tag:
                     type: string
