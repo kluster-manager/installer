@@ -1,6 +1,6 @@
 # Kubernetes Auth Manager
 
-[Kubernetes Auth Manager by AppsCode](https://github.com/bytebuilders/cluster-auth-manager) - Kubernetes Auth Manager for Kubernetes
+[Kubernetes Auth Manager by AppsCode](https://github.com/kluster-manager/cluster-auth) - Kubernetes Auth Manager for Kubernetes
 
 ## TL;DR;
 

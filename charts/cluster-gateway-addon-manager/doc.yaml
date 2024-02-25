@@ -1,0 +1,18 @@
+project:
+  name: cluster-gateway-addon-manager
+  shortName: cluster-gateway-addon-manager
+  url: https://github.com/kluster-manager/cluster-gateway
+  description: Installs cluster-gateway-addon-manager in managed clusters
+  app: a cluster-gateway-addon-manager
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: cluster-gateway-addon-manager
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: cluster-gateway-addon-manager
+  namespace: open-cluster-management
