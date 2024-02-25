@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/cluster-proxy --version=0.3.0
-$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=0.3.0
+$ helm search repo appscode/cluster-proxy --version=v2024.2.25
+$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=v2024.2.25
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a cluster-proxy on a [Kubernetes](http://kubernetes.io) clust
 To install/upgrade the chart with the release name `cluster-proxy`:
 
 ```bash
-$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=0.3.0
+$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=v2024.2.25
 ```
 
 The command deploys a cluster-proxy on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -64,12 +64,12 @@ The following table lists the configurable parameters of the `cluster-proxy` cha
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=0.3.0 --set registry=ghcr.io/kluster-manager
+$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=v2024.2.25 --set registry=ghcr.io/kluster-manager
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=0.3.0 --values values.yaml
+$ helm upgrade -i cluster-proxy appscode/cluster-proxy -n open-cluster-management --create-namespace --version=v2024.2.25 --values values.yaml
 ```
