@@ -12,3 +12,11 @@ fluxcdConfig:
     create: true
   sourceController:
     create: true
+  imageReflectionController:
+    create: false
+  imageAutomationController:
+    create: false
+  kustomizeController:
+    create: false
+  notificationController:
+    create: false
