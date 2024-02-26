@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: fluxcd-manager
-  namespace: {{ ternary "fluxcd-addon" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
+  namespace: {{ ternary "open-cluster-management-fluxcd" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
   labels:
     app: fluxcd-manager
 spec:
