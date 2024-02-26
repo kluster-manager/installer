@@ -1,19 +1,19 @@
-# cluster-gateway-addon-manager
+# cluster-gateway-manager
 
-[cluster-gateway-addon-manager](https://github.com/kluster-manager/cluster-gateway) - Installs cluster-gateway-addon-manager in managed clusters
+[cluster-gateway-manager](https://github.com/kluster-manager/cluster-gateway) - Installs cluster-gateway-manager in managed clusters
 
 ## TL;DR;
 
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/cluster-gateway-addon-manager --version=v2024.2.25
-$ helm upgrade -i cluster-gateway-addon-manager appscode/cluster-gateway-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25
+$ helm search repo appscode/cluster-gateway-manager --version=v2024.2.25
+$ helm upgrade -i cluster-gateway-manager appscode/cluster-gateway-manager -n open-cluster-management --create-namespace --version=v2024.2.25
 ```
 
 ## Introduction
 
-This chart deploys a cluster-gateway-addon-manager on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart deploys a cluster-gateway-manager on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -21,33 +21,33 @@ This chart deploys a cluster-gateway-addon-manager on a [Kubernetes](http://kube
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `cluster-gateway-addon-manager`:
+To install/upgrade the chart with the release name `cluster-gateway-manager`:
 
 ```bash
-$ helm upgrade -i cluster-gateway-addon-manager appscode/cluster-gateway-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25
+$ helm upgrade -i cluster-gateway-manager appscode/cluster-gateway-manager -n open-cluster-management --create-namespace --version=v2024.2.25
 ```
 
-The command deploys a cluster-gateway-addon-manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys a cluster-gateway-manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
 ## Uninstalling the Chart
 
-To uninstall the `cluster-gateway-addon-manager`:
+To uninstall the `cluster-gateway-manager`:
 
 ```bash
-$ helm uninstall cluster-gateway-addon-manager -n open-cluster-management
+$ helm uninstall cluster-gateway-manager -n open-cluster-management
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `cluster-gateway-addon-manager` chart and their default values.
+The following table lists the configurable parameters of the `cluster-gateway-manager` chart and their default values.
 
 |            Parameter            |              Description               |                      Default                      |
 |---------------------------------|----------------------------------------|---------------------------------------------------|
-| image                           | Image of the cluster-gateway instances | <code>oamdev/cluster-gateway-addon-manager</code> |
+| image                           | Image of the cluster-gateway instances | <code>oamdev/cluster-gateway-manager</code> |
 | tag                             |                                        | <code></code>                                     |
 | clusterGateway.image            |                                        | <code>oamdev/cluster-gateway</code>               |
 | clusterGateway.installNamespace |                                        | <code>vela-system</code>                          |
@@ -60,12 +60,12 @@ The following table lists the configurable parameters of the `cluster-gateway-ad
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-gateway-addon-manager appscode/cluster-gateway-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set image=oamdev/cluster-gateway-addon-manager
+$ helm upgrade -i cluster-gateway-manager appscode/cluster-gateway-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set image=oamdev/cluster-gateway-manager
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i cluster-gateway-addon-manager appscode/cluster-gateway-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --values values.yaml
+$ helm upgrade -i cluster-gateway-manager appscode/cluster-gateway-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --values values.yaml
 ```

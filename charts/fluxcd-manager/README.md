@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/fluxcd-addon-manager --version=v2024.2.25
-$ helm upgrade -i fluxcd-addon-manager appscode/fluxcd-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25
+$ helm search repo appscode/fluxcd-manager --version=v2024.2.25
+$ helm upgrade -i fluxcd-manager appscode/fluxcd-manager -n open-cluster-management --create-namespace --version=v2024.2.25
 ```
 
 ## Introduction
@@ -21,10 +21,10 @@ This chart deploys a FluxCD Manager on a [Kubernetes](http://kubernetes.io) clus
 
 ## Installing the Chart
 
-To install/upgrade the chart with the release name `fluxcd-addon-manager`:
+To install/upgrade the chart with the release name `fluxcd-manager`:
 
 ```bash
-$ helm upgrade -i fluxcd-addon-manager appscode/fluxcd-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25
+$ helm upgrade -i fluxcd-manager appscode/fluxcd-manager -n open-cluster-management --create-namespace --version=v2024.2.25
 ```
 
 The command deploys a FluxCD Manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -33,17 +33,17 @@ The command deploys a FluxCD Manager on the Kubernetes cluster in the default co
 
 ## Uninstalling the Chart
 
-To uninstall the `fluxcd-addon-manager`:
+To uninstall the `fluxcd-manager`:
 
 ```bash
-$ helm uninstall fluxcd-addon-manager -n open-cluster-management
+$ helm uninstall fluxcd-manager -n open-cluster-management
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
 
-The following table lists the configurable parameters of the `fluxcd-addon-manager` chart and their default values.
+The following table lists the configurable parameters of the `fluxcd-manager` chart and their default values.
 
 |                   Parameter                   | Description |                      Default                      |
 |-----------------------------------------------|-------------|---------------------------------------------------|
@@ -63,12 +63,12 @@ The following table lists the configurable parameters of the `fluxcd-addon-manag
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i fluxcd-addon-manager appscode/fluxcd-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set image=ghcr.io/kluster-manager/fluxcd-addon
+$ helm upgrade -i fluxcd-manager appscode/fluxcd-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --set image=ghcr.io/kluster-manager/fluxcd-addon
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i fluxcd-addon-manager appscode/fluxcd-addon-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --values values.yaml
+$ helm upgrade -i fluxcd-manager appscode/fluxcd-manager -n open-cluster-management --create-namespace --version=v2024.2.25 --values values.yaml
 ```

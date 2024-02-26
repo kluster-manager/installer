@@ -3,7 +3,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: fluxcd-addon-manager
+  name: fluxcd-manager
 rules:
   - apiGroups: [""]
     resources: ["configmaps", "events"]

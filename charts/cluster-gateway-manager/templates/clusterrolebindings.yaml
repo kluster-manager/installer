@@ -8,5 +8,5 @@ roleRef:
   name:  open-cluster-management:cluster-gateway:managedcluster-reader
 subjects:
   - kind: ServiceAccount
-    name: cluster-gateway-addon-manager
+    name: cluster-gateway-manager
     namespace: {{ .Release.Namespace }}

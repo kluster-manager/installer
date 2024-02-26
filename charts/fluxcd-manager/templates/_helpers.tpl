@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "fluxcd-addon-manager.name" -}}
+{{- define "fluxcd-manager.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "fluxcd-addon-manager.fullname" -}}
+{{- define "fluxcd-manager.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "fluxcd-addon-manager.chart" -}}
+{{- define "fluxcd-manager.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "fluxcd-addon-manager.labels" -}}
-helm.sh/chart: {{ include "fluxcd-addon-manager.chart" . }}
-{{ include "fluxcd-addon-manager.selectorLabels" . }}
+{{- define "fluxcd-manager.labels" -}}
+helm.sh/chart: {{ include "fluxcd-manager.chart" . }}
+{{ include "fluxcd-manager.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "fluxcd-addon-manager.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "fluxcd-addon-manager.name" . }}
+{{- define "fluxcd-manager.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "fluxcd-manager.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "fluxcd-addon-manager.serviceAccountName" -}}
+{{- define "fluxcd-manager.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "fluxcd-addon-manager.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "fluxcd-manager.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

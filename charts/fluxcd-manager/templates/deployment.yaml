@@ -1,24 +1,24 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: fluxcd-addon-manager
+  name: fluxcd-manager
   namespace: {{ ternary "fluxcd-addon" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
   labels:
-    app: fluxcd-addon-manager
+    app: fluxcd-manager
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fluxcd-addon-manager
+      app: fluxcd-manager
   template:
     metadata:
       labels:
-        app: fluxcd-addon-manager
+        app: fluxcd-manager
     spec:
       {{- if .Values.kubeconfigSecretName }}
       automountServiceAccountToken: false
       {{- else }}
-      serviceAccount: fluxcd-addon-manager
+      serviceAccount: fluxcd-manager
       automountServiceAccountToken: true
       {{- end }}
       containers:
