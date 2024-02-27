@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cluster-auth-manager.fullname" . }}
+  name: {{ include "cluster-auth.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "cluster-auth-manager.labels" . | nindent 4 }}
+    {{- include "cluster-auth.labels" . | nindent 4 }}
 {{- if eq "prometheus.io/builtin" ( include "monitoring.agent" . ) }}
   annotations:
     prometheus.io/scrape: "true"
@@ -15,8 +15,8 @@ metadata:
 spec:
   ports:
   # Port used to expose admission webhook apiserver
-  - name: api
-    port: 443
-    targetPort: 8443
+  - name: telemetry
+    port: 8080
+    targetPort: 8080
   selector:
-    {{- include "cluster-auth-manager.selectorLabels" . | nindent 4 }}
+    {{- include "cluster-auth.selectorLabels" . | nindent 4 }}

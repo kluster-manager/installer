@@ -2,13 +2,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "cluster-auth-manager.fullname" . }}
+  name: {{ include "cluster-auth.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
   {{- if eq "true" ( include "monitoring.apply-servicemonitor-label" . ) }}
     {{- include "monitoring.servicemonitor-label" . | nindent 4 }}
   {{- else }}
-    {{- include "cluster-auth-manager.selectorLabels" . | nindent 4 }}
+    {{- include "cluster-auth.selectorLabels" . | nindent 4 }}
   {{- end }}
 spec:
   namespaceSelector:
@@ -16,15 +16,10 @@ spec:
     - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      {{- include "cluster-auth-manager.selectorLabels" . | nindent 6 }}
+      {{- include "cluster-auth.selectorLabels" . | nindent 6 }}
   endpoints:
-  - port: api
+  - port: telemetry
     bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-    scheme: https
-    tlsConfig:
-      ca:
-        secret:
-          name: {{ include "cluster-auth-manager.fullname" . }}-apiserver-cert
-          key: tls.crt
-      serverName: "{{ include "cluster-auth-manager.fullname" . }}.{{ .Release.Namespace }}.svc"
+    scheme: http
+    interval: 10s
 {{- end }}

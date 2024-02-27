@@ -10,4 +10,16 @@ metadata:
   name: fluxcd-config
   namespace: open-cluster-management-fluxcd
 spec:
-  {{- toYaml .Values.fluxcdConfig | nindent 2 }}
+  installCRDs: true
+  helmController:
+    create: true
+  sourceController:
+    create: true
+  imageReflectionController:
+    create: false
+  imageAutomationController:
+    create: false
+  kustomizeController:
+    create: false
+  notificationController:
+    create: false

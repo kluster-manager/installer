@@ -1,11 +1,11 @@
 /*
 Copyright AppsCode Inc. and Contributors
 
-Licensed under the AppsCode Community License 1.0.0 (the "License");
+Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    https://github.com/appscode/licenses/raw/1.0.0/AppsCode-Community-1.0.0.md
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,14 +17,13 @@ limitations under the License.
 package v1alpha1
 
 import (
-	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 const (
 	ResourceKindClusterAuthManager = "ClusterAuthManager"
-	ResourceClusterAuthManager     = "kubeauthmanager"
-	ResourceClusterAuthManagers    = "kubeauthmanagers"
+	ResourceClusterAuthManager     = "clusterauthmanager"
+	ResourceClusterAuthManagers    = "clusterauthmanagers"
 )
 
 // ClusterAuthManager defines the schama for ClusterAuthManager operator installer.
@@ -35,7 +34,7 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=kubeauthmanagers,singular=kubeauthmanager,categories={kubeops,appscode}
+// +kubebuilder:resource:path=clusterauthmanagers,singular=clusterauthmanager,categories={kubeops,appscode}
 type ClusterAuthManager struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -47,66 +46,19 @@ type ClusterAuthManagerSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string    `json:"fullnameOverride"`
-	ReplicaCount     int       `json:"replicaCount"`
-	RegistryFQDN     string    `json:"registryFQDN"`
-	Image            Container `json:"image"`
-	//+optional
-	ImagePullSecrets []string           `json:"imagePullSecrets"`
-	ImagePullPolicy  string             `json:"imagePullPolicy"`
-	ServiceAccount   ServiceAccountSpec `json:"serviceAccount"`
-	//+optional
-	PodAnnotations map[string]string `json:"podAnnotations"`
-	// PodSecurityContext holds pod-level security attributes and common container settings.
-	// Optional: Defaults to empty.  See type description for default values of each field.
+	FullnameOverride string `json:"fullnameOverride"`
+	RegistryFQDN     string `json:"registryFQDN"`
+	Image            string `json:"image"`
 	// +optional
-	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
-	//+optional
-	NodeSelector map[string]string `json:"nodeSelector"`
-	// If specified, the pod's tolerations.
+	Tag             string `json:"tag"`
+	ImagePullPolicy string `json:"imagePullPolicy"`
 	// +optional
-	Tolerations []core.Toleration `json:"tolerations"`
-	// If specified, the pod's scheduling constraints
-	// +optional
-	Affinity   *core.Affinity `json:"affinity"`
-	Monitoring Monitoring     `json:"monitoring"`
+	KubeconfigSecretName string      `json:"kubeconfigSecretName"`
+	Kubectl              DockerImage `json:"kubectl"`
 }
 
-type ImageRef struct {
-	Registry   string `json:"registry"`
-	Repository string `json:"repository"`
-	Tag        string `json:"tag"`
-}
-
-type Container struct {
-	ImageRef `json:",inline"`
-	// Compute Resources required by the sidecar container.
-	// +optional
-	Resources core.ResourceRequirements `json:"resources"`
-	// Security options the pod should run with.
-	// +optional
-	SecurityContext *core.SecurityContext `json:"securityContext"`
-}
-
-type ServiceAccountSpec struct {
-	Create bool `json:"create"`
-	//+optional
-	Name *string `json:"name"`
-	//+optional
-	Annotations map[string]string `json:"annotations"`
-}
-
-// +kubebuilder:validation:Enum=prometheus.io;prometheus.io/operator;prometheus.io/builtin
-type MonitoringAgent string
-
-type Monitoring struct {
-	Agent          MonitoringAgent      `json:"agent"`
-	ServiceMonitor ServiceMonitorLabels `json:"serviceMonitor"`
-}
-
-type ServiceMonitorLabels struct {
-	// +optional
-	Labels map[string]string `json:"labels"`
+type DockerImage struct {
+	Image string `json:"image"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

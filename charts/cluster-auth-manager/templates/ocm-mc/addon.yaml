@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: fluxcd-configure-addon
+  name: cluster-auth-configure-addon
   namespace: {{ .Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "2"
@@ -34,10 +34,10 @@ spec:
               {{- $restpl := $.Files.Get "common/addon/clustersetbinding.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
-              {{- $restpl := $.Files.Get "common/addon/fluxcd_config.yaml" -}}
+              {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
-              {{- $restpl := $.Files.Get "common/addon/placement.yaml" -}}
+              {{- $restpl := $.Files.Get "common/work-agent/perm.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               EOF
         imagePullPolicy: {{ .Values.imagePullPolicy }}

@@ -1,9 +1,9 @@
 project:
-  name: Kubernetes Auth Manager by AppsCode
-  shortName: Kubernetes Auth Manager
+  name: Cluster Auth Manager
+  shortName: Cluster Auth Manager
   url: https://github.com/kluster-manager/cluster-auth
-  description: Kubernetes Auth Manager for Kubernetes
-  app: a Kubernetes Auth Manager
+  description: Cluster Auth Manager
+  app: an Cluster Auth Manager
 repository:
   url: https://charts.appscode.com/stable
   name: appscode
@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: cluster-auth-manager
-  namespace: kubeops
+  namespace: open-cluster-management-cluster-auth
