@@ -76,6 +76,7 @@ type ClusterAuthSpec struct {
 	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
 	ServiceAccount     ServiceAccountSpec       `json:"serviceAccount"`
 	Monitoring         Monitoring               `json:"monitoring"`
+	ApiServer          ApiServerSpec            `json:"apiServer"`
 }
 
 type ImageRef struct {
@@ -100,6 +101,14 @@ type ServiceAccountSpec struct {
 	Name *string `json:"name"`
 	//+optional
 	Annotations map[string]string `json:"annotations"`
+}
+
+type ApiServerSpec struct {
+	Healthcheck HealthcheckSpec `json:"healthcheck"`
+}
+
+type HealthcheckSpec struct {
+	Enabled bool `json:"enabled"`
 }
 
 // +kubebuilder:validation:Enum=prometheus.io;prometheus.io/operator;prometheus.io/builtin

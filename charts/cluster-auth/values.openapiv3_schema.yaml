@@ -408,6 +408,18 @@ properties:
     additionalProperties:
       type: string
     type: object
+  apiServer:
+    properties:
+      healthcheck:
+        properties:
+          enabled:
+            type: boolean
+        required:
+        - enabled
+        type: object
+    required:
+    - healthcheck
+    type: object
   criticalAddon:
     type: boolean
   fullnameOverride:
@@ -654,6 +666,7 @@ properties:
       type: object
     type: array
 required:
+- apiServer
 - image
 - imagePullPolicy
 - monitoring
