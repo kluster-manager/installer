@@ -4,14 +4,11 @@ metadata:
   name: cluster-auth-manager
 rules:
   - apiGroups: [""]
-    resources: ["configmaps", "events", "namespace", "secrets"]
+    resources: ["configmaps", "events", "namespaces", "secrets", "serviceaccounts"]
     verbs: ["get", "list", "watch", "create", "update", "delete", "deletecollection", "patch"]
   - apiGroups: ["coordination.k8s.io"]
     resources: ["leases"]
     verbs: ["get", "list", "watch", "create", "update", "patch"]
-  - apiGroups: ["rbac.authorization.k8s.io"]
-    resources: ["roles", "rolebindings"]
-    verbs: ["get", "list", "watch", "create", "update", "delete"]
   - apiGroups: ["authorization.k8s.io"]
     resources: ["subjectaccessreviews"]
     verbs: ["get", "create"]
@@ -53,4 +50,27 @@ rules:
     resources:
       - "clustergateways/health"
       - "clustergateways/proxy"
+    verbs: [ "*" ]
+  - apiGroups: [ "authorization.k8s.appscode.com" ]
+    resources:
+      - "managedclustersetrolebindings"
+      - "managedclusterrolebindings"
+      - "managedclusterroles"
+    verbs: [ "*" ]
+  - apiGroups: [ "authentication.open-cluster-management.io" ]
+    resources:
+      - "managedserviceaccounts"
+    verbs: [ "*" ]
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - clusterroles
+      - clusterrolebindings
+      - roles
+      - rolebindings
+    verbs: [ "*" ]
+  - apiGroups: [ "authentication.k8s.appscode.com" ]
+    resources:
+      - users
+      - groups
     verbs: [ "*" ]

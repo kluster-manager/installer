@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-gateway-permission
+rules:
+  - apiGroups:
+      - cluster.core.oam.dev
+    resources:
+      - clustergateways/health
+      - clustergateways/proxy
+    verbs:
+      - "*"
