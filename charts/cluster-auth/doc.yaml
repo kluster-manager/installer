@@ -1,9 +1,9 @@
 project:
-  name: AppsCode License ProxyServer
-  shortName: AppsCode License ProxyServer
-  url: https://github.com/bytebuilders/cluster-auth
-  description: AppsCode License ProxyServer
-  app: a Kubernetes license proxyserver
+  name: Cluster Auth Agent
+  shortName: Cluster Auth Agent
+  url: https://github.com/kluster-manager/cluster-auth
+  description: Cluster Auth Agent
+  app: an Cluster Auth Agent
 repository:
   url: https://charts.appscode.com/stable
   name: appscode
@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: cluster-auth
-  namespace: kubeops
+  namespace: open-cluster-management-cluster-auth
