@@ -45,18 +45,15 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `managed-serviceaccount` chart and their default values.
 
-|           Parameter            |                                                                                    Description                                                                                     |                               Default                               |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| image                          | Image of the managed service-account instances                                                                                                                                     | <code>quay.io/open-cluster-management/managed-serviceaccount</code> |
-| tag                            |                                                                                                                                                                                    | <code></code>                                                       |
-| agentInstallAll                |                                                                                                                                                                                    | <code>true</code>                                                   |
-| replicas                       | Number of replicas                                                                                                                                                                 | <code>1</code>                                                      |
-| enableAddOnDeploymentConfig    |                                                                                                                                                                                    | <code>false</code>                                                  |
-| featureGates.ephemeralIdentity |                                                                                                                                                                                    | <code>false</code>                                                  |
-| agentImagePullSecret           |                                                                                                                                                                                    | <code>""</code>                                                     |
-| hubDeployMode                  | Hub deploy mode: AddOnTemplate or Deployment                                                                                                                                       | <code>Deployment</code>                                             |
-| kubeconfigSecretName           | Name of the managed service-account addon template, only used when hubDeployMode is AddOnTemplate addOnTemplateName: managed-serviceaccount required for multicluster controlplane | <code>""</code>                                                     |
-| kubectl.image                  |                                                                                                                                                                                    | <code>ghcr.io/appscode/kubectl:1.23</code>                          |
+|           Parameter            |                  Description                   |                               Default                               |
+|--------------------------------|------------------------------------------------|---------------------------------------------------------------------|
+| image                          | Image of the managed service-account instances | <code>quay.io/open-cluster-management/managed-serviceaccount</code> |
+| tag                            |                                                | <code></code>                                                       |
+| replicas                       | Number of replicas                             | <code>1</code>                                                      |
+| featureGates.ephemeralIdentity |                                                | <code>false</code>                                                  |
+| agentImagePullSecret           |                                                | <code>""</code>                                                     |
+| kubeconfigSecretName           | required for multicluster controlplane         | <code>""</code>                                                     |
+| kubectl.image                  |                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code>                  |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

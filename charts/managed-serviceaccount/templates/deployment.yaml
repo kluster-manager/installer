@@ -1,9 +1,8 @@
-{{- if ne .Values.hubDeployMode "AddOnTemplate" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: {{ .Release.Namespace }}
   name: managed-serviceaccount-addon-manager
+  namespace: {{ ternary "open-cluster-management-managed-serviceaccount" .Release.Namespace (empty .Values.kubeconfigSecretName) }}
 spec:
   replicas: {{ .Values.replicas | default 1 }}
   selector:
@@ -31,7 +30,6 @@ spec:
             - --leader-elect=true
             {{- end }}
             - --agent-image-name={{ .Values.image }}:{{ .Values.tag | default (print "v" .Chart.Version) }}
-            - --agent-install-all={{ .Values.agentInstallAll }}
             {{- if .Values.featureGates }}
             - --feature-gates=EphemeralIdentity={{ .Values.featureGates.ephemeralIdentity | default false}}
             {{- end}}
@@ -58,4 +56,3 @@ spec:
             defaultMode: 420
             secretName: {{ .Values.kubeconfigSecretName }}
         {{- end }}
-{{- end }}
