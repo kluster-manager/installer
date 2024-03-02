@@ -1,0 +1,25 @@
+nameOverride: ""
+fullnameOverride: ""
+
+# Image of the managed service-account instances
+image: ghcr.io/kluster-manager/managed-serviceaccount
+tag: latest
+
+# Number of replicas
+replicas: 1
+
+featureGates:
+  ephemeralIdentity: false
+
+agentImagePullSecret: ""
+
+# required for multicluster controlplane
+kubeconfigSecretName: ""
+addonManagerNamespace: open-cluster-management-managed-serviceaccount
+
+placement:
+  create: true
+  name: global
+
+kubectl:
+  image: ghcr.io/appscode/kubectl-nonroot:1.25

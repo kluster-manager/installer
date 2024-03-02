@@ -1,10 +1,18 @@
+nameOverride: ""
+fullnameOverride: ""
+
 image: ghcr.io/kluster-manager/fluxcd-addon
 tag:
 
 kubeconfigSecretName: ""
+addonManagerNamespace: open-cluster-management-fluxcd
+
+placement:
+  create: true
+  name: global
 
 kubectl:
-  image: ghcr.io/appscode/kubectl:1.23
+  image: ghcr.io/appscode/kubectl-nonroot:1.25
 
 fluxcdConfig:
   installCRDs: true
