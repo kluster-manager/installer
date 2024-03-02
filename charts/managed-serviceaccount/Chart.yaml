@@ -1,6 +1,0 @@
-apiVersion: v2
-name: managed-serviceaccount
-description: A Helm chart for Managed ServiceAccount Addon
-type: application
-version: v2024.2.25
-appVersion: 1.0.0

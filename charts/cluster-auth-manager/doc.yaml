@@ -15,4 +15,4 @@ prerequisites:
 - Kubernetes 1.21+
 release:
   name: cluster-auth-manager
-  namespace: open-cluster-management-cluster-auth
+  namespace: open-cluster-management-addon

@@ -3,14 +3,14 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cluster-auth-manager
+  name: open-cluster-management:cluster-auth:addon-manager
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: cluster-auth-manager
+  name: open-cluster-management:cluster-auth:addon-manager
 subjects:
   - kind: ServiceAccount
     name: cluster-auth-manager
-    namespace: open-cluster-management-cluster-auth
+    namespace: {{ .Release.Namespace }}
 
 {{- end }}

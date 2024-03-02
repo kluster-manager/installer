@@ -8,7 +8,7 @@
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
 $ helm search repo appscode/cluster-auth-manager --version=v2024.2.25
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-cluster-auth --create-namespace --version=v2024.2.25
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.2.25
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys an Cluster Auth Manager on a [Kubernetes](http://kubernetes.i
 To install/upgrade the chart with the release name `cluster-auth-manager`:
 
 ```bash
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-cluster-auth --create-namespace --version=v2024.2.25
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.2.25
 ```
 
 The command deploys an Cluster Auth Manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys an Cluster Auth Manager on the Kubernetes cluster in the def
 To uninstall the `cluster-auth-manager`:
 
 ```bash
-$ helm uninstall cluster-auth-manager -n open-cluster-management-cluster-auth
+$ helm uninstall cluster-auth-manager -n open-cluster-management-addon
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -45,27 +45,30 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `cluster-auth-manager` chart and their default values.
 
-|      Parameter       |                             Description                             |                      Default                      |
-|----------------------|---------------------------------------------------------------------|---------------------------------------------------|
-| nameOverride         |                                                                     | <code>""</code>                                   |
-| fullnameOverride     |                                                                     | <code>""</code>                                   |
-| registryFQDN         | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                              |
-| image                |                                                                     | <code>ghcr.io/kluster-manager/cluster-auth</code> |
-| tag                  |                                                                     | <code>""</code>                                   |
-| imagePullPolicy      |                                                                     | <code>Always</code>                               |
-| kubeconfigSecretName |                                                                     | <code>""</code>                                   |
-| kubectl.image        |                                                                     | <code>ghcr.io/appscode/kubectl:1.25</code>        |
+|       Parameter       |                             Description                             |                      Default                       |
+|-----------------------|---------------------------------------------------------------------|----------------------------------------------------|
+| nameOverride          |                                                                     | <code>""</code>                                    |
+| fullnameOverride      |                                                                     | <code>""</code>                                    |
+| registryFQDN          | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                               |
+| image                 |                                                                     | <code>ghcr.io/kluster-manager/cluster-auth</code>  |
+| tag                   |                                                                     | <code>""</code>                                    |
+| imagePullPolicy       |                                                                     | <code>Always</code>                                |
+| kubeconfigSecretName  |                                                                     | <code>""</code>                                    |
+| addonManagerNamespace |                                                                     | <code>open-cluster-management-cluster-auth</code>  |
+| placement.create      |                                                                     | <code>true</code>                                  |
+| placement.name        |                                                                     | <code>global</code>                                |
+| kubectl.image         |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-cluster-auth --create-namespace --version=v2024.2.25 --set registryFQDN=ghcr.io
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.2.25 --set registryFQDN=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-cluster-auth --create-namespace --version=v2024.2.25 --values values.yaml
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.2.25 --values values.yaml
 ```

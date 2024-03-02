@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: api
   name: fluxcd-config
-  namespace: open-cluster-management-fluxcd
+  namespace: {{ include "fluxcd-manager.namespace" . }}
 spec:
   installCRDs: true
   helmController:

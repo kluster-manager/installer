@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: managed-serviceaccount-manager
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.replicas | default 1 }}
+  selector:
+    matchLabels:
+      open-cluster-management.io/addon: managed-serviceaccount
+  template:
+    metadata:
+      labels:
+        open-cluster-management.io/addon: managed-serviceaccount
+    spec:
+      {{- if .Values.kubeconfigSecretName }}
+      automountServiceAccountToken: false
+      {{- else }}
+      serviceAccount: managed-serviceaccount-manager
+      automountServiceAccountToken: true
+      {{- end }}
+      containers:
+        - name: manager
+          image: {{ .Values.image }}:{{ default .Chart.AppVersion .Values.tag }}
+          imagePullPolicy: Always
+          command:
+            - /manager
+          args:
+            {{- if gt (int .Values.replicas) 1 }}
+            - --leader-elect=true
+            {{- end }}
+            - --agent-image-name={{ .Values.image }}:{{ .Values.tag | default .Chart.AppVersion }}
+            {{- if .Values.featureGates }}
+            - --feature-gates=EphemeralIdentity={{ .Values.featureGates.ephemeralIdentity | default false}}
+            {{- end}}
+            {{- if .Values.agentImagePullSecret }}
+            - --agent-image-pull-secret={{ .Values.agentImagePullSecret }}
+            {{- end}}
+            {{- if .Values.kubeconfigSecretName }}
+            - --kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
+            {{- end }}
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: NAMESPACE
+              value: {{ include "managed-serviceaccount-manager.namespace" . }}
+          volumeMounts:
+          {{- if .Values.kubeconfigSecretName }}
+            - mountPath: /var/run/secrets/ocm/auth
+              name: ocm-auth
+          {{- end }}
+      volumes:
+        {{- if .Values.kubeconfigSecretName }}
+        - name: ocm-auth
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.kubeconfigSecretName }}
+        {{- end }}

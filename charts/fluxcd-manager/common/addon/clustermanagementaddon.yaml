@@ -11,11 +11,11 @@ spec:
   installStrategy:
     type: Placements
     placements:
-      - name: global
-        namespace: open-cluster-management-fluxcd
+      - name: {{ .Values.placement.name }}
+        namespace: {{ include "fluxcd-manager.namespace" . }}
   supportedConfigs:
     - group: fluxcd.open-cluster-management.io
       resource: fluxcdconfigs
       defaultConfig:
         name: fluxcd-config
-        namespace: open-cluster-management-fluxcd
+        namespace: {{ include "fluxcd-manager.namespace" . }}

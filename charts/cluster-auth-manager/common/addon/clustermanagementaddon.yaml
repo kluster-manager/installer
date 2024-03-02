@@ -11,5 +11,5 @@ spec:
   installStrategy:
     type: Placements
     placements:
-      - name: global
-        namespace: open-cluster-management-cluster-auth
+      - name: {{ .Values.placement.name }}
+        namespace: {{ include "cluster-auth-manager.namespace" . }}

@@ -1,0 +1,18 @@
+project:
+  name: managed-serviceaccount-manager
+  shortName: managed-serviceaccount-manager
+  url: https://github.com/kluster-manager/managed-serviceaccount
+  description: Installs managed-serviceaccount in managed clusters
+  app: a managed-serviceaccount addon manager
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: managed-serviceaccount-manager
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: managed-serviceaccount-manager
+  namespace: open-cluster-management-addon

@@ -53,12 +53,20 @@ type ClusterAuthManagerSpec struct {
 	Tag             string `json:"tag"`
 	ImagePullPolicy string `json:"imagePullPolicy"`
 	// +optional
-	KubeconfigSecretName string      `json:"kubeconfigSecretName"`
-	Kubectl              DockerImage `json:"kubectl"`
+	KubeconfigSecretName string `json:"kubeconfigSecretName"`
+	// +optional
+	AddonManagerNamespace string        `json:"addonManagerNamespace"`
+	Placement             PlacementSpec `json:"placement"`
+	Kubectl               DockerImage   `json:"kubectl"`
 }
 
 type DockerImage struct {
 	Image string `json:"image"`
+}
+
+type PlacementSpec struct {
+	Create bool   `json:"create"`
+	Name   string `json:"name"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
