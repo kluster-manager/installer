@@ -34,8 +34,10 @@ crd-importer \
     --out=./charts/cluster-auth-manager/crds
 
 crd-importer \
-    --input=https://github.com/kluster-manager/cluster-gateway/raw/master/hack/crd/bases/proxy.open-cluster-management.io_clustergatewayconfigurations.yaml \
+    --input=https://github.com/kluster-manager/cluster-gateway/raw/master/hack/crd/bases/config.gateway.open-cluster-management.io_clustergatewayconfigurations.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --out=./charts/cluster-gateway-manager/crds
 
 crd-importer \

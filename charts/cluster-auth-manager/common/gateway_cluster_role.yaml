@@ -7,7 +7,15 @@ rules:
   - apiGroups:
       - gateway.open-cluster-management.io
     resources:
+      - clustergateways
+    verbs: ["get", "list", "watch"]
+  - apiGroups:
+      - gateway.open-cluster-management.io
+    resources:
       - clustergateways/health
+    verbs: ["get"]
+  - apiGroups:
+      - gateway.open-cluster-management.io
+    resources:
       - clustergateways/proxy
-    verbs:
-      - "*"
+    verbs: ["*"]

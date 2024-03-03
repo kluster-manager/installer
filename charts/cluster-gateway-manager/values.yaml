@@ -1,14 +1,33 @@
-# Image of the cluster-gateway instances
-image: oamdev/cluster-gateway-manager
+nameOverride: ""
+fullnameOverride: ""
 
-tag:
+# Image of the cluster-gateway instances
+image: ghcr.io/kluster-manager/cluster-gateway-manager
+tag: latest
 
 clusterGateway:
-  image: oamdev/cluster-gateway
-  installNamespace: vela-system
-  secretNamespace: open-cluster-management-credentials
+  image: ghcr.io/kluster-manager/cluster-gateway
+
 # Number of replicas
 replicas: 1
 
-manualSecretManagement: true
-konnectivityEgress: false
+manualSecretManagement: false
+
+clusterProxy:
+  enabled: true
+  proxyServerHost: "proxy-entrypoint.open-cluster-management-addon.svc"
+  proxyServerPort: 8090
+  credentials:
+    namespace: open-cluster-management-addon
+    proxyClientCASecretName: proxy-server-ca
+    proxyClientSecretName: proxy-client
+
+kubeconfigSecretName: ""
+addonManagerNamespace: open-cluster-management-cluster-gateway
+
+placement:
+  create: true
+  name: global
+
+kubectl:
+  image: ghcr.io/appscode/kubectl-nonroot:1.25
