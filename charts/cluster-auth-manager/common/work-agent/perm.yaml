@@ -1,7 +1,7 @@
 apiVersion: work.open-cluster-management.io/v1alpha1
 kind: ManifestWorkReplicaSet
 metadata:
-  name: agent-roles
+  name: auth-agent
   namespace: {{ include "cluster-auth-manager.namespace" $ }}
 spec:
   placementRefs:

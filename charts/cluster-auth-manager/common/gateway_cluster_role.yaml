@@ -2,10 +2,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: open-cluster-management:cluster-auth:cluster-gateway
+  name: open-cluster-management:cluster-gateway:proxy
 rules:
   - apiGroups:
-      - cluster.core.oam.dev
+      - gateway.open-cluster-management.io
     resources:
       - clustergateways/health
       - clustergateways/proxy

@@ -48,7 +48,7 @@ rules:
     resources: ["addondeploymentconfigs"]
     verbs: ["get", "list", "watch"]
   # cluster gateway
-  - apiGroups: [ "cluster.core.oam.dev" ]
+  - apiGroups: [ "gateway.open-cluster-management.io" ]
     resources:
       - "clustergateways/health"
       - "clustergateways/proxy"
