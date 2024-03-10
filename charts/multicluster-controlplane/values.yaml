@@ -1,0 +1,61 @@
+# Default values for multicluster-controlplane.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image: quay.io/open-cluster-management/multicluster-controlplane:latest
+imagePullPolicy: IfNotPresent
+
+replicas: 1
+
+features: "DefaultClusterSet=true,ManagedClusterAutoApproval=true"
+
+autoApprovalBootstrapUsers: ""
+
+# TODO: should add restriction while enable selfmanagement
+enableSelfManagement: false
+selfManagementClusterName: ""
+
+enableDelegatingAuthentication: false
+
+apiserver:
+  externalHostname: ""
+  externalPort: 443
+  ca: ""
+  cakey: ""
+  generateCA: false
+etcd:
+  mode: "embed"
+  snapshotCount: 5000
+  servers: []
+  ca: ""
+  cert: ""
+  certkey: ""
+
+pvc:
+  storageCapacity: 1Gi
+  storageClassName: ""
+  selector: {}
+
+route:
+  enabled: false
+  # for route, we may have more config to support in the future
+
+loadbalancer:
+  enabled: false
+  ip: ""
+
+nodeport:
+  enabled: false
+  port: 30443
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  privileged: false
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:

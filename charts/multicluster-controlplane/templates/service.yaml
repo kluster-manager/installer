@@ -1,0 +1,31 @@
+{{- include "validate.exposeService" . }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: multicluster-controlplane
+  namespace: {{ .Release.Namespace }}
+  labels:
+    component: multicluster-controlplane
+spec:
+  {{- if eq .Values.route.enabled true }}
+  type: ClusterIP
+  {{- else if eq .Values.loadbalancer.enabled true }}
+  type: LoadBalancer
+  {{- if .Values.loadbalancer.ip }}
+  loadBalancerIP: {{ .Values.loadbalancer.ip }}
+  {{- end }}
+  {{- else if eq .Values.nodeport.enabled true }}
+  type: NodePort
+  {{- else }}
+  type: ClusterIP
+  {{- end }}
+  selector:
+    app: multicluster-controlplane
+  ports:
+    - name: app
+      protocol: TCP
+      targetPort: 9443
+      port: 443
+      {{- if eq .Values.nodeport.enabled true }}
+      nodePort: {{ .Values.nodeport.port }}
+      {{- end }}

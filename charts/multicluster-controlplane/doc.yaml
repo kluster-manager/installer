@@ -1,0 +1,18 @@
+project:
+  name: multicluster-controlplane
+  shortName: multicluster-controlplane
+  url: https://github.com/kluster-manager/multicluster-controlplane
+  description: A Helm chart for multicluster-controlplane
+  app: a multicluster controlplane
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: multicluster-controlplane
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: multicluster-controlplane
+  namespace: multicluster-controlplane
