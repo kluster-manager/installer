@@ -1,0 +1,6 @@
+apiVersion: v2
+name: multicluster-controlplane
+description: A Helm chart for multicluster-controlplane
+type: application
+version: v2024.2.25
+appVersion: v0.4.0
