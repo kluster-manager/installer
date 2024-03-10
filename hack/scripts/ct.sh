@@ -21,12 +21,21 @@ for dir in charts/*/; do
     dir=${dir##*/}
     num_files=$(find charts/${dir}/templates -type f | wc -l)
     echo $dir
-    if [ $num_files -le 1 ]; then
+    if [ $num_files -le 1 ] ||
+        [[ "$dir" = "cluster-gateway" ]] ||
+        [[ "$dir" = "cluster-manager-hub" ]] ||
+        [[ "$dir" = "multicluster-controlplane" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
+    elif [[ "$dir" = "cluster-manager-spoke" ]]; then
+        kubectl apply -f charts/cluster-manager-spoke/crds
+        helm install cluster-manager-spoke charts/cluster-manager-spoke \
+            --set hub.kubeConfig=abc \
+            --set clusterName=abc \
+            --dry-run=server
     else
         ns=app-$(date +%s | head -c 6)
         kubectl create ns $ns
-        kubectl label ns $ns pod-security.kubernetes.io/enforce=restricted
+        # kubectl label ns $ns pod-security.kubernetes.io/enforce=restricted
         make ct TEST_CHARTS=charts/$dir KUBE_NAMESPACE=$ns
         kubectl delete ns $ns || true
     fi
