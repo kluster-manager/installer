@@ -1,0 +1,64 @@
+properties:
+  bundleVersion:
+    properties:
+      clusteradmImageVersion:
+        type: string
+      operatorImageVersion:
+        type: string
+      placementImageVersion:
+        type: string
+      registrationImageVersion:
+        type: string
+      workImageVersion:
+        type: string
+    type: object
+  clusterName:
+    type: string
+  hub:
+    properties:
+      apiServer:
+        type: string
+      caData:
+        type: string
+      kubeConfig:
+        type: string
+      token:
+        type: string
+    type: object
+  managedKubeconfig:
+    type: string
+  registrationFeatures:
+    items:
+      properties:
+        feature:
+          type: string
+        mode:
+          default: Disable
+          enum:
+          - Enable
+          - Disable
+          type: string
+      required:
+      - feature
+      type: object
+    type: array
+  registry:
+    type: string
+  workFeatures:
+    items:
+      properties:
+        feature:
+          type: string
+        mode:
+          default: Disable
+          enum:
+          - Enable
+          - Disable
+          type: string
+      required:
+      - feature
+      type: object
+    type: array
+required:
+- clusterName
+type: object
