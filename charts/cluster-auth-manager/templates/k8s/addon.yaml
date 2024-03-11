@@ -9,10 +9,7 @@
 {{- $restpl := $.Files.Get "common/addon/placement.yaml" }}
 {{ tpl $restpl $ }}
 ---
-{{- $restpl := $.Files.Get "common/work-agent/perm.yaml" }}
-{{ tpl $restpl $ }}
----
-{{- $restpl := $.Files.Get "common/gateway_cluster_role.yaml" }}
+{{- $restpl := $.Files.Get "common/work-agent/gateway_cluster_role.yaml" }}
 {{ tpl $restpl $ }}
 
 {{- end }}
