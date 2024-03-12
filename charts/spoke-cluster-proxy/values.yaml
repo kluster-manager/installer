@@ -1,0 +1,7 @@
+nameOverride: ""
+fullnameOverride: ""
+
+kubeconfigSecretName: ""
+
+kubectl:
+  image: ghcr.io/appscode/kubectl-nonroot:1.25
