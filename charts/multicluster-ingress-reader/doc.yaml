@@ -1,0 +1,18 @@
+project:
+  name: Multicluster Ingress Reader
+  shortName: Multicluster Ingress Reader
+  url: https://github.com/kluster-manager/installer
+  description: Multicluster Ingress Reader
+  app: an Multicluster Ingress Reader
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: multicluster-ingress-reader
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: multicluster-ingress-reader
+  namespace: multicluster-controlplane

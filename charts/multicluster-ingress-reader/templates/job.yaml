@@ -1,0 +1,73 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "multicluster-ingress-reader.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "multicluster-ingress-reader.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade,post-rollback
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded,hook-failed
+spec:
+  ttlSecondsAfterFinished: 0
+  backoffLimit: 3
+  template:
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "multicluster-ingress-reader.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ .Values.kubectl.image }}
+          imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+                set -x; \
+                sleep 2; \
+                x=`kubectl get svc -n {{ .Release.Namespace }} {{ $.Values.ingressServiceName }} -o jsonpath='{.status.loadBalancer.ingress[*].ip}'`; \
+                if [ -z "${x}" ]; then \
+                  x=`kubectl get svc -n {{ .Release.Namespace }} {{ $.Values.ingressServiceName }} -o jsonpath='{.status.loadBalancer.ingress[*].hostname}'`; \
+                fi; \
+                kubectl apply -f - <<EOF
+                apiVersion: v1
+                kind: ConfigMap
+                metadata:
+                  name: {{ $.Values.configMapName }}
+                  namespace: {{ $.Release.Namespace }}
+                  labels:
+                    {{- include "multicluster-ingress-reader.labels" $ | nindent 20 }}
+                data:
+                  mc.yaml: |
+                    apiserver:
+                      externalHostname: $x
+                      externalPort: 9443
+                  proxy.yaml: |
+                    proxyServer:
+                      entrypointAddress: $x
+                  gateway.yaml: |
+                    clusterProxy:
+                      proxyServerHost: $x
+                EOF
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      restartPolicy: Never
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
