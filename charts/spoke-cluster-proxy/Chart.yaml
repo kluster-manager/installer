@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Spoke Cluster Proxy
+name: spoke-cluster-proxy
+version: v2024.2.25
+appVersion: v0.0.1
+home: https://github.com/kluster-manager/cluster-proxy
+icon: https://cdn.appscode.com/images/products/searchlight/icons/android-icon-192x192.png
+sources:
+- https://github.com/kluster-manager/cluster-proxy
+maintainers:
+- name: appscode
+  email: support@appscode.com

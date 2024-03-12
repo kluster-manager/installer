@@ -70,3 +70,7 @@ crd-importer \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --input=https://github.com/kluster-manager/managed-serviceaccount/raw/main/config/crd/bases/authentication.open-cluster-management.io_managedserviceaccounts.yaml \
     --out=./charts/managed-serviceaccount-manager/crds
+
+crd-importer \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_01_addon.open-cluster-management.io_managedclusteraddons.crd.yaml \
+    --out=./charts/spoke-cluster-proxy/crds
