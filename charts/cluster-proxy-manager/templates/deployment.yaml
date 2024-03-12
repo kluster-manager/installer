@@ -3,15 +3,17 @@ kind: Deployment
 metadata:
   name: cluster-proxy-manager
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "cluster-proxy-manager.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      open-cluster-management.io/addon: cluster-proxy
+      {{- include "cluster-proxy-manager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        open-cluster-management.io/addon: cluster-proxy
+        {{- include "cluster-proxy-manager.labels" . | nindent 8 }}
     spec:
       serviceAccount: cluster-proxy-manager
       automountServiceAccountToken: true

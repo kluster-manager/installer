@@ -4,16 +4,16 @@ metadata:
   name: fluxcd-manager
   namespace: {{ .Release.Namespace }}
   labels:
-    app: fluxcd-manager
+    {{- include "fluxcd-manager.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fluxcd-manager
+      {{- include "fluxcd-manager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: fluxcd-manager
+        {{- include "fluxcd-manager.labels" . | nindent 8 }}
     spec:
       {{- if .Values.kubeconfigSecretName }}
       automountServiceAccountToken: false

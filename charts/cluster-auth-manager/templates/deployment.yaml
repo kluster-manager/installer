@@ -4,16 +4,16 @@ metadata:
   name: cluster-auth-manager
   namespace: {{ .Release.Namespace }}
   labels:
-    app: cluster-auth-manager
+    {{- include "cluster-auth-manager.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cluster-auth-manager
+      {{- include "cluster-auth-manager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: cluster-auth-manager
+        {{- include "cluster-auth-manager.labels" . | nindent 8 }}
     spec:
       {{- if .Values.kubeconfigSecretName }}
       automountServiceAccountToken: false

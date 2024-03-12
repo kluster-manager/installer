@@ -5,7 +5,7 @@ metadata:
   name: multicluster-controlplane
   namespace: {{ .Release.Namespace }}
   labels:
-    component: multicluster-controlplane
+    {{- include "multicluster-controlplane.labels" . | nindent 4 }}
 spec:
   {{- if eq .Values.route.enabled true }}
   type: ClusterIP
@@ -20,7 +20,7 @@ spec:
   type: ClusterIP
   {{- end }}
   selector:
-    app: multicluster-controlplane
+    {{- include "multicluster-controlplane.selectorLabels" . | nindent 4 }}
   ports:
     - name: app
       protocol: TCP

@@ -4,16 +4,16 @@ metadata:
   name: multicluster-controlplane
   namespace: {{ .Release.Namespace }}
   labels:
-    app: multicluster-controlplane
+    {{- include "multicluster-controlplane.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: multicluster-controlplane
+      {{- include "multicluster-controlplane.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: multicluster-controlplane
+        {{- include "multicluster-controlplane.labels" . | nindent 8 }}
     spec:
       serviceAccountName: multicluster-controlplane-sa
       containers:

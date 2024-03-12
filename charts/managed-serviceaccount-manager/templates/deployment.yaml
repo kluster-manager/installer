@@ -3,15 +3,17 @@ kind: Deployment
 metadata:
   name: managed-serviceaccount-manager
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "managed-serviceaccount-manager.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas | default 1 }}
   selector:
     matchLabels:
-      open-cluster-management.io/addon: managed-serviceaccount
+      {{- include "managed-serviceaccount-manager.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        open-cluster-management.io/addon: managed-serviceaccount
+        {{- include "managed-serviceaccount-manager.labels" . | nindent 8 }}
     spec:
       {{- if .Values.kubeconfigSecretName }}
       automountServiceAccountToken: false
