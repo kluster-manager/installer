@@ -11,7 +11,7 @@ rules:
   verbs: ["create", "get", "list", "update", "watch", "patch", "delete", "deletecollection"]
 - apiGroups: [""]
   resources: ["pods"]
-  verbs: ["get"]
+  verbs: ["create", "get", "list", "update", "watch", "patch", "delete", "deletecollection"]
 - apiGroups: [""]
   resources: ["secrets"]
   verbs: ["get", "list", "watch", "update", "patch", "delete"]
