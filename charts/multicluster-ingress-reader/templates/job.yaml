@@ -40,8 +40,8 @@ spec:
                 apiVersion: v1
                 kind: ConfigMap
                 metadata:
-                  name: {{ $.Values.configMapName }}
-                  namespace: {{ $.Release.Namespace }}
+                  name: {{ $.Values.configMap.name }}
+                  namespace: {{ default .Release.Namespace $.Values.configMap.namespace }}
                   labels:
                     {{- include "multicluster-ingress-reader.labels" $ | nindent 20 }}
                 data:
