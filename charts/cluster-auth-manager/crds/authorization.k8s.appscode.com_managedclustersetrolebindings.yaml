@@ -45,7 +45,6 @@ spec:
             - apiGroup
             - kind
             - name
-            - namespaces
             type: object
             x-kubernetes-map-type: atomic
           subjects:
