@@ -23,6 +23,7 @@ rules:
     - "external-managed-kubeconfig-work"
     - "external-managed-kubeconfig-registration"
     - "external-managed-kubeconfig-agent"
+    - "work-webhook-serving-cert"
 # get pods and replicasets is for event creation
 - apiGroups: [""]
   resources: ["pods"]
