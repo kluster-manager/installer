@@ -19,6 +19,8 @@ registrationFeatures:
 - feature: DefaultClusterSet
   mode: Enable
 
-workFeatures: []
+workFeatures:
+- feature: ManifestWorkReplicaSet
+  mode: Enable
 
 addonFeatures: []
