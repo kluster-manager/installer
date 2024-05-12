@@ -57,7 +57,6 @@ The following table lists the configurable parameters of the `cluster-manager-hu
 | bundleVersion.operatorImageVersion     |              | <code>""</code>                              |
 | bundleVersion.addonManagerImageVersion |              | <code>""</code>                              |
 | autoApprove                            |              | <code>false</code>                           |
-| addonFeatures                          |              | <code>[]</code>                              |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

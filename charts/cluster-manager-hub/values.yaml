@@ -23,4 +23,6 @@ workFeatures:
 - feature: ManifestWorkReplicaSet
   mode: Enable
 
-addonFeatures: []
+addonFeatures:
+- feature: AddonManagement
+  mode: Enable
