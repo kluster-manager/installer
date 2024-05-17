@@ -45,18 +45,21 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `cluster-manager-hub` chart and their default values.
 
-|               Parameter                | Description  |                   Default                    |
-|----------------------------------------|--------------|----------------------------------------------|
-| hub.useBootstrapToken                  |              | <code>false</code>                           |
-| hub.tokenID                            | randAlpha 6  | <code>""</code>                              |
-| hub.tokenSecret                        | randAlpha 16 | <code>""</code>                              |
-| hub.registry                           |              | <code>quay.io/open-cluster-management</code> |
-| bundleVersion.registrationImageVersion |              | <code>""</code>                              |
-| bundleVersion.placementImageVersion    |              | <code>""</code>                              |
-| bundleVersion.workImageVersion         |              | <code>""</code>                              |
-| bundleVersion.operatorImageVersion     |              | <code>""</code>                              |
-| bundleVersion.addonManagerImageVersion |              | <code>""</code>                              |
-| autoApprove                            |              | <code>false</code>                           |
+|               Parameter                | Description  |                               Default                               |
+|----------------------------------------|--------------|---------------------------------------------------------------------|
+| hub.useBootstrapToken                  |              | <code>false</code>                                                  |
+| hub.tokenID                            | randAlpha 6  | <code>""</code>                                                     |
+| hub.tokenSecret                        | randAlpha 16 | <code>""</code>                                                     |
+| hub.registry                           |              | <code>quay.io/open-cluster-management</code>                        |
+| bundleVersion.registrationImageVersion |              | <code>""</code>                                                     |
+| bundleVersion.placementImageVersion    |              | <code>""</code>                                                     |
+| bundleVersion.workImageVersion         |              | <code>""</code>                                                     |
+| bundleVersion.operatorImageVersion     |              | <code>""</code>                                                     |
+| bundleVersion.addonManagerImageVersion |              | <code>""</code>                                                     |
+| autoApprove                            |              | <code>false</code>                                                  |
+| registrationFeatures                   |              | <code>[{"feature":"DefaultClusterSet","mode":"Enable"}]</code>      |
+| workFeatures                           |              | <code>[{"feature":"ManifestWorkReplicaSet","mode":"Enable"}]</code> |
+| addonFeatures                          |              | <code>[{"feature":"AddonManagement","mode":"Enable"}]</code>        |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
