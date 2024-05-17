@@ -15,10 +15,14 @@ bundleVersion:
 
 autoApprove: false
 
-registrationFeatures:
+registrationFeatures: # +doc-gen:break
 - feature: DefaultClusterSet
   mode: Enable
 
-workFeatures: []
+workFeatures: # +doc-gen:break
+- feature: ManifestWorkReplicaSet
+  mode: Enable
 
-addonFeatures: []
+addonFeatures: # +doc-gen:break
+- feature: AddonManagement
+  mode: Enable
