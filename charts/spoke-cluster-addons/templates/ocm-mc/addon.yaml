@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: spoke-cluster-proxy-configure-addon
+  name: spoke-cluster-addons-configure-addon
   namespace: {{ .Release.Namespace }}
   annotations:
     "helm.sh/hook-weight": "2"

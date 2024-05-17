@@ -3,7 +3,7 @@
 
 {{ $content := toString $data }}
 {{ $crd := dig "spec" "names" "plural" "" ($content | fromYaml) }}
-{{ $job := printf "spoke-cluster-proxy-regcrd-%s" $crd | trunc 52 }}
+{{ $job := printf "spoke-cluster-addons-regcrd-%s" $crd | trunc 52 }}
 ---
 apiVersion: v1
 kind: ConfigMap
