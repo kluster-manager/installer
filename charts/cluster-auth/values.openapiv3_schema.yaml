@@ -420,9 +420,13 @@ properties:
     required:
     - healthcheck
     type: object
+  clusterName:
+    type: string
   criticalAddon:
     type: boolean
   fullnameOverride:
+    type: string
+  hubKubeconfigSecretName:
     type: string
   image:
     properties:
@@ -667,6 +671,8 @@ properties:
     type: array
 required:
 - apiServer
+- clusterName
+- hubKubeconfigSecretName
 - image
 - imagePullPolicy
 - monitoring

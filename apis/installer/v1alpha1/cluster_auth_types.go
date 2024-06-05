@@ -73,10 +73,12 @@ type ClusterAuthSpec struct {
 	// PodSecurityContext holds pod-level security attributes and common container settings.
 	// Optional: Defaults to empty.  See type description for default values of each field.
 	// +optional
-	PodSecurityContext *core.PodSecurityContext `json:"podSecurityContext"`
-	ServiceAccount     ServiceAccountSpec       `json:"serviceAccount"`
-	Monitoring         Monitoring               `json:"monitoring"`
-	ApiServer          ApiServerSpec            `json:"apiServer"`
+	PodSecurityContext      *core.PodSecurityContext `json:"podSecurityContext"`
+	ServiceAccount          ServiceAccountSpec       `json:"serviceAccount"`
+	Monitoring              Monitoring               `json:"monitoring"`
+	ApiServer               ApiServerSpec            `json:"apiServer"`
+	HubKubeconfigSecretName string                   `json:"hubKubeconfigSecretName"`
+	ClusterName             string                   `json:"clusterName"`
 }
 
 type ImageRef struct {
