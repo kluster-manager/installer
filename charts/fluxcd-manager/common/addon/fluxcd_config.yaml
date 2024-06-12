@@ -10,16 +10,4 @@ metadata:
   name: fluxcd-config
   namespace: {{ include "fluxcd-manager.namespace" . }}
 spec:
-  installCRDs: true
-  helmController:
-    create: true
-  sourceController:
-    create: true
-  imageReflectionController:
-    create: false
-  imageAutomationController:
-    create: false
-  kustomizeController:
-    create: false
-  notificationController:
-    create: false
+  {{- toYaml .Values.fluxcdConfig | nindent 2 }}
