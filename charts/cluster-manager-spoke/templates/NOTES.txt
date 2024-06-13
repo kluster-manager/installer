@@ -1,3 +1,3 @@
 Please log onto the hub cluster and run the following command:
 
-    clusteradm accept --clusters {{ .Values.clusterName }}
+    clusteradm accept --clusters {{ .Values.clusterMetadata.name }}

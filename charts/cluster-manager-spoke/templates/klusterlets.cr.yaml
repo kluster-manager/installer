@@ -98,7 +98,7 @@ spec:
   registrationImagePullSpec: {{ .Values.registry }}/registration:{{ default .Chart.AppVersion .Values.bundleVersion.registrationImageVersion }}
   workImagePullSpec: {{ .Values.registry }}/work:{{ default .Chart.AppVersion .Values.bundleVersion.registrationImageVersion }}
   imagePullSpec: {{ .Values.registry}}/registration-operator:{{ default .Chart.AppVersion .Values.bundleVersion.operatorImageVersion}}
-  clusterName: {{ required "A valid clusterName entry required!" .Values.clusterName }}
+  clusterName: {{ required "A valid clusterName entry required!" .Values.clusterMetadata.name }}
   namespace: {{ $klusterletNamespace }}
   {{- if $spokeServer }}
   externalServerURLs:

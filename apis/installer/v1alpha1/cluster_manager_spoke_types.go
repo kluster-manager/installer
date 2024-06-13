@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -43,8 +44,7 @@ type ClusterManagerSpoke struct {
 
 // ClusterManagerSpokeSpec is the schema for Identity Server values file
 type ClusterManagerSpokeSpec struct {
-	// ClusterName: the name of the joined cluster on the hub
-	ClusterName string `json:"clusterName"`
+	ClusterMetadata ClusterMetadata `json:"clusterMetadata"`
 
 	// SpokeHub: Hub information
 	// +optional
@@ -67,7 +67,59 @@ type ClusterManagerSpokeSpec struct {
 	// Features is the slice of feature for work
 	// +optional
 	WorkFeatures []FeatureGate `json:"workFeatures"`
+	//+optional
+	ImagePullSecrets   []string                  `json:"imagePullSecrets"`
+	ServiceAccount     ServiceAccountSpec        `json:"serviceAccount"`
+	PodSecurityContext core.PodSecurityContext   `json:"podSecurityContext"`
+	SecurityContext    core.SecurityContext      `json:"securityContext"`
+	Resources          core.ResourceRequirements `json:"resources"`
+	NodeSelector       map[string]string         `json:"nodeSelector"`
+	Tolerations        []core.Toleration         `json:"tolerations"`
+	Affinity           core.Affinity             `json:"affinity"`
+	Kubectl            KubectlSpec               `json:"kubectl"`
+	Secret             core.ObjectReference      `json:"secret"`
 }
+
+type KubectlSpec struct {
+	Image      string `json:"image"`
+	PullPolicy string `json:"pullPolicy"`
+}
+
+type ObjectReference struct {
+	// Namespace of the referent.
+	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+	// +optional
+	Namespace string `json:"namespace"`
+	// Name of the referent.
+	// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+	// +optional
+	Name string `json:"name"`
+}
+
+type ClusterMetadata struct {
+	Uid string `json:"uid"`
+	// Name of the joined cluster on the hub
+	Name            string   `json:"name"`
+	ClusterManagers []string `json:"clusterManagers"`
+	// +optional
+	CAPI CapiMetadata `json:"capi"`
+}
+
+type CapiMetadata struct {
+	// +optional
+	Provider  CAPIProvider `json:"provider"`
+	Namespace string       `json:"namespace"`
+}
+
+// +kubebuilder:validation:Enum=capa;capg;capz
+type CAPIProvider string
+
+const (
+	CAPIProviderDisabled CAPIProvider = ""
+	CAPIProviderCAPA     CAPIProvider = "capa"
+	CAPIProviderCAPG     CAPIProvider = "capg"
+	CAPIProviderCAPZ     CAPIProvider = "capz"
+)
 
 // SpokeHub: The hub values for the template
 type SpokeHub struct {

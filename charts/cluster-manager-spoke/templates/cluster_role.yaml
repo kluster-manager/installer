@@ -70,3 +70,10 @@ rules:
 - apiGroups: ["work.open-cluster-management.io"]
   resources: ["appliedmanifestworks"]
   verbs: ["list", "update", "patch"]
+# opscenter-feature-values
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get", "create"]
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "create", "update", "patch"]
