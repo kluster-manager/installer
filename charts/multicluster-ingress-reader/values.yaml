@@ -55,6 +55,7 @@ kubectl:
   pullPolicy: IfNotPresent
 
 ingressServiceName: ingress-nginx-mc-controller
-configMap:
-  name: multicluster-ingress-config
+
+secret:
+  name: multicluster-ingress-values
   namespace: ""
