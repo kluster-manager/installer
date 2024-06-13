@@ -63,8 +63,8 @@ The following table lists the configurable parameters of the `multicluster-ingre
 | kubectl.image              |                                                                                                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
 | kubectl.pullPolicy         |                                                                                                                        | <code>IfNotPresent</code>                          |
 | ingressServiceName         |                                                                                                                        | <code>ingress-nginx-mc-controller</code>           |
-| configMap.name             |                                                                                                                        | <code>multicluster-ingress-config</code>           |
-| configMap.namespace        |                                                                                                                        | <code>""</code>                                    |
+| secret.name                |                                                                                                                        | <code>multicluster-ingress-values</code>           |
+| secret.namespace           |                                                                                                                        | <code>""</code>                                    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -38,13 +38,13 @@ spec:
                 fi; \
                 kubectl apply -f - <<EOF
                 apiVersion: v1
-                kind: ConfigMap
+                kind: Secret
                 metadata:
-                  name: {{ $.Values.configMap.name }}
-                  namespace: {{ default .Release.Namespace $.Values.configMap.namespace }}
+                  name: {{ $.Values.secret.name }}
+                  namespace: {{ default .Release.Namespace $.Values.secret.namespace }}
                   labels:
                     {{- include "multicluster-ingress-reader.labels" $ | nindent 20 }}
-                data:
+                stringData:
                   mc.yaml: |
                     apiserver:
                       externalHostname: $x

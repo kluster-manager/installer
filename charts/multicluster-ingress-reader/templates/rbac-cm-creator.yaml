@@ -1,4 +1,4 @@
-{{ $cmNS := default .Release.Namespace $.Values.configMap.namespace }}
+{{ $cmNS := default .Release.Namespace $.Values.secret.namespace }}
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -9,7 +9,7 @@ rules:
   - apiGroups:
       - ""
     resources:
-      - configmaps
+      - secrets
     verbs:
       - get
       - create
