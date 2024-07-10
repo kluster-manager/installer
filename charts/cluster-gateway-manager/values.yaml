@@ -3,7 +3,7 @@ fullnameOverride: ""
 
 # Image of the cluster-gateway instances
 image: ghcr.io/kluster-manager/cluster-gateway-manager
-tag: latest
+tag: ""
 
 clusterGateway:
   image: ghcr.io/kluster-manager/cluster-gateway
