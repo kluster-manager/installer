@@ -11,21 +11,23 @@ rules:
   verbs: ["create", "get", "list", "update", "watch", "patch", "delete", "deletecollection"]
 - apiGroups: [""]
   resources: ["pods"]
-  verbs: ["create", "get", "list", "update", "watch", "patch", "delete", "deletecollection"]
+  verbs: ["get"]
 - apiGroups: [""]
   resources: ["secrets"]
   verbs: ["get", "list", "watch", "update", "patch", "delete"]
   resourceNames:
-    - "signer-secret"
-    - "registration-webhook-serving-cert"
-    - "work-webhook-serving-cert"
-    - "registration-controller-sa-kubeconfig"
-    - "registration-webhook-sa-kubeconfig"
-    - "work-webhook-sa-kubeconfig"
-    - "placement-controller-sa-kubeconfig"
-    - "work-controller-sa-kubeconfig"
-    - "addon-manager-controller-sa-kubeconfig"
-    - "external-hub-kubeconfig"
+  - "signer-secret"
+  - "registration-webhook-serving-cert"
+  - "work-webhook-serving-cert"
+  - "registration-controller-sa-kubeconfig"
+  - "registration-webhook-sa-kubeconfig"
+  - "work-webhook-sa-kubeconfig"
+  - "placement-controller-sa-kubeconfig"
+  - "work-controller-sa-kubeconfig"
+  - "addon-manager-controller-sa-kubeconfig"
+  - "external-hub-kubeconfig"
+  - "work-driver-config"
+  - "open-cluster-management-image-pull-credentials"
 - apiGroups: [""]
   resources: ["secrets"]
   verbs: ["create"]
@@ -88,10 +90,10 @@ rules:
   resources: ["managedclusteraddons/status", "clustermanagementaddons/status"]
   verbs: ["patch", "update"]
 - apiGroups: ["addon.open-cluster-management.io"]
-  resources: [managedclusteraddons/finalizers, "clustermanagementaddons/finalizers"]
+  resources: ["managedclusteraddons/finalizers", "clustermanagementaddons/finalizers"]
   verbs: ["update"]
 - apiGroups: ["addon.open-cluster-management.io"]
-  resources: [addondeploymentconfigs, "addontemplates"]
+  resources: ["addondeploymentconfigs", "addontemplates"]
   verbs: ["get", "list", "watch"]
 - apiGroups: ["authentication.k8s.io"]
   resources: ["tokenreviews"]
