@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/multicluster-ingress-reader --version=v2024.2.25
-$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.2.25
+$ helm search repo appscode/multicluster-ingress-reader --version=v2024.7.10
+$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.7.10
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys an Multicluster Ingress Reader on a [Kubernetes](http://kuber
 To install/upgrade the chart with the release name `multicluster-ingress-reader`:
 
 ```bash
-$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.2.25
+$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.7.10
 ```
 
 The command deploys an Multicluster Ingress Reader on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -70,12 +70,12 @@ The following table lists the configurable parameters of the `multicluster-ingre
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.2.25 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.25
+$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.7.10 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.25
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.2.25 --values values.yaml
+$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.7.10 --values values.yaml
 ```
