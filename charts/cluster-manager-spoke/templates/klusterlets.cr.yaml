@@ -82,10 +82,10 @@ spec:
 # Test using:
 # helm install cluster-manager-spoke  charts/cluster-manager-spoke --set hub.kubeConfig=abc --set clusterName=abc --dry-run=server
 
-{{- $spokeConfig := (lookup "v1" "ConfigMap" "kube-public" "cluster-info").data.kubeconfig | fromYaml -}}
-{{- $spokeServer := default (dig "cluster" "server" "" (first $spokeConfig.clusters)) .Values.hub.apiServer -}}
-{{- if not (or (hasPrefix "http://" $spokeServer) (hasPrefix "https://" $spokeServer)) }}
-{{- $spokeServer = "" }}
+{{- $spokeServer := "" }}
+{{- with (lookup "v1" "ConfigMap" "kube-public" "cluster-info") }}
+  {{- $spokeConfig := .data.kubeconfig | fromYaml }}
+  {{- $spokeServer = default (dig "cluster" "server" "" (first $spokeConfig.clusters)) "" -}}
 {{- end }}
 
 apiVersion: operator.open-cluster-management.io/v1
