@@ -3,7 +3,7 @@ fullnameOverride: ""
 
 # Image of the managed service-account instances
 image: ghcr.io/kluster-manager/managed-serviceaccount
-tag: latest
+tag: ""
 
 # Number of replicas
 replicas: 1

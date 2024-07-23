@@ -5,7 +5,7 @@ registry: ghcr.io/kluster-manager
 image: cluster-proxy
 
 # Image tag
-tag: latest
+tag: ""
 
 # Number of replicas
 replicas: 1

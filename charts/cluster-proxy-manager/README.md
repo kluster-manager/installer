@@ -49,7 +49,7 @@ The following table lists the configurable parameters of the `cluster-proxy-mana
 |------------------------------------|----------------------------------------|----------------------------------------------------|
 | registry                           | Image registry                         | <code>ghcr.io/kluster-manager</code>               |
 | image                              | Image of the cluster-gateway instances | <code>cluster-proxy</code>                         |
-| tag                                | Image tag                              | <code>latest</code>                                |
+| tag                                | Image tag                              | <code>""</code>                                    |
 | replicas                           | Number of replicas                     | <code>1</code>                                     |
 | proxyServerImage                   |                                        | <code>ghcr.io/kluster-manager/cluster-proxy</code> |
 | proxyAgentImage                    |                                        | <code>ghcr.io/kluster-manager/cluster-proxy</code> |

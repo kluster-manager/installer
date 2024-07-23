@@ -50,7 +50,7 @@ The following table lists the configurable parameters of the `managed-serviceacc
 | nameOverride                   |                                                | <code>""</code>                                             |
 | fullnameOverride               |                                                | <code>""</code>                                             |
 | image                          | Image of the managed service-account instances | <code>ghcr.io/kluster-manager/managed-serviceaccount</code> |
-| tag                            |                                                | <code>latest</code>                                         |
+| tag                            |                                                | <code>""</code>                                             |
 | replicas                       | Number of replicas                             | <code>1</code>                                              |
 | featureGates.ephemeralIdentity |                                                | <code>false</code>                                          |
 | agentImagePullSecret           |                                                | <code>""</code>                                             |
