@@ -7,9 +7,7 @@ spec:
   registrationImagePullSpec: {{ .Values.hub.registry }}/registration:{{ default .Chart.AppVersion .Values.bundleVersion.registrationImageVersion }}
   workImagePullSpec: {{ .Values.hub.registry }}/work:{{ default .Chart.AppVersion .Values.bundleVersion.workImageVersion }}
   placementImagePullSpec: {{ .Values.hub.registry }}/placement:{{ default .Chart.AppVersion .Values.bundleVersion.placementImageVersion }}
-  {{if .Values.bundleVersion.addonManagerImageVersion}}
   addOnManagerImagePullSpec: {{ .Values.hub.registry }}/addon-manager:{{ default .Chart.AppVersion .Values.bundleVersion.addonManagerImageVersion }}
-  {{end}}
   deployOption:
     mode: Default
   {{if .Values.registrationFeatures}}
