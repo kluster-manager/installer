@@ -6,4 +6,4 @@ kind: ClusterClaim
 metadata:
   name: id.k8s.io
 spec:
-  value: {{ $clusterId }}
+  value: {{ required "A valid cluster id required!" $clusterId }}
