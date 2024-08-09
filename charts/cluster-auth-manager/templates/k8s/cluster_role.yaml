@@ -75,9 +75,7 @@ rules:
       - rolebindings
     verbs: [ "*" ]
   - apiGroups: [ "authentication.k8s.appscode.com" ]
-    resources:
-      - users
-      - groups
+    resources: [ "*" ]
     verbs: [ "*" ]
 
 {{- end }}
