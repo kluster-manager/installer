@@ -1,0 +1,12 @@
+{{- if not .Values.kubeconfigSecretName }}
+
+{{- $restpl := $.Files.Get "common/rbac/service_account.yaml" }}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/rbac/cluster_role.yaml" }}
+{{ tpl $restpl $ }}
+---
+{{- $restpl := $.Files.Get "common/rbac/role_binding.yaml" }}
+{{ tpl $restpl $ }}
+
+{{- end }}
