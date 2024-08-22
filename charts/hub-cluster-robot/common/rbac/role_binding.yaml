@@ -5,9 +5,9 @@ metadata:
   namespace: open-cluster-management-cluster-auth
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: open-cluster-management:hub-cluster-robot
+  kind: Role
+  name: open-cluster-management:hub-cluster-robot:cluster-auth
 subjects:
   - kind: ServiceAccount
     name: hub-cluster-robot
-    namespace: {{ .Release.Namespace }}
+    namespace: {{ include "hub-cluster-robot.namespace" . }}
