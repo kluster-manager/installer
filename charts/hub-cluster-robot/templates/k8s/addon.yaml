@@ -3,6 +3,9 @@
 {{- $restpl := $.Files.Get "common/rbac/service_account.yaml" }}
 {{ tpl $restpl $ }}
 ---
+{{- $restpl := $.Files.Get "common/rbac/secret.yaml" }}
+{{ tpl $restpl $ }}
+---
 {{- $restpl := $.Files.Get "common/rbac/role.yaml" }}
 {{ tpl $restpl $ }}
 ---

@@ -29,6 +29,9 @@ spec:
               {{- $restpl := $.Files.Get "common/rbac/service_account.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
+              {{- $restpl := $.Files.Get "common/rbac/secret.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 }}
+              ---
               {{- $restpl := $.Files.Get "common/rbac/role.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               ---
