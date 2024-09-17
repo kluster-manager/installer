@@ -50,14 +50,14 @@ The following table lists the configurable parameters of the `hub-cluster-robot`
 | nameOverride          |             | <code>""</code>                                    |
 | fullnameOverride      |             | <code>""</code>                                    |
 | kubeconfigSecretName  |             | <code>""</code>                                    |
-| addonManagerNamespace |             | <code>open-cluster-management-cluster-auth</code>  |
+| addonManagerNamespace |             | <code>open-cluster-management</code>               |
 | kubectl.image         |             | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2024.8.9 --set addonManagerNamespace=open-cluster-management-cluster-auth
+$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2024.8.9 --set addonManagerNamespace=open-cluster-management
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
