@@ -1,10 +1,5 @@
 clusterMetadata:
-  uid: TBD
   name: TBD
-  clusterManagers: []
-  capi:
-    provider: ""
-    namespace: ""
 
 hub:
   apiServer: ""
@@ -19,7 +14,7 @@ bundleVersion:
   placementImageVersion: ""
   workImageVersion: ""
   operatorImageVersion: ""
-  clusteradmImageVersion: latest
+  clusteradmImageVersion: "v0.9.0"
 
 managedKubeconfig: ''
 
@@ -27,53 +22,6 @@ registrationFeatures: []
 
 workFeatures: []
 
-imagePullSecrets: []
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-# podAnnotations: {}
-# podLabels: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.25
-  pullPolicy: IfNotPresent
-
 secret:
-  name: opscenter-features-values
+  name: ace-cluster-info
   namespace: kubeops

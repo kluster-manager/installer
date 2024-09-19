@@ -1,60 +1,25 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "cluster-manager-spoke.fullname" . }}
-  namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "cluster-manager-spoke.labels" . | nindent 4 }}
+  name: cluster-info-generator
+  namespace: open-cluster-management
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade,post-rollback
 spec:
   ttlSecondsAfterFinished: 0
   backoffLimit: 3
   template:
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "cluster-manager-spoke.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      serviceAccountName: klusterlet
+      automountServiceAccountToken: true
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ .Values.kubectl.image }}
-          imagePullPolicy: {{ .Values.kubectl.pullPolicy }}
-          command:
-            - sh
-            - -c
-            - |
-                set -x; \
-                sleep 2; \
-                ns={{ default .Release.Namespace $.Values.secret.namespace }}; \
-                kubectl get ns $ns|| kubectl create ns $ns; \
-                kubectl apply -f - <<EOF
-                apiVersion: v1
-                kind: Secret
-                metadata:
-                  name: {{ $.Values.secret.name }}
-                  namespace: {{ default .Release.Namespace $.Values.secret.namespace }}
-                  labels:
-                    {{- include "cluster-manager-spoke.labels" $ | nindent 20 }}
-                stringData:
-                  values.yaml: |
-                    clusterMetadata: {{ $.Values.clusterMetadata | toJson }}
-                EOF
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+      - name: clusteradm
+        image: ghcr.io/kluster-manager/clusteradm:{{ default .Chart.AppVersion .Values.bundleVersion.clusteradmImageVersion }}
+        imagePullPolicy: Always
+        args:
+          - /clusteradm
+          - get
+          - cluster-info
+          - --cluster-name={{ .Values.clusterMetadata.name }}
+          - --store-in-configmap={{ default .Release.Namespace .Values.secret.namespace }}/{{ .Values.secret.name }}
       restartPolicy: Never
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}

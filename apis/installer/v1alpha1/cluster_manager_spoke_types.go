@@ -66,18 +66,8 @@ type ClusterManagerSpokeSpec struct {
 
 	// Features is the slice of feature for work
 	// +optional
-	WorkFeatures []FeatureGate `json:"workFeatures"`
-	//+optional
-	ImagePullSecrets   []string                  `json:"imagePullSecrets"`
-	ServiceAccount     ServiceAccountSpec        `json:"serviceAccount"`
-	PodSecurityContext core.PodSecurityContext   `json:"podSecurityContext"`
-	SecurityContext    core.SecurityContext      `json:"securityContext"`
-	Resources          core.ResourceRequirements `json:"resources"`
-	NodeSelector       map[string]string         `json:"nodeSelector"`
-	Tolerations        []core.Toleration         `json:"tolerations"`
-	Affinity           core.Affinity             `json:"affinity"`
-	Kubectl            KubectlSpec               `json:"kubectl"`
-	Secret             core.ObjectReference      `json:"secret"`
+	WorkFeatures []FeatureGate        `json:"workFeatures"`
+	Secret       core.ObjectReference `json:"secret"`
 }
 
 type KubectlSpec struct {
@@ -97,29 +87,9 @@ type ObjectReference struct {
 }
 
 type ClusterMetadata struct {
-	Uid string `json:"uid"`
 	// Name of the joined cluster on the hub
-	Name            string   `json:"name"`
-	ClusterManagers []string `json:"clusterManagers"`
-	// +optional
-	CAPI CapiMetadata `json:"capi"`
+	Name string `json:"name"`
 }
-
-type CapiMetadata struct {
-	// +optional
-	Provider  CAPIProvider `json:"provider"`
-	Namespace string       `json:"namespace"`
-}
-
-// +kubebuilder:validation:Enum=capa;capg;capz
-type CAPIProvider string
-
-const (
-	CAPIProviderDisabled CAPIProvider = ""
-	CAPIProviderCAPA     CAPIProvider = "capa"
-	CAPIProviderCAPG     CAPIProvider = "capg"
-	CAPIProviderCAPZ     CAPIProvider = "capz"
-)
 
 // SpokeHub: The hub values for the template
 type SpokeHub struct {
