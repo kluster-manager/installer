@@ -84,8 +84,9 @@ spec:
 
 {{- $spokeServer := "" }}
 {{- with (lookup "v1" "ConfigMap" "kube-public" "cluster-info") }}
-  {{- $spokeConfig := .data.kubeconfig | fromYaml }}
-  {{- $spokeServer = default (dig "cluster" "server" "" (first $spokeConfig.clusters)) "" -}}
+  {{ range $c := get (.data.kubeconfig | fromYaml) "clusters" }}
+    {{- $spokeServer = dig "cluster" "server" $c.server $c -}}
+  {{ end }}
 {{- end }}
 
 apiVersion: operator.open-cluster-management.io/v1
