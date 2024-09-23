@@ -64,9 +64,9 @@ The following table lists the configurable parameters of the `fluxcd-manager` ch
 | fluxcdConfig.imageAutomationController.image  |             | <code>ghcr.io/fluxcd/image-automation-controller</code> |
 | fluxcdConfig.imageReflectionController.create |             | <code>false</code>                                      |
 | fluxcdConfig.imageReflectionController.image  |             | <code>ghcr.io/fluxcd/image-reflector-controller</code>  |
-| fluxcdConfig.kustomizeController.create       |             | <code>false</code>                                      |
+| fluxcdConfig.kustomizeController.create       |             | <code>true</code>                                       |
 | fluxcdConfig.kustomizeController.image        |             | <code>ghcr.io/fluxcd/kustomize-controller</code>        |
-| fluxcdConfig.notificationController.create    |             | <code>false</code>                                      |
+| fluxcdConfig.notificationController.create    |             | <code>true</code>                                       |
 | fluxcdConfig.notificationController.image     |             | <code>ghcr.io/fluxcd/notification-controller</code>     |
 | fluxcdConfig.sourceController.create          |             | <code>true</code>                                       |
 | fluxcdConfig.sourceController.image           |             | <code>ghcr.io/fluxcd/source-controller</code>           |

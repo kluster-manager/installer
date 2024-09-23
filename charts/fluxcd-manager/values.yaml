@@ -28,10 +28,10 @@ fluxcdConfig:
     create: false
     image: ghcr.io/fluxcd/image-reflector-controller
   kustomizeController:
-    create: false
+    create: true
     image: ghcr.io/fluxcd/kustomize-controller
   notificationController:
-    create: false
+    create: true
     image: ghcr.io/fluxcd/notification-controller
   sourceController:
     create: true
