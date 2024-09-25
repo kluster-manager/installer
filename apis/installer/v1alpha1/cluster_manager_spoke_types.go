@@ -66,8 +66,7 @@ type ClusterManagerSpokeSpec struct {
 
 	// Features is the slice of feature for work
 	// +optional
-	WorkFeatures []FeatureGate        `json:"workFeatures"`
-	Secret       core.ObjectReference `json:"secret"`
+	WorkFeatures []FeatureGate `json:"workFeatures"`
 }
 
 type KubectlSpec struct {
@@ -87,8 +86,13 @@ type ObjectReference struct {
 }
 
 type ClusterMetadata struct {
-	// Name of the joined cluster on the hub
-	Name string `json:"name"`
+	Name  string               `json:"name"`
+	Store ClusterMetadataStore `json:"store"`
+}
+
+type ClusterMetadataStore struct {
+	ClusterClaim core.LocalObjectReference `json:"clusterClaim"`
+	Secret       ObjectReference           `json:"secret"`
 }
 
 // SpokeHub: The hub values for the template

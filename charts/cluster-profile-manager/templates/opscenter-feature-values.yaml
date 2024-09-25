@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-profile-manager-opscfv
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "cluster-profile-manager.labels" . | nindent 4 }}
+stringData:
+  opscenter-feature-values.yaml: |
+  {{- with (index .Values "helm" "releases" "opscenter-features") }}
+  {{ $vals := (omit $.Values "nameOverride" "fullnameOverride" "clusterMetadata" "kubeconfigSecretName" "addonManagerNamespace" "placement" "kubectl") }}
+  {{- with $vals }}
+    {{- dict "values" . | toYaml | nindent 4 }}
+  {{- end }}
+  {{- end }}

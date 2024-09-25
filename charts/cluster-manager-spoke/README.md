@@ -45,24 +45,25 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `cluster-manager-spoke` chart and their default values.
 
-|               Parameter                | Description |                   Default                    |
-|----------------------------------------|-------------|----------------------------------------------|
-| clusterMetadata.name                   |             | <code>TBD</code>                             |
-| hub.apiServer                          |             | <code>""</code>                              |
-| hub.caData                             |             | <code>""</code>                              |
-| hub.token                              |             | <code>""</code>                              |
-| hub.kubeConfig                         |             | <code>""</code>                              |
-| registry                               |             | <code>quay.io/open-cluster-management</code> |
-| bundleVersion.registrationImageVersion |             | <code>""</code>                              |
-| bundleVersion.placementImageVersion    |             | <code>""</code>                              |
-| bundleVersion.workImageVersion         |             | <code>""</code>                              |
-| bundleVersion.operatorImageVersion     |             | <code>""</code>                              |
-| bundleVersion.clusteradmImageVersion   |             | <code>"v0.9.0"</code>                        |
-| managedKubeconfig                      |             | <code>''</code>                              |
-| registrationFeatures                   |             | <code>[]</code>                              |
-| workFeatures                           |             | <code>[]</code>                              |
-| secret.name                            |             | <code>ace-cluster-info</code>                |
-| secret.namespace                       |             | <code>kubeops</code>                         |
+|                Parameter                | Description |                   Default                    |
+|-----------------------------------------|-------------|----------------------------------------------|
+| clusterMetadata.name                    |             | <code>TBD</code>                             |
+| clusterMetadata.store.clusterClaim.name |             | <code>cluster.ace.info</code>                |
+| clusterMetadata.store.secret.name       |             | <code>ace-cluster-info</code>                |
+| clusterMetadata.store.secret.namespace  |             | <code>kubeops</code>                         |
+| hub.apiServer                           |             | <code>""</code>                              |
+| hub.caData                              |             | <code>""</code>                              |
+| hub.token                               |             | <code>""</code>                              |
+| hub.kubeConfig                          |             | <code>""</code>                              |
+| registry                                |             | <code>quay.io/open-cluster-management</code> |
+| bundleVersion.registrationImageVersion  |             | <code>""</code>                              |
+| bundleVersion.placementImageVersion     |             | <code>""</code>                              |
+| bundleVersion.workImageVersion          |             | <code>""</code>                              |
+| bundleVersion.operatorImageVersion      |             | <code>""</code>                              |
+| bundleVersion.clusteradmImageVersion    |             | <code>"v0.9.0"</code>                        |
+| managedKubeconfig                       |             | <code>''</code>                              |
+| registrationFeatures                    |             | <code>[]</code>                              |
+| workFeatures                            |             | <code>[]</code>                              |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

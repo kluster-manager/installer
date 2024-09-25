@@ -14,8 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-v0.0.1}
-KLUSTER_MANAGER_FLUXCD_ADDON_TAG=${KLUSTER_MANAGER_FLUXCD_ADDON_TAG:-v0.0.3}
+KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-v0.0.4}
+KLUSTER_MANAGER_CLUSTER_PROFILE_TAG=${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG:-v0.0.1}
+KLUSTER_MANAGER_FLUXCD_ADDON_TAG=${KLUSTER_MANAGER_FLUXCD_ADDON_TAG:-v0.0.4}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v0.14.0}
 PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.75.1}
 
@@ -24,7 +25,7 @@ crd-importer \
     --out=./charts/cluster-auth/crds
 
 crd-importer \
-    --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authentication.k8s.appscode.com_users.yaml \
+    --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authentication.k8s.appscode.com_accounts.yaml \
     --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authorization.k8s.appscode.com_managedclusterrolebindings.yaml \
     --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authorization.k8s.appscode.com_managedclusterroles.yaml \
     --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authorization.k8s.appscode.com_managedclustersetrolebindings.yaml \
@@ -48,6 +49,14 @@ crd-importer \
 crd-importer \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/operator/v1/0000_00_operator.open-cluster-management.io_klusterlets.crd.yaml \
     --out=./charts/cluster-manager-spoke/crds
+
+crd-importer \
+    --input=https://github.com/kluster-manager/cluster-profile/raw/${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG}/crds/profile.k8s.appscode.com_managedclusterprofilebindings.yaml \
+    --input=https://github.com/kluster-manager/cluster-profile/raw/${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG}/crds/profile.k8s.appscode.com_managedclustersetprofiles.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/work/v1alpha1/0000_00_work.open-cluster-management.io_manifestworkreplicasets.crd.yaml \
+    --out=./charts/cluster-profile-manager/crds
 
 crd-importer \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \

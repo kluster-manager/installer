@@ -16,8 +16,29 @@ properties:
     properties:
       name:
         type: string
+      store:
+        properties:
+          clusterClaim:
+            properties:
+              name:
+                default: ''
+                type: string
+            type: object
+            x-kubernetes-map-type: atomic
+          secret:
+            properties:
+              name:
+                type: string
+              namespace:
+                type: string
+            type: object
+        required:
+        - clusterClaim
+        - secret
+        type: object
     required:
     - name
+    - store
     type: object
   hub:
     properties:
@@ -49,24 +70,6 @@ properties:
     type: array
   registry:
     type: string
-  secret:
-    properties:
-      apiVersion:
-        type: string
-      fieldPath:
-        type: string
-      kind:
-        type: string
-      name:
-        type: string
-      namespace:
-        type: string
-      resourceVersion:
-        type: string
-      uid:
-        type: string
-    type: object
-    x-kubernetes-map-type: atomic
   workFeatures:
     items:
       properties:
@@ -84,5 +87,4 @@ properties:
     type: array
 required:
 - clusterMetadata
-- secret
 type: object
