@@ -1,0 +1,18 @@
+project:
+  name: Cluster Profile Manager
+  shortName: Cluster Profile Manager
+  url: https://github.com/kluster-manager/cluster-profile
+  description: Cluster Profile Manager
+  app: an Cluster Profile Manager
+repository:
+  url: https://charts.appscode.com/stable
+  name: appscode
+chart:
+  name: cluster-profile-manager
+  values: -- generate from values file --
+  valuesExample: -- generate from values file --
+prerequisites:
+- Kubernetes 1.21+
+release:
+  name: cluster-profile-manager
+  namespace: open-cluster-management-addon

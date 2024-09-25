@@ -1,0 +1,16 @@
+{{- if not .Values.kubeconfigSecretName }}
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: open-cluster-management:cluster-profile:addon-manager
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: open-cluster-management:cluster-profile:addon-manager
+subjects:
+  - kind: ServiceAccount
+    name: cluster-profile-manager
+    namespace: {{ .Release.Namespace }}
+
+{{- end }}

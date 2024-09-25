@@ -1,0 +1,61 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: cluster-profile-manager
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "cluster-profile-manager.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "cluster-profile-manager.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "cluster-profile-manager.labels" . | nindent 8 }}
+    spec:
+      {{- if .Values.kubeconfigSecretName }}
+      automountServiceAccountToken: false
+      {{- else }}
+      serviceAccount: cluster-profile-manager
+      automountServiceAccountToken: true
+      {{- end }}
+      containers:
+        - name: manager
+          image: {{ .Values.manager.image }}:{{ .Values.manager.tag | default .Chart.AppVersion }}
+          imagePullPolicy: {{ .Values.manager.imagePullPolicy }}
+          args:
+            - manager
+            {{- if .Values.kubeconfigSecretName }}
+            - --kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
+            {{- end }}
+            - --registryFQDN={{ .Values.registryFQDN }}
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: NAMESPACE
+              value: {{ include "cluster-profile-manager.namespace" . }}
+          volumeMounts:
+            - mountPath: /var/run/secrets/ace
+              name: opscfv
+          {{- if .Values.kubeconfigSecretName }}
+            - mountPath: /var/run/secrets/ocm/auth
+              name: ocm-auth
+          {{- end }}
+      volumes:
+        - name: opscfv
+          secret:
+            secretName: cluster-profile-manager-opscfv
+        {{- if .Values.kubeconfigSecretName }}
+        - name: ocm-auth
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.kubeconfigSecretName }}
+        {{- end }}

@@ -1,0 +1,30 @@
+{{- if not .Values.kubeconfigSecretName }}
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: open-cluster-management:cluster-profile:addon-manager
+rules:
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+  - apiGroups: ["cluster.open-cluster-management.io"]
+    resources: ["managedclusters"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["work.open-cluster-management.io"]
+    resources: ["manifestworks"]
+    verbs: ["create", "update", "get", "list", "watch", "delete", "deletecollection", "patch"]
+  - apiGroups: [ "cluster.open-cluster-management.io" ]
+    resources: [ "managedclustersets" ]
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "profile.k8s.appscode.com" ]
+    resources: [ "*" ]
+    verbs: [ "*" ]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["namespaces", "secrets"]
+    verbs: ["get", "list", "watch"]
+
+{{- end }}
