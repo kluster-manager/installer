@@ -1,11 +1,9 @@
 clusterMetadata:
   name: TBD
-  store:
-    clusterClaim:
-      name: cluster.ace.info
-    secret:
-      name: ace-cluster-info
-      namespace: kubeops
+
+secret:
+  name: ace-cluster-info
+  namespace: kubeops
 
 hub:
   apiServer: ""
