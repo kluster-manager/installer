@@ -31,3 +31,5 @@ placement:
 
 kubectl:
   image: ghcr.io/appscode/kubectl-nonroot:1.25
+
+clusterAuthNamespace: open-cluster-management-cluster-auth

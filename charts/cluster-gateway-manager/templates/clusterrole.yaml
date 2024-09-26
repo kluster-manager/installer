@@ -128,3 +128,8 @@ rules:
       - subjectaccessreviews
     verbs:
       - "*"
+  - apiGroups:
+      - authentication.k8s.appscode.com
+    resources:
+      - accounts
+    verbs: [ "get", "list", "watch" ]

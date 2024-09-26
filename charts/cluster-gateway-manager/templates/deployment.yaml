@@ -29,6 +29,9 @@ spec:
             - --multicluster-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
             - --multicluster-kubeconfig-secret-name={{ .Values.kubeconfigSecretName }}
             {{- end }}
+            {{- with .Values.clusterAuthNamespace }}
+            - --cluster-auth-namespace={{ . }}
+            {{- end }}
           env:
             - name: POD_NAME
               valueFrom:

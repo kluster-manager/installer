@@ -65,6 +65,7 @@ The following table lists the configurable parameters of the `cluster-gateway-ma
 | placement.create                                 |                                        | <code>true</code>                                                 |
 | placement.name                                   |                                        | <code>global</code>                                               |
 | kubectl.image                                    |                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code>                |
+| clusterAuthNamespace                             |                                        | <code>open-cluster-management-cluster-auth</code>                 |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
