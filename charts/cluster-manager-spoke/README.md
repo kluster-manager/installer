@@ -49,8 +49,8 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 |-----------------------------------------|-------------|----------------------------------------------|
 | clusterMetadata.name                    |             | <code>TBD</code>                             |
 | clusterMetadata.store.clusterClaim.name |             | <code>cluster.ace.info</code>                |
-| clusterMetadata.store.secret.name       |             | <code>ace-cluster-info</code>                |
-| clusterMetadata.store.secret.namespace  |             | <code>kubeops</code>                         |
+| secret.name                             |             | <code>ace-cluster-info</code>                |
+| secret.namespace                        |             | <code>kubeops</code>                         |
 | hub.apiServer                           |             | <code>""</code>                              |
 | hub.caData                              |             | <code>""</code>                              |
 | hub.token                               |             | <code>""</code>                              |

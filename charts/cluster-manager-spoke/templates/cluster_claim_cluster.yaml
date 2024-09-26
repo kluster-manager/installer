@@ -1,4 +1,4 @@
-{{ if or .Values.clusterMetadata.store.secret.name .Values.clusterMetadata.store.clusterClaim.name }}
+{{ if or .Values.secret.name .Values.clusterMetadata.store.clusterClaim.name }}
 
 apiVersion: batch/v1
 kind: Job
@@ -8,7 +8,7 @@ metadata:
   annotations:
     "helm.sh/hook": post-install,post-upgrade,post-rollback
 spec:
-  ttlSecondsAfterFinished: 0
+  # ttlSecondsAfterFinished: 0
   backoffLimit: 3
   template:
     spec:
@@ -23,8 +23,9 @@ spec:
           - get
           - cluster-info
           - --cluster-name={{ .Values.clusterMetadata.name }}
-          {{ if .Values.clusterMetadata.store.secret.name }}
-          - --store-in-configmap={{ default .Release.Namespace .Values.clusterMetadata.store.secret.namespace }}/{{ .Values.clusterMetadata.store.secret.name }}
+          {{ if .Values.secret.name }}
+          - --store-in-configmap={{ default .Release.Namespace .Values.secret.namespace }}/{{ .Values.secret.name }}
+          - --create-namespace
           {{ end }}
           {{ with .Values.clusterMetadata.store.clusterClaim.name }}
           - --store-in-clusterclaim={{ . }}
