@@ -40,6 +40,13 @@ properties:
     - name
     - store
     type: object
+  clusteradm:
+    properties:
+      image:
+        type: string
+    required:
+    - image
+    type: object
   hub:
     properties:
       apiServer:
@@ -87,4 +94,5 @@ properties:
     type: array
 required:
 - clusterMetadata
+- clusteradm
 type: object

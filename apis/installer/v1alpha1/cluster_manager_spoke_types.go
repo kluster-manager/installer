@@ -67,6 +67,8 @@ type ClusterManagerSpokeSpec struct {
 	// Features is the slice of feature for work
 	// +optional
 	WorkFeatures []FeatureGate `json:"workFeatures"`
+
+	Clusteradm DockerImage `json:"clusteradm"`
 }
 
 type KubectlSpec struct {

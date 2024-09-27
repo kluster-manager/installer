@@ -17,6 +17,9 @@ hub:
 
 registry: quay.io/open-cluster-management
 
+clusteradm:
+  image: ghcr.io/kluster-manager/clusteradm
+
 bundleVersion:
   registrationImageVersion: ""
   placementImageVersion: ""

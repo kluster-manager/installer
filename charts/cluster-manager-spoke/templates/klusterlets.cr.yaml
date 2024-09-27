@@ -63,7 +63,7 @@ spec:
       automountServiceAccountToken: true
       containers:
       - name: clusteradm
-        image: ghcr.io/kluster-manager/clusteradm:{{ default .Chart.AppVersion .Values.bundleVersion.clusteradmImageVersion }}
+        image: {{ .Values.clusteradm.image }}:{{ default .Chart.AppVersion .Values.bundleVersion.clusteradmImageVersion }}
         imagePullPolicy: Always
         args:
           - /clusteradm
