@@ -2,5 +2,5 @@ apiVersion: v2
 name: cluster-gateway
 description: A Helm chart for Cluster-Gateway
 type: application
-version: v2024.7.10
+version: v2024.9.30
 appVersion: v1.9.0
