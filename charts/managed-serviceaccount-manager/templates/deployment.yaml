@@ -52,12 +52,25 @@ spec:
                   fieldPath: metadata.namespace
             - name: NAMESPACE
               value: {{ include "managed-serviceaccount-manager.namespace" . }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 65534
+            seccompProfile:
+              type: RuntimeDefault
           volumeMounts:
+            - mountPath: /tmp
+              name: tmp-dir
           {{- if .Values.kubeconfigSecretName }}
             - mountPath: /var/run/secrets/ocm/auth
               name: ocm-auth
           {{- end }}
       volumes:
+        - name: tmp-dir
+          emptyDir: {}
         {{- if .Values.kubeconfigSecretName }}
         - name: ocm-auth
           secret:

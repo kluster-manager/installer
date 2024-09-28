@@ -30,5 +30,15 @@ spec:
           {{- with .Values.clusterMetadata.store.clusterClaim.name }}
           - --store-in-clusterclaim={{ . }}
           {{- end }}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          seccompProfile:
+            type: RuntimeDefault
       restartPolicy: Never
 {{ end }}
