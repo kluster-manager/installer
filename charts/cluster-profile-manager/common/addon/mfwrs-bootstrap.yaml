@@ -42,7 +42,7 @@ spec:
               {{- dict "hubUID" ._hubUID "platform" .Values.platform | toYaml | nindent 14 }}
             catalog-manager.yaml: |
               {{- dict "platform" (dict "baseURL" .Values.platform.baseURL "caBundle" .Values.platform.caBundle) | toYaml | nindent 14 }}
-            ace-ocm-addons.yaml: |
+            cluster-profile-manager.yaml: |
               {{- dict "platform" .Values.platform | toYaml | nindent 14 }}
 
         - apiVersion: rbac.authorization.k8s.io/v1
