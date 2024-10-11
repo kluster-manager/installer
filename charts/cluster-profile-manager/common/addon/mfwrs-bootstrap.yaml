@@ -94,7 +94,7 @@ spec:
             {{- end }}
 
             {{- if $.Values.registry.certs }}
-            secretRef:
+            certSecretRef:
               name: {{ include "cluster-profile-manager.fullname" $ }}-helmcert
             {{- end }}
         {{- end }}
