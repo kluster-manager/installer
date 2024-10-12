@@ -53,6 +53,8 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           volumeMounts:
+            - name: tmp
+              mountPath: /tmp
             - mountPath: /var/run/secrets/ace
               name: opscfv
           {{- if .Values.kubeconfigSecretName }}
@@ -60,6 +62,8 @@ spec:
               name: ocm-auth
           {{- end }}
       volumes:
+        - name: tmp
+          emptyDir: {}
         - name: opscfv
           secret:
             secretName: cluster-profile-manager-opscfv
