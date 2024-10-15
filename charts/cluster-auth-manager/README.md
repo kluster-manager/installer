@@ -57,7 +57,7 @@ The following table lists the configurable parameters of the `cluster-auth-manag
 | addonManagerNamespace |                                                                     | <code>open-cluster-management-cluster-auth</code>  |
 | placement.create      |                                                                     | <code>true</code>                                  |
 | placement.name        |                                                                     | <code>global</code>                                |
-| kubectl.image         |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
+| kubectl.image         |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

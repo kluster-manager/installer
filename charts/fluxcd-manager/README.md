@@ -55,7 +55,7 @@ The following table lists the configurable parameters of the `fluxcd-manager` ch
 | addonManagerNamespace                         |             | <code>open-cluster-management-fluxcd</code>             |
 | placement.create                              |             | <code>true</code>                                       |
 | placement.name                                |             | <code>global</code>                                     |
-| kubectl.image                                 |             | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code>      |
+| kubectl.image                                 |             | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>      |
 | fluxcdConfig.installCRDs                      |             | <code>true</code>                                       |
 | fluxcdConfig.cli.image                        |             | <code>ghcr.io/appscode/flux-cli</code>                  |
 | fluxcdConfig.helmController.create            |             | <code>true</code>                                       |

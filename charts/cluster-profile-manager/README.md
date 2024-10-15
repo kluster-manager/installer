@@ -56,7 +56,7 @@ The following table lists the configurable parameters of the `cluster-profile-ma
 | addonManagerNamespace                     |                                                                                | <code>open-cluster-management-addon</code>           |
 | placement.create                          |                                                                                | <code>true</code>                                    |
 | placement.name                            |                                                                                | <code>global</code>                                  |
-| kubectl.image                             |                                                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code>   |
+| kubectl.image                             |                                                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>   |
 | registryFQDN                              | ace values Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                                 |
 | offlineInstaller                          |                                                                                | <code>false</code>                                   |
 | image.proxies.appscode                    | r.appscode.com                                                                 | <code>r.appscode.com</code>                          |

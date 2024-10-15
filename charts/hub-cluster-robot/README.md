@@ -51,7 +51,7 @@ The following table lists the configurable parameters of the `hub-cluster-robot`
 | fullnameOverride      |             | <code>""</code>                                    |
 | kubeconfigSecretName  |             | <code>""</code>                                    |
 | addonManagerNamespace |             | <code>open-cluster-management</code>               |
-| kubectl.image         |             | <code>ghcr.io/appscode/kubectl-nonroot:1.25</code> |
+| kubectl.image         |             | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code> |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

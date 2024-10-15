@@ -5,4 +5,4 @@ kubeconfigSecretName: ""
 addonManagerNamespace: open-cluster-management
 
 kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.25
+  image: ghcr.io/appscode/kubectl-nonroot:1.31
