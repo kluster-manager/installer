@@ -7,7 +7,7 @@ toolchain go1.23.1
 require (
 	k8s.io/api v0.30.2
 	k8s.io/apimachinery v0.30.2
-	kmodules.xyz/resource-metadata v0.19.0
+	kmodules.xyz/resource-metadata v0.20.0
 	kmodules.xyz/schema-checker v0.4.1
 )
 
@@ -92,7 +92,7 @@ require (
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20240703190633-0aa61b46e8c2 // indirect
 	k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0 // indirect
-	kmodules.xyz/client-go v0.30.19 // indirect
+	kmodules.xyz/client-go v0.30.31 // indirect
 	kmodules.xyz/go-containerregistry v0.0.12 // indirect
 	sigs.k8s.io/controller-runtime v0.18.4 // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect

@@ -45,20 +45,21 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `managed-serviceaccount-manager` chart and their default values.
 
-|           Parameter            |                  Description                   |                           Default                           |
-|--------------------------------|------------------------------------------------|-------------------------------------------------------------|
-| nameOverride                   |                                                | <code>""</code>                                             |
-| fullnameOverride               |                                                | <code>""</code>                                             |
-| image                          | Image of the managed service-account instances | <code>ghcr.io/kluster-manager/managed-serviceaccount</code> |
-| tag                            |                                                | <code>""</code>                                             |
-| replicas                       | Number of replicas                             | <code>1</code>                                              |
-| featureGates.ephemeralIdentity |                                                | <code>false</code>                                          |
-| agentImagePullSecret           |                                                | <code>""</code>                                             |
-| kubeconfigSecretName           | required for multicluster controlplane         | <code>""</code>                                             |
-| addonManagerNamespace          |                                                | <code>open-cluster-management-managed-serviceaccount</code> |
-| placement.create               |                                                | <code>true</code>                                           |
-| placement.name                 |                                                | <code>global</code>                                         |
-| kubectl.image                  |                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>          |
+|           Parameter            |                  Description                   |                                                                                            Default                                                                                             |
+|--------------------------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nameOverride                   |                                                | <code>""</code>                                                                                                                                                                                |
+| fullnameOverride               |                                                | <code>""</code>                                                                                                                                                                                |
+| image                          | Image of the managed service-account instances | <code>ghcr.io/kluster-manager/managed-serviceaccount</code>                                                                                                                                    |
+| tag                            |                                                | <code>""</code>                                                                                                                                                                                |
+| replicas                       | Number of replicas                             | <code>1</code>                                                                                                                                                                                 |
+| securityContext                |                                                | <code>{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsNonRoot":true,"runAsUser":65534,"seccompProfile":{"type":"RuntimeDefault"}}</code> |
+| featureGates.ephemeralIdentity |                                                | <code>false</code>                                                                                                                                                                             |
+| agentImagePullSecret           |                                                | <code>""</code>                                                                                                                                                                                |
+| kubeconfigSecretName           | required for multicluster controlplane         | <code>""</code>                                                                                                                                                                                |
+| addonManagerNamespace          |                                                | <code>open-cluster-management-managed-serviceaccount</code>                                                                                                                                    |
+| placement.create               |                                                | <code>true</code>                                                                                                                                                                              |
+| placement.name                 |                                                | <code>global</code>                                                                                                                                                                            |
+| kubectl.image                  |                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>                                                                                                                                             |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

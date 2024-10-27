@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -52,6 +53,9 @@ type ClusterAuthManagerSpec struct {
 	// +optional
 	Tag             string `json:"tag"`
 	ImagePullPolicy string `json:"imagePullPolicy"`
+	// Security options the pod should run with.
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
 	// +optional
 	KubeconfigSecretName string `json:"kubeconfigSecretName"`
 	// +optional

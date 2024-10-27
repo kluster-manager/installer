@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -82,6 +83,9 @@ type HubInfo struct {
 	// Registry is the name of the image registry to pull.
 	// +optional
 	Registry string `json:"registry"`
+	// Security options the pod should run with.
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
 }
 
 type HubBundleVersion struct {

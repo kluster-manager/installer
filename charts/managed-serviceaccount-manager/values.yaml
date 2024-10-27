@@ -8,6 +8,16 @@ tag: ""
 # Number of replicas
 replicas: 1
 
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 65534
+  seccompProfile:
+    type: RuntimeDefault
+
 featureGates:
   ephemeralIdentity: false
 

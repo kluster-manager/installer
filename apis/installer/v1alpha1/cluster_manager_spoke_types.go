@@ -53,6 +53,9 @@ type ClusterManagerSpokeSpec struct {
 	// Registry is the image registry related configuration
 	// +optional
 	Registry string `json:"registry"`
+	// Security options the pod should run with.
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
 	// bundle version
 	// +optional
 	BundleVersion SpokeBundleVersion `json:"bundleVersion"`
@@ -68,7 +71,14 @@ type ClusterManagerSpokeSpec struct {
 	// +optional
 	WorkFeatures []FeatureGate `json:"workFeatures"`
 
-	Clusteradm DockerImage `json:"clusteradm"`
+	Clusteradm ClusteradmSpec `json:"clusteradm"`
+}
+
+type ClusteradmSpec struct {
+	Image string `json:"image"`
+	// Security options the pod should run with.
+	// +optional
+	SecurityContext *core.SecurityContext `json:"securityContext"`
 }
 
 type KubectlSpec struct {

@@ -53,14 +53,7 @@ spec:
             - name: NAMESPACE
               value: {{ include "managed-serviceaccount-manager.namespace" . }}
           securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop: ["ALL"]
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 65534
-            seccompProfile:
-              type: RuntimeDefault
+            {{- toYaml .Values.securityContext | nindent 12 }}
           volumeMounts:
             - mountPath: /tmp
               name: tmp-dir

@@ -45,31 +45,32 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `fluxcd-manager` chart and their default values.
 
-|                   Parameter                   | Description |                         Default                         |
-|-----------------------------------------------|-------------|---------------------------------------------------------|
-| nameOverride                                  |             | <code>""</code>                                         |
-| fullnameOverride                              |             | <code>""</code>                                         |
-| image                                         |             | <code>ghcr.io/kluster-manager/fluxcd-addon</code>       |
-| tag                                           |             | <code></code>                                           |
-| kubeconfigSecretName                          |             | <code>""</code>                                         |
-| addonManagerNamespace                         |             | <code>open-cluster-management-fluxcd</code>             |
-| placement.create                              |             | <code>true</code>                                       |
-| placement.name                                |             | <code>global</code>                                     |
-| kubectl.image                                 |             | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>      |
-| fluxcdConfig.installCRDs                      |             | <code>true</code>                                       |
-| fluxcdConfig.cli.image                        |             | <code>ghcr.io/appscode/flux-cli</code>                  |
-| fluxcdConfig.helmController.create            |             | <code>true</code>                                       |
-| fluxcdConfig.helmController.image             |             | <code>ghcr.io/fluxcd/helm-controller</code>             |
-| fluxcdConfig.imageAutomationController.create |             | <code>false</code>                                      |
-| fluxcdConfig.imageAutomationController.image  |             | <code>ghcr.io/fluxcd/image-automation-controller</code> |
-| fluxcdConfig.imageReflectionController.create |             | <code>false</code>                                      |
-| fluxcdConfig.imageReflectionController.image  |             | <code>ghcr.io/fluxcd/image-reflector-controller</code>  |
-| fluxcdConfig.kustomizeController.create       |             | <code>true</code>                                       |
-| fluxcdConfig.kustomizeController.image        |             | <code>ghcr.io/fluxcd/kustomize-controller</code>        |
-| fluxcdConfig.notificationController.create    |             | <code>true</code>                                       |
-| fluxcdConfig.notificationController.image     |             | <code>ghcr.io/fluxcd/notification-controller</code>     |
-| fluxcdConfig.sourceController.create          |             | <code>true</code>                                       |
-| fluxcdConfig.sourceController.image           |             | <code>ghcr.io/fluxcd/source-controller</code>           |
+|                   Parameter                   | Description |                                                                                             Default                                                                                             |
+|-----------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nameOverride                                  |             | <code>""</code>                                                                                                                                                                                 |
+| fullnameOverride                              |             | <code>""</code>                                                                                                                                                                                 |
+| image                                         |             | <code>ghcr.io/kluster-manager/fluxcd-addon</code>                                                                                                                                               |
+| tag                                           |             | <code></code>                                                                                                                                                                                   |
+| securityContext                               |             | <code>{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}}</code> |
+| kubeconfigSecretName                          |             | <code>""</code>                                                                                                                                                                                 |
+| addonManagerNamespace                         |             | <code>open-cluster-management-fluxcd</code>                                                                                                                                                     |
+| placement.create                              |             | <code>true</code>                                                                                                                                                                               |
+| placement.name                                |             | <code>global</code>                                                                                                                                                                             |
+| kubectl.image                                 |             | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>                                                                                                                                              |
+| fluxcdConfig.installCRDs                      |             | <code>true</code>                                                                                                                                                                               |
+| fluxcdConfig.cli.image                        |             | <code>ghcr.io/appscode/flux-cli</code>                                                                                                                                                          |
+| fluxcdConfig.helmController.create            |             | <code>true</code>                                                                                                                                                                               |
+| fluxcdConfig.helmController.image             |             | <code>ghcr.io/fluxcd/helm-controller</code>                                                                                                                                                     |
+| fluxcdConfig.imageAutomationController.create |             | <code>false</code>                                                                                                                                                                              |
+| fluxcdConfig.imageAutomationController.image  |             | <code>ghcr.io/fluxcd/image-automation-controller</code>                                                                                                                                         |
+| fluxcdConfig.imageReflectionController.create |             | <code>false</code>                                                                                                                                                                              |
+| fluxcdConfig.imageReflectionController.image  |             | <code>ghcr.io/fluxcd/image-reflector-controller</code>                                                                                                                                          |
+| fluxcdConfig.kustomizeController.create       |             | <code>true</code>                                                                                                                                                                               |
+| fluxcdConfig.kustomizeController.image        |             | <code>ghcr.io/fluxcd/kustomize-controller</code>                                                                                                                                                |
+| fluxcdConfig.notificationController.create    |             | <code>true</code>                                                                                                                                                                               |
+| fluxcdConfig.notificationController.image     |             | <code>ghcr.io/fluxcd/notification-controller</code>                                                                                                                                             |
+| fluxcdConfig.sourceController.create          |             | <code>true</code>                                                                                                                                                                               |
+| fluxcdConfig.sourceController.image           |             | <code>ghcr.io/fluxcd/source-controller</code>                                                                                                                                                   |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -17,8 +17,28 @@ hub:
 
 registry: quay.io/open-cluster-management
 
+securityContext: # +doc-gen:break
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  privileged: false
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
 clusteradm:
   image: ghcr.io/kluster-manager/clusteradm
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    privileged: false
+    runAsNonRoot: true
+    readOnlyRootFilesystem: true
+    seccompProfile:
+      type: RuntimeDefault
 
 bundleVersion:
   registrationImageVersion: ""

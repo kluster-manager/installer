@@ -62,12 +62,5 @@ spec:
             cpu: 100m
             memory: 128Mi
         securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          privileged: false
-          runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
+          {{- toYaml .Values.hub.securityContext | nindent 10 }}
       serviceAccountName: cluster-manager

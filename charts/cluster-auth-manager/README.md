@@ -45,19 +45,20 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `cluster-auth-manager` chart and their default values.
 
-|       Parameter       |                             Description                             |                      Default                       |
-|-----------------------|---------------------------------------------------------------------|----------------------------------------------------|
-| nameOverride          |                                                                     | <code>""</code>                                    |
-| fullnameOverride      |                                                                     | <code>""</code>                                    |
-| registryFQDN          | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                               |
-| image                 |                                                                     | <code>ghcr.io/kluster-manager/cluster-auth</code>  |
-| tag                   |                                                                     | <code>""</code>                                    |
-| imagePullPolicy       |                                                                     | <code>Always</code>                                |
-| kubeconfigSecretName  |                                                                     | <code>""</code>                                    |
-| addonManagerNamespace |                                                                     | <code>open-cluster-management-cluster-auth</code>  |
-| placement.create      |                                                                     | <code>true</code>                                  |
-| placement.name        |                                                                     | <code>global</code>                                |
-| kubectl.image         |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code> |
+|       Parameter       |                             Description                             |                                                                                             Default                                                                                             |
+|-----------------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nameOverride          |                                                                     | <code>""</code>                                                                                                                                                                                 |
+| fullnameOverride      |                                                                     | <code>""</code>                                                                                                                                                                                 |
+| registryFQDN          | Docker registry fqdn used to pull license-proxyserver docker images | <code>ghcr.io</code>                                                                                                                                                                            |
+| image                 |                                                                     | <code>ghcr.io/kluster-manager/cluster-auth</code>                                                                                                                                               |
+| tag                   |                                                                     | <code>""</code>                                                                                                                                                                                 |
+| imagePullPolicy       |                                                                     | <code>Always</code>                                                                                                                                                                             |
+| securityContext       |                                                                     | <code>{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}}</code> |
+| kubeconfigSecretName  |                                                                     | <code>""</code>                                                                                                                                                                                 |
+| addonManagerNamespace |                                                                     | <code>open-cluster-management-cluster-auth</code>                                                                                                                                               |
+| placement.create      |                                                                     | <code>true</code>                                                                                                                                                                               |
+| placement.name        |                                                                     | <code>global</code>                                                                                                                                                                             |
+| kubectl.image         |                                                                     | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>                                                                                                                                              |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

@@ -45,19 +45,20 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `cluster-proxy-manager` chart and their default values.
 
-|             Parameter              |              Description               |                      Default                       |
-|------------------------------------|----------------------------------------|----------------------------------------------------|
-| registry                           | Image registry                         | <code>ghcr.io/kluster-manager</code>               |
-| image                              | Image of the cluster-gateway instances | <code>cluster-proxy</code>                         |
-| tag                                | Image tag                              | <code>""</code>                                    |
-| replicas                           | Number of replicas                     | <code>1</code>                                     |
-| proxyServerImage                   |                                        | <code>ghcr.io/kluster-manager/cluster-proxy</code> |
-| proxyAgentImage                    |                                        | <code>ghcr.io/kluster-manager/cluster-proxy</code> |
-| proxyServer.entrypointLoadBalancer |                                        | <code>false</code>                                 |
-| proxyServer.entrypointAddress      |                                        | <code>""</code>                                    |
-| proxyServer.port                   |                                        | <code>8091</code>                                  |
-| kubeconfigSecretName               | required for multicluster controlplane | <code>""</code>                                    |
-| kubectl.image                      |                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code> |
+|             Parameter              |              Description               |                                                                                             Default                                                                                             |
+|------------------------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| registry                           | Image registry                         | <code>ghcr.io/kluster-manager</code>                                                                                                                                                            |
+| image                              | Image of the cluster-gateway instances | <code>cluster-proxy</code>                                                                                                                                                                      |
+| tag                                | Image tag                              | <code>""</code>                                                                                                                                                                                 |
+| replicas                           | Number of replicas                     | <code>1</code>                                                                                                                                                                                  |
+| securityContext                    |                                        | <code>{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}}</code> |
+| proxyServerImage                   |                                        | <code>ghcr.io/kluster-manager/cluster-proxy</code>                                                                                                                                              |
+| proxyAgentImage                    |                                        | <code>ghcr.io/kluster-manager/cluster-proxy</code>                                                                                                                                              |
+| proxyServer.entrypointLoadBalancer |                                        | <code>false</code>                                                                                                                                                                              |
+| proxyServer.entrypointAddress      |                                        | <code>""</code>                                                                                                                                                                                 |
+| proxyServer.port                   |                                        | <code>8091</code>                                                                                                                                                                               |
+| kubeconfigSecretName               | required for multicluster controlplane | <code>""</code>                                                                                                                                                                                 |
+| kubectl.image                      |                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>                                                                                                                                              |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

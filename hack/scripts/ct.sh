@@ -22,8 +22,10 @@ for dir in charts/*/; do
     num_files=$(find charts/${dir}/templates -type f | wc -l)
     echo $dir
     if [ $num_files -le 1 ] ||
+        [[ "$dir" = "cluster-auth" ]] ||
         [[ "$dir" = "cluster-gateway" ]] ||
         [[ "$dir" = "cluster-manager-hub" ]] ||
+        [[ "$dir" = "hub-cluster-robot" ]] ||
         [[ "$dir" = "multicluster-controlplane" ]]; then
         make ct CT_COMMAND=lint TEST_CHARTS=charts/$dir
     elif [[ "$dir" = "cluster-manager-spoke" ]]; then

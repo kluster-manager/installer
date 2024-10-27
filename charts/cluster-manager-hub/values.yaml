@@ -5,6 +5,15 @@ hub:
   # randAlpha 16
   tokenSecret: ""
   registry: quay.io/open-cluster-management
+  securityContext: # +doc-gen:break
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    privileged: false
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
 
 bundleVersion:
   registrationImageVersion: ""
