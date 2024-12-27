@@ -26,7 +26,8 @@ spec:
           image: {{ .Values.image }}:{{ default .Chart.AppVersion .Values.tag }}
           imagePullPolicy: Always
           command:
-            - /manager
+            - /msa
+            - manager
           args:
             {{- if gt (int .Values.replicas) 1 }}
             - --leader-elect=true
