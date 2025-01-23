@@ -21,12 +21,12 @@ import (
 )
 
 const (
-	ResourceKindHubManagerRobot = "HubManagerRobot"
-	ResourceHubManagerRobot     = "hubmanagerrobot"
-	ResourceHubManagerRobots    = "hubmanagerrobots"
+	ResourceKindHubClusterRobot = "HubClusterRobot"
+	ResourceHubClusterRobot     = "hubclusterrobot"
+	ResourceHubClusterRobots    = "hubclusterrobots"
 )
 
-// HubManagerRobot defines the schama for HubManagerRobot.
+// HubClusterRobot defines the schama for HubClusterRobot.
 
 // +genclient
 // +genclient:skipVerbs=updateStatus
@@ -34,15 +34,15 @@ const (
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:path=hubmanagerrobots,singular=hubmanagerrobot,categories={kubeops,appscode}
-type HubManagerRobot struct {
+// +kubebuilder:resource:path=hubclusterrobots,singular=hubclusterrobot,categories={kubeops,appscode}
+type HubClusterRobot struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              HubManagerRobotSpec `json:"spec,omitempty"`
+	Spec              HubClusterRobotSpec `json:"spec,omitempty"`
 }
 
-// HubManagerRobotSpec is the schema for Identity Server values file
-type HubManagerRobotSpec struct {
+// HubClusterRobotSpec is the schema for Identity Server values file
+type HubClusterRobotSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
@@ -56,10 +56,10 @@ type HubManagerRobotSpec struct {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-// HubManagerRobotList is a list of HubManagerRobots
-type HubManagerRobotList struct {
+// HubClusterRobotList is a list of HubClusterRobots
+type HubClusterRobotList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of HubManagerRobot CRD objects
-	Items []HubManagerRobot `json:"items,omitempty"`
+	// Items is a list of HubClusterRobot CRD objects
+	Items []HubClusterRobot `json:"items,omitempty"`
 }
