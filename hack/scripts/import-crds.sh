@@ -15,7 +15,7 @@
 # limitations under the License.
 
 KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-v0.0.5}
-KLUSTER_MANAGER_CLUSTER_PROFILE_TAG=${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG:-v0.3.0}
+KLUSTER_MANAGER_CLUSTER_PROFILE_TAG=${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG:-v0.5.0}
 KLUSTER_MANAGER_FLUXCD_ADDON_TAG=${KLUSTER_MANAGER_FLUXCD_ADDON_TAG:-v0.0.5}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v0.15.0}
 PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.75.1}
@@ -63,8 +63,8 @@ crd-importer \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
-    --input=https://github.com/kluster-manager/cluster-proxy/raw/main/hack/crd/bases/proxy.open-cluster-management.io_managedproxyconfigurations.yaml \
-    --input=https://github.com/kluster-manager/cluster-proxy/raw/main/hack/crd/bases/proxy.open-cluster-management.io_managedproxyserviceresolvers.yaml \
+    --input=https://github.com/kluster-manager/cluster-proxy/raw/${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG}/hack/crd/bases/proxy.open-cluster-management.io_managedproxyconfigurations.yaml \
+    --input=https://github.com/kluster-manager/cluster-proxy/raw/${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG}/hack/crd/bases/proxy.open-cluster-management.io_managedproxyserviceresolvers.yaml \
     --out=./charts/cluster-proxy-manager/crds
 
 crd-importer \
