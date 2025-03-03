@@ -15,6 +15,9 @@ spec:
     - jsonPath: .status.phase
       name: Status
       type: string
+    - jsonPath: .status.currentOpscenterFeaturesVersion
+      name: Current Version
+      type: string
     - jsonPath: .metadata.creationTimestamp
       name: Age
       type: date
@@ -131,6 +134,8 @@ spec:
                       type: array
                   type: object
                 type: object
+              opscenterFeaturesVersion:
+                type: string
               profileRef:
                 properties:
                   name:
@@ -169,6 +174,8 @@ spec:
                   - type
                   type: object
                 type: array
+              currentOpscenterFeaturesVersion:
+                type: string
               manifestWorks:
                 additionalProperties:
                   type: string

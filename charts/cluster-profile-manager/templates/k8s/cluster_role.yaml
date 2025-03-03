@@ -29,5 +29,8 @@ rules:
   - apiGroups: [ "ui.k8s.appscode.com" ]
     resources: [ "features", "featuresets" ]
     verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "" ]
+    resources: [ "configmaps" ]
+    verbs: [ "*" ]
 
 {{- end }}
