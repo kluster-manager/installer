@@ -2,8 +2,8 @@ apiVersion: v2
 name: fluxcd-manager
 description: Installs FluxCD in managed clusters
 type: application
-version: v2025.3.14
-appVersion: v0.0.6
+version: v2025.4.30
+appVersion: v0.0.7
 home: https://open-cluster-management.io
 sources:
 - https://github.com/kluster-manager/installer

@@ -2,8 +2,8 @@ apiVersion: v2
 name: cluster-manager-spoke
 description: A Helm chart to join a spoke cluster to Open Cluster Manager Hub
 type: application
-version: v2024.12.26
-appVersion: v0.15.2
+version: v2025.4.30
+appVersion: v0.16.0
 home: https://open-cluster-management.io
 sources:
 - https://github.com/kluster-manager/installer

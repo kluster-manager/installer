@@ -174,9 +174,6 @@ spec:
                   - type
                   type: object
                 type: array
-              lastUpgradeAt:
-                format: date-time
-                type: string
               observedGeneration:
                 format: int64
                 type: integer

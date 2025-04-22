@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/cluster-auth-manager --version=v2024.12.26
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.12.26
+$ helm search repo appscode/cluster-auth-manager --version=v2025.4.30
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2025.4.30
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys an Cluster Auth Manager on a [Kubernetes](http://kubernetes.i
 To install/upgrade the chart with the release name `cluster-auth-manager`:
 
 ```bash
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.12.26
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2025.4.30
 ```
 
 The command deploys an Cluster Auth Manager on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -64,12 +64,12 @@ The following table lists the configurable parameters of the `cluster-auth-manag
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.12.26 --set registryFQDN=ghcr.io
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2025.4.30 --set registryFQDN=ghcr.io
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2024.12.26 --values values.yaml
+$ helm upgrade -i cluster-auth-manager appscode/cluster-auth-manager -n open-cluster-management-addon --create-namespace --version=v2025.4.30 --values values.yaml
 ```
