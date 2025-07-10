@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/cluster-manager-spoke --version=v2025.4.30
-$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.4.30
+$ helm search repo appscode/cluster-manager-spoke --version=v2025.7.16
+$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.7.16
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Cluster Manager Spoke on a [Kubernetes](http://kubernetes.i
 To install/upgrade the chart with the release name `cluster-manager-spoke`:
 
 ```bash
-$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.4.30
+$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.7.16
 ```
 
 The command deploys a Cluster Manager Spoke on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -72,12 +72,12 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.4.30 --set clusterMetadata.name=TBD
+$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.7.16 --set clusterMetadata.name=TBD
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.4.30 --values values.yaml
+$ helm upgrade -i cluster-manager-spoke appscode/cluster-manager-spoke -n open-cluster-management --create-namespace --version=v2025.7.16 --values values.yaml
 ```
