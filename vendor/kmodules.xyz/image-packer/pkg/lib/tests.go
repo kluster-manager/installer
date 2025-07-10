@@ -55,20 +55,25 @@ func CheckImageExists(files []string) error {
 
 var desiredArchs = sets.New("amd64", "arm64")
 
-func CheckImageArchitectures(files []string, archSkipList []string) error {
+func CheckImageArchitectures(files []string, archSkipList, ignoreMissingList []string) error {
 	archSkipSet := sets.NewString(archSkipList...)
+	ignoreMissingSet := sets.NewString(ignoreMissingList...)
 
 	images, err := LoadImageList(files)
 	if err != nil {
 		return err
 	}
 
-	var missing []string
+	var missing, ignored []string
 	missingArchs := map[string][]string{}
 	for _, img := range images {
 		obj, found, err := ImageManifest(img)
 		if err != nil || !found {
-			missing = append(missing, img)
+			if ignoreMissingSet.Has(img) {
+				ignored = append(ignored, img)
+			} else {
+				missing = append(missing, img)
+			}
 			continue
 		}
 		switch mf := obj.(type) {
@@ -101,13 +106,21 @@ func CheckImageArchitectures(files []string, archSkipList []string) error {
 		fail = true
 	}
 
+	if len(ignored) > 0 {
+		fmt.Println("----------------------------------------")
+		fmt.Println("Missing Images [ignored]:")
+		fmt.Println(strings.Join(ignored, "\n"))
+	}
+
 	if len(missingArchs) > 0 {
 		fmt.Println("----------------------------------------")
 		fmt.Println("Missing Architectures:")
 		for img, archs := range missingArchs {
-			fmt.Printf("%s %v\n", img, archs)
 			if !archSkipSet.Has(img) {
+				fmt.Printf("X %s %v\n", img, archs)
 				fail = true
+			} else {
+				fmt.Printf("[skipped] %s %v\n", img, archs)
 			}
 		}
 	}
