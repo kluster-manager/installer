@@ -2,8 +2,8 @@ apiVersion: v2
 name: cluster-manager-hub
 description: A Helm chart for Open Cluster Manager Hub
 type: application
-version: v2025.4.30
-appVersion: v0.16.0
+version: v2025.7.16
+appVersion: v1.0.0
 home: https://open-cluster-management.io
 sources:
 - https://github.com/kluster-manager/installer
