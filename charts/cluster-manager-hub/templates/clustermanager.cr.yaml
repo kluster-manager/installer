@@ -12,6 +12,12 @@ spec:
     mode: Default
   {{if .Values.registrationFeatures}}
   registrationConfiguration:
+    {{if .Values.hub.hubClusterArn}}
+    registrationDrivers:
+      - authType: "awsirsa"
+        awsirsa:
+          hubClusterArn: {{ .Values.hub.hubClusterArn }}
+    {{end}}
     {{if .Values.autoApprove}}
     autoApproveUsers:
     - system:bootstrap:bootstrap-token-{{ .Values.hub.tokenID }}

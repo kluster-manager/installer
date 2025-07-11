@@ -15,6 +15,10 @@ hub:
   token: ""
   kubeConfig: ""
 
+awsIrsa:
+  hubClusterArn: ""
+  managedClusterArn: ""
+
 registry: quay.io/open-cluster-management
 
 securityContext: # +doc-gen:break

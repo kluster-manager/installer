@@ -1,4 +1,11 @@
 properties:
+  awsIrsa:
+    properties:
+      hubClusterArn:
+        type: string
+      managedClusterArn:
+        type: string
+    type: object
   bundleVersion:
     properties:
       clusteradmImageVersion:
