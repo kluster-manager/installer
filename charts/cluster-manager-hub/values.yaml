@@ -4,6 +4,7 @@ hub:
   tokenID: ""
   # randAlpha 16
   tokenSecret: ""
+  hubClusterArn: ""
   registry: quay.io/open-cluster-management
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
