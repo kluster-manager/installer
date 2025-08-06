@@ -51,4 +51,6 @@ managedKubeconfig: ''
 
 registrationFeatures: []
 
-workFeatures: []
+workFeatures: # +doc-gen:break
+  - feature: RawFeedbackJsonString
+    mode: Enable
