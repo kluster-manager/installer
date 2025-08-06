@@ -66,7 +66,7 @@ The following table lists the configurable parameters of the `cluster-manager-sp
 | bundleVersion.clusteradmImageVersion    |                        | <code>"v1.0.0"</code>                                                                                                                                                                           |
 | managedKubeconfig                       |                        | <code>''</code>                                                                                                                                                                                 |
 | registrationFeatures                    |                        | <code>[]</code>                                                                                                                                                                                 |
-| workFeatures                            |                        | <code>[]</code>                                                                                                                                                                                 |
+| workFeatures                            |                        | <code>[{"feature":"RawFeedbackJsonString","mode":"Enable"}]</code>                                                                                                                              |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
