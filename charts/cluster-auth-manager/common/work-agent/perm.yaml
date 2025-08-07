@@ -5,7 +5,7 @@ metadata:
   namespace: {{ include "cluster-auth-manager.namespace" $ }}
 spec:
   placementRefs:
-    - name: global
+    - name: {{ .Values.placement.name }}
   manifestWorkTemplate:
     # deleteOption:
     #   propagationPolicy: SelectivelyOrphan
