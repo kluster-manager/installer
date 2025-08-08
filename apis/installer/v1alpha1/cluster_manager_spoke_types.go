@@ -50,6 +50,9 @@ type ClusterManagerSpokeSpec struct {
 	// +optional
 	Hub SpokeHub `json:"hub"`
 
+	// +optional
+	Aws AwsSpokeSpec `json:"aws"`
+
 	// Registry is the image registry related configuration
 	// +optional
 	Registry string `json:"registry"`
@@ -124,6 +127,14 @@ type SpokeHub struct {
 	// KubeConfig: The kubeconfig of the bootstrap secret to connect to the hub
 	// +optional
 	KubeConfig string `json:"kubeConfig"`
+}
+
+type AwsSpokeSpec struct {
+	// +optional
+	HubClusterArn string `json:"hubClusterArn"`
+
+	// +optional
+	ManagedClusterArn string `json:"managedClusterArn"`
 }
 
 type SpokeBundleVersion struct {

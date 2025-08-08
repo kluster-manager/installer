@@ -26,7 +26,7 @@ rules:
 # get pods and replicasets is for event creation
 - apiGroups: [""]
   resources: ["pods"]
-  verbs: ["get"]
+  verbs: ["get", "list", "watch"]
 - apiGroups: [ "apps" ]
   resources: [ "replicasets" ]
   verbs: [ "get" ]

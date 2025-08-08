@@ -15,6 +15,9 @@ hub:
     seccompProfile:
       type: RuntimeDefault
 
+aws:
+  hubClusterArn: ""
+
 bundleVersion:
   registrationImageVersion: ""
   placementImageVersion: ""

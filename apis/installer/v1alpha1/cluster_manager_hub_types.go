@@ -48,6 +48,9 @@ type ClusterManagerHubSpec struct {
 	// +optional
 	Hub HubInfo `json:"hub"`
 
+	// +optional
+	Aws AwsHubSpec `json:"aws"`
+
 	// bundle version
 	// +optional
 	BundleVersion HubBundleVersion `json:"bundleVersion"`
@@ -86,6 +89,11 @@ type HubInfo struct {
 	// Security options the pod should run with.
 	// +optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
+}
+
+type AwsHubSpec struct {
+	// +optional
+	HubClusterArn string `json:"hubClusterArn"`
 }
 
 type HubBundleVersion struct {

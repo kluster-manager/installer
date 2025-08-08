@@ -107,14 +107,24 @@ spec:
   externalServerURLs:
   - url: {{ $spokeServer }}
   {{- end }}
-  {{if .Values.registrationFeatures}}
   registrationConfiguration:
+    {{if and .Values.aws.hubClusterArn .Values.aws.managedClusterArn}}
+    registrationDriver:
+      authType: "awsirsa"
+      awsIrsa:
+        hubClusterArn: {{ .Values.aws.hubClusterArn }}
+        managedClusterArn: {{ .Values.aws.managedClusterArn }}
+    {{else}}
+    registrationDriver:
+      authType: "csr"
+    {{end}}
+    {{if .Values.registrationFeatures}}
     featureGates:
     {{range .Values.registrationFeatures }}
     - feature: {{ .feature }}
       mode: {{ .mode }}
     {{end}}
-  {{end}}
+    {{end}}
   {{if .Values.workFeatures}}
   workConfiguration:
     featureGates:
