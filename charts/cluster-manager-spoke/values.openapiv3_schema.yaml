@@ -1,5 +1,5 @@
 properties:
-  awsIrsa:
+  aws:
     properties:
       hubClusterArn:
         type: string

@@ -48,6 +48,9 @@ type ClusterManagerHubSpec struct {
 	// +optional
 	Hub HubInfo `json:"hub"`
 
+	// +optional
+	Aws AwsHubSpec `json:"aws"`
+
 	// bundle version
 	// +optional
 	BundleVersion HubBundleVersion `json:"bundleVersion"`
@@ -80,14 +83,17 @@ type HubInfo struct {
 	// TokenSecret: A token secret allowing the cluster to connect back to the hub
 	// +optional
 	TokenSecret string `json:"tokenSecret"`
-	// +optional
-	HubClusterArn string `json:"hubClusterArn"`
 	// Registry is the name of the image registry to pull.
 	// +optional
 	Registry string `json:"registry"`
 	// Security options the pod should run with.
 	// +optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
+}
+
+type AwsHubSpec struct {
+	// +optional
+	HubClusterArn string `json:"hubClusterArn"`
 }
 
 type HubBundleVersion struct {

@@ -108,12 +108,12 @@ spec:
   - url: {{ $spokeServer }}
   {{- end }}
   registrationConfiguration:
-    {{if and .Values.awsIrsa.hubClusterArn .Values.awsIrsa.managedClusterArn}}
+    {{if and .Values.aws.hubClusterArn .Values.aws.managedClusterArn}}
     registrationDriver:
       authType: "awsirsa"
       awsIrsa:
-        hubClusterArn: {{ .Values.awsIrsa.hubClusterArn }}
-        managedClusterArn: {{ .Values.awsIrsa.managedClusterArn }}
+        hubClusterArn: {{ .Values.aws.hubClusterArn }}
+        managedClusterArn: {{ .Values.aws.managedClusterArn }}
     {{else}}
     registrationDriver:
       authType: "csr"

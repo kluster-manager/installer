@@ -12,11 +12,11 @@ spec:
     mode: Default
   {{if .Values.registrationFeatures}}
   registrationConfiguration:
-    {{if .Values.hub.hubClusterArn}}
+    {{if .Values.aws.hubClusterArn}}
     registrationDrivers:
       - authType: "awsirsa"
         awsirsa:
-          hubClusterArn: {{ .Values.hub.hubClusterArn }}
+          hubClusterArn: {{ .Values.aws.hubClusterArn }}
     {{end}}
     {{if .Values.autoApprove}}
     autoApproveUsers:

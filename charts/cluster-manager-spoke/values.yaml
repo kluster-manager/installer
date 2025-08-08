@@ -15,7 +15,7 @@ hub:
   token: ""
   kubeConfig: ""
 
-awsIrsa:
+aws:
   hubClusterArn: ""
   managedClusterArn: ""
 

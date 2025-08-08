@@ -51,7 +51,7 @@ type ClusterManagerSpokeSpec struct {
 	Hub SpokeHub `json:"hub"`
 
 	// +optional
-	AwsIrsa AwsIrsa `json:"awsIrsa"`
+	Aws AwsSpokeSpec `json:"aws"`
 
 	// Registry is the image registry related configuration
 	// +optional
@@ -129,7 +129,7 @@ type SpokeHub struct {
 	KubeConfig string `json:"kubeConfig"`
 }
 
-type AwsIrsa struct {
+type AwsSpokeSpec struct {
 	// +optional
 	HubClusterArn string `json:"hubClusterArn"`
 
