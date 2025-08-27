@@ -17,6 +17,7 @@
 KLUSTER_MANAGER_CLUSTER_AUTH_TAG=${KLUSTER_MANAGER_CLUSTER_AUTH_TAG:-v0.4.0}
 KLUSTER_MANAGER_CLUSTER_PROFILE_TAG=${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG:-v0.9.0}
 KLUSTER_MANAGER_FLUXCD_ADDON_TAG=${KLUSTER_MANAGER_FLUXCD_ADDON_TAG:-v0.0.9}
+KUBESLICE_APIS_TAG=${KUBESLICE_APIS_TAG:-release-v2025.7.31}
 OPEN_CLUSTER_MANAGEMENT_IO_API_TAG=${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG:-v1.0.0}
 PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR=${PROMETHEUS_OPERATOR_PROMETHEUS_OPERATOR:-v0.81.0}
 
@@ -80,3 +81,8 @@ crd-importer \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --input=https://github.com/kluster-manager/managed-serviceaccount/raw/main/config/crd/bases/authentication.open-cluster-management.io_managedserviceaccounts.yaml \
     --out=./charts/managed-serviceaccount-manager/crds
+
+crd-importer \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_01_addon.open-cluster-management.io_managedclusteraddons.crd.yaml \
+    --input=https://github.com/kube-slice/apis/raw/${KUBESLICE_APIS_TAG}/crd/controller.kubeslice.io_clusters.yaml \
+    --out=./charts/spoke-cluster-addons/crds
