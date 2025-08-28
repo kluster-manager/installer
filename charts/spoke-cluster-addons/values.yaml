@@ -5,3 +5,12 @@ kubeconfigSecretName: ""
 
 kubectl:
   image: ghcr.io/appscode/kubectl-nonroot:1.31
+
+addons:
+  cluster-proxy:
+    enabled: false
+  kubeslice:
+    enabled: false
+    values:
+      projectNamespace: ""
+      networkInterface: ""

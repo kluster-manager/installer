@@ -65,6 +65,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ClusterProfileManagerList{},
 		&HubClusterRobot{},
 		&HubClusterRobotList{},
+		&SpokeClusterAddons{},
+		&SpokeClusterAddonsList{},
 	)
 
 	scheme.AddKnownTypes(SchemeGroupVersion,

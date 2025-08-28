@@ -26,7 +26,9 @@ spec:
               sleep 2; \
               kubectl --kubeconfig=auth/kubeconfig create ns {{ $.Release.Namespace }} || true; \
               kubectl --kubeconfig=auth/kubeconfig apply -f - <<EOF
-              {{- $restpl := $.Files.Get "common/addon/managedclusteraddon.yaml" -}}
+              {{- $restpl := $.Files.Get "common/addon/cluster-proxy.yaml" -}}
+              {{- tpl $restpl $ | nindent 14 }}
+              {{- $restpl := $.Files.Get "common/addon/kubeslice.yaml" -}}
               {{- tpl $restpl $ | nindent 14 }}
               EOF
         imagePullPolicy: {{ .Values.imagePullPolicy }}

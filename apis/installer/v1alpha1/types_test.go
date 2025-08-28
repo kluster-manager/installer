@@ -32,6 +32,7 @@ func TestDefaultValues(t *testing.T) {
 		sc.TestCase{Obj: v1alpha1.ClusterManagerSpokeSpec{}},
 		sc.TestCase{Obj: v1alpha1.ClusterProfileManagerSpec{}},
 		sc.TestCase{Obj: v1alpha1.HubClusterRobotSpec{}},
+		sc.TestCase{Obj: v1alpha1.SpokeClusterAddonsSpec{}},
 	)
 	checker.TestAll(t)
 }
