@@ -1,0 +1,5 @@
+addons:
+  cluster-proxy:
+    enabled: true
+  kubeslice:
+    enabled: true
