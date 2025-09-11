@@ -1,4 +1,4 @@
-{{-if (index .Values "addons" "cluster-proxy" "enabled") }}
+{{- if (index .Values "addons" "cluster-proxy" "enabled") }}
 
 apiVersion: addon.open-cluster-management.io/v1alpha1
 kind: ManagedClusterAddOn
