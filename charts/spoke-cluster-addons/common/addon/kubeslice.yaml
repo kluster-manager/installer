@@ -1,4 +1,4 @@
-{{-if .Values.addons.kubeslice.enabled }}
+{{- if .Values.addons.kubeslice.enabled }}
 
 apiVersion: addon.open-cluster-management.io/v1alpha1
 kind: ManagedClusterAddOn
@@ -11,7 +11,7 @@ spec:
     - group: controller.kubeslice.io
       resource: clusters
       name: {{ .Release.Namespace }}
-      namespace: {{ .Values.Values.addons.kubeslice.values.projectNamespace }}
+      namespace: {{ .Values.addons.kubeslice.values.projectNamespace }}
 
 ---
 
@@ -19,9 +19,9 @@ apiVersion: controller.kubeslice.io/v1alpha1
 kind: Cluster
 metadata:
   name: {{ .Release.Namespace }}
-  namespace: {{ .Values.Values.addons.kubeslice.values.projectNamespace }}
+  namespace: {{ .Values.addons.kubeslice.values.projectNamespace }}
 spec:
-  networkInterface: {{ .Values.Values.addons.kubeslice.values.networkInterface }}
+  networkInterface: {{ .Values.addons.kubeslice.values.networkInterface }}
   clusterProperty:
 
 {{- end }}
