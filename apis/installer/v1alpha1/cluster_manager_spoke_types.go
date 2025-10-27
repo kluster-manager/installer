@@ -46,6 +46,7 @@ type ClusterManagerSpoke struct {
 type ClusterManagerSpokeSpec struct {
 	ClusterMetadata ClusterMetadata `json:"clusterMetadata"`
 
+	CreateBootstrapSecret bool `json:"createBootstrapSecret"`
 	// SpokeHub: Hub information
 	// +optional
 	Hub SpokeHub `json:"hub"`

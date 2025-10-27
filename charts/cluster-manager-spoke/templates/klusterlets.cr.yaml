@@ -34,6 +34,7 @@ metadata:
 
 ---
 
+{{- if .Values.createBootstrapSecret }}
 {{- if .Values.hub.kubeConfig }}
 
 apiVersion: v1
@@ -77,6 +78,7 @@ spec:
           {{- toYaml .Values.clusteradm.securityContext | nindent 10 }}
       restartPolicy: Never
 
+{{- end }}
 {{- end }}
 
 ---

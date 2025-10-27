@@ -9,6 +9,8 @@ clusterMetadata:
       name: ace-cluster-info
       namespace: kubeops
 
+createBootstrapSecret: true
+
 hub:
   apiServer: ""
   caData: ""

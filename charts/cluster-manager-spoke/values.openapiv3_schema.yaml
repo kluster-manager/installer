@@ -126,6 +126,8 @@ properties:
     required:
     - image
     type: object
+  createBootstrapSecret:
+    type: boolean
   hub:
     properties:
       apiServer:
@@ -246,4 +248,5 @@ properties:
 required:
 - clusterMetadata
 - clusteradm
+- createBootstrapSecret
 type: object
