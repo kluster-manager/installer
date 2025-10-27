@@ -6,6 +6,8 @@ properties:
       managedClusterArn:
         type: string
     type: object
+  bootstrap:
+    type: boolean
   bundleVersion:
     properties:
       clusteradmImageVersion:
@@ -244,6 +246,7 @@ properties:
       type: object
     type: array
 required:
+- bootstrap
 - clusterMetadata
 - clusteradm
 type: object
