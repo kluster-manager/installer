@@ -6,6 +6,8 @@ properties:
       managedClusterArn:
         type: string
     type: object
+  bootstrap:
+    type: boolean
   bundleVersion:
     properties:
       clusteradmImageVersion:
@@ -126,8 +128,6 @@ properties:
     required:
     - image
     type: object
-  createBootstrapSecret:
-    type: boolean
   hub:
     properties:
       apiServer:
@@ -246,7 +246,7 @@ properties:
       type: object
     type: array
 required:
+- bootstrap
 - clusterMetadata
 - clusteradm
-- createBootstrapSecret
 type: object

@@ -34,7 +34,7 @@ metadata:
 
 ---
 
-{{- if .Values.createBootstrapSecret }}
+{{- if .Values.bootstrap }}
 {{- if .Values.hub.kubeConfig }}
 
 apiVersion: v1
