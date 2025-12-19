@@ -14,13 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package fuzzer
+package shared
 
-import (
-	runtimeserializer "k8s.io/apimachinery/pkg/runtime/serializer"
-)
+// +kubebuilder:validation:Enum=all;catalog;operator
+type UBIMode string
 
-// Funcs returns the fuzzer functions for this api group.
-var Funcs = func(codecs runtimeserializer.CodecFactory) []any {
-	return []any{}
+type DistroSpec struct {
+	Openshift bool    `json:"openshift"`
+	UBI       UBIMode `json:"ubi"`
 }

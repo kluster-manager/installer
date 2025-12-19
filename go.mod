@@ -1,14 +1,14 @@
 module github.com/kluster-manager/installer
 
-go 1.23.0
+go 1.24.0
 
 toolchain go1.24.5
 
 require (
 	k8s.io/api v0.32.3
 	k8s.io/apimachinery v0.32.3
-	kmodules.xyz/image-packer v0.0.0-20250709183414-f93633723666
-	kmodules.xyz/resource-metadata v0.32.0
+	kmodules.xyz/image-packer v0.0.0-20251216152303-58b6b6db0d4f
+	kmodules.xyz/resource-metadata v0.40.1
 	kmodules.xyz/schema-checker v0.4.2
 )
 
@@ -76,13 +76,13 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
+	golang.org/x/net v0.47.0 // indirect
 	golang.org/x/oauth2 v0.27.0 // indirect
-	golang.org/x/sync v0.12.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
-	golang.org/x/term v0.30.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
+	golang.org/x/sync v0.18.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/term v0.37.0 // indirect
+	golang.org/x/text v0.31.0 // indirect
 	golang.org/x/time v0.10.0 // indirect
 	gomodules.xyz/go-sh v0.1.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect
@@ -95,7 +95,7 @@ require (
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20250318172550-b98be4ee1595 // indirect
 	k8s.io/utils v0.0.0-20241210054802-24370beab758 // indirect
-	kmodules.xyz/client-go v0.32.6 // indirect
+	kmodules.xyz/client-go v0.32.11 // indirect
 	kmodules.xyz/go-containerregistry v0.0.14 // indirect
 	kubeops.dev/scanner v0.0.19 // indirect
 	sigs.k8s.io/controller-runtime v0.20.4 // indirect
