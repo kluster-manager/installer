@@ -59,7 +59,7 @@ The following table lists the configurable parameters of the `managed-serviceacc
 | addonManagerNamespace          |                                                | <code>open-cluster-management-managed-serviceaccount</code>                                                                                                                                    |
 | placement.create               |                                                | <code>true</code>                                                                                                                                                                              |
 | placement.name                 |                                                | <code>global</code>                                                                                                                                                                            |
-| kubectl.image                  |                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code>                                                                                                                                             |
+| kubectl.image                  |                                                | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code>                                                                                                                                             |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

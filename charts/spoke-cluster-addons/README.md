@@ -50,7 +50,7 @@ The following table lists the configurable parameters of the `spoke-cluster-addo
 | nameOverride                             |             | <code>""</code>                                    |
 | fullnameOverride                         |             | <code>""</code>                                    |
 | kubeconfigSecretName                     |             | <code>""</code>                                    |
-| kubectl.image                            |             | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code> |
+| kubectl.image                            |             | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code> |
 | addons.cluster-proxy.enabled             |             | <code>false</code>                                 |
 | addons.kubeslice.enabled                 |             | <code>false</code>                                 |
 | addons.kubeslice.values.projectNamespace |             | <code>""</code>                                    |
@@ -60,7 +60,7 @@ The following table lists the configurable parameters of the `spoke-cluster-addo
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i spoke-cluster-addons appscode/spoke-cluster-addons -n c1 --create-namespace --version=v2025.8.31 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.31
+$ helm upgrade -i spoke-cluster-addons appscode/spoke-cluster-addons -n c1 --create-namespace --version=v2025.8.31 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.34
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

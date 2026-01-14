@@ -51,7 +51,7 @@ tolerations: []
 affinity: {}
 
 kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.31
+  image: ghcr.io/appscode/kubectl-nonroot:1.34
   pullPolicy: IfNotPresent
 
 ingressServiceName: ingress-nginx-mc-controller

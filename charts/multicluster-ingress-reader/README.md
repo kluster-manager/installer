@@ -60,7 +60,7 @@ The following table lists the configurable parameters of the `multicluster-ingre
 | nodeSelector               |                                                                                                                        | <code>{}</code>                                    |
 | tolerations                |                                                                                                                        | <code>[]</code>                                    |
 | affinity                   |                                                                                                                        | <code>{}</code>                                    |
-| kubectl.image              |                                                                                                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.31</code> |
+| kubectl.image              |                                                                                                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code> |
 | kubectl.pullPolicy         |                                                                                                                        | <code>IfNotPresent</code>                          |
 | ingressServiceName         |                                                                                                                        | <code>ingress-nginx-mc-controller</code>           |
 | secret.name                |                                                                                                                        | <code>multicluster-ingress-values</code>           |
@@ -70,7 +70,7 @@ The following table lists the configurable parameters of the `multicluster-ingre
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.7.10 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.31
+$ helm upgrade -i multicluster-ingress-reader appscode/multicluster-ingress-reader -n multicluster-controlplane --create-namespace --version=v2024.7.10 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.34
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
