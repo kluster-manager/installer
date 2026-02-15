@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: cluster-proxy-addon-manager
+  labels:
+    component: cluster-proxy-manager
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      open-cluster-management.io/addon: cluster-proxy
+      component: cluster-proxy-manager
+  template:
+    metadata:
+      labels:
+        open-cluster-management.io/addon: cluster-proxy
+        component: cluster-proxy-manager
+    spec:
+      serviceAccount: cluster-proxy
+      automountServiceAccountToken: true
+      containers:
+        - name: manager
+          image: {{ .Values.registry }}/{{ .Values.image }}:{{ .Values.tag | default .Chart.AppVersion }}
+          imagePullPolicy: IfNotPresent
+          command:
+            - /manager
+          args:
+            - --leader-elect=true
+            - --signer-secret-namespace={{ .Release.Namespace }}
+            - --enable-kube-api-proxy={{ .Values.enableKubeApiProxy }}
+            - --enable-service-proxy={{ .Values.enableServiceProxy }}
+            - --image-pull-policy={{ .Values.proxyServer.imagePullPolicy }}
+            {{- if .Values.featureGates }}
+            - --feature-gates=ClusterProfileAccessProvider={{ .Values.featureGates.clusterProfileAccessProvider | default false}}
+            {{- end}}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
