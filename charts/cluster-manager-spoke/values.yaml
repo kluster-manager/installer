@@ -51,7 +51,7 @@ bundleVersion:
   placementImageVersion: ""
   workImageVersion: ""
   operatorImageVersion: ""
-  clusteradmImageVersion: "v1.0.0"
+  clusteradmImageVersion: "v1.2.0"
 
 managedKubeconfig: ''
 
