@@ -47,11 +47,6 @@ type HubClusterRobotSpec struct {
 	NameOverride string `json:"nameOverride"`
 	//+optional
 	FullnameOverride string `json:"fullnameOverride"`
-	// +optional
-	KubeconfigSecretName string `json:"kubeconfigSecretName"`
-	// +optional
-	AddonManagerNamespace string      `json:"addonManagerNamespace"`
-	Kubectl               DockerImage `json:"kubectl"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

@@ -49,10 +49,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "managed-serviceaccount-manager.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
-
-{{/*
-Addon manager namespace
-*/}}
-{{- define "managed-serviceaccount-manager.namespace" -}}
-{{ ternary .Release.Namespace (required "A valid .Values.addonManagerNamespace is required!" .Values.addonManagerNamespace) (empty .Values.kubeconfigSecretName) }}
-{{- end }}

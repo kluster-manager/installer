@@ -48,7 +48,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: NAMESPACE
-              value: {{ include "cluster-profile-manager.namespace" . }}
+              value: {{ .Release.Namespace }}
           securityContext:
             {{- toYaml .Values.manager.securityContext | nindent 12 }}
           volumeMounts:

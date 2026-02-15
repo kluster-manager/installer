@@ -19,12 +19,6 @@ securityContext: # +doc-gen:break
   seccompProfile:
     type: RuntimeDefault
 
-kubeconfigSecretName: ""
-addonManagerNamespace: open-cluster-management-cluster-auth
-
 placement:
   create: true
   name: global
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34

@@ -20,15 +20,9 @@ manager:
   # List of environment variables to set in the container
   env: []
 
-kubeconfigSecretName: ""
-addonManagerNamespace: open-cluster-management-addon
-
 placement:
   create: true
   name: global
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34
 
 # ace values
 

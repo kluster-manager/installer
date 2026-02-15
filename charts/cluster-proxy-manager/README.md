@@ -57,8 +57,6 @@ The following table lists the configurable parameters of the `cluster-proxy-mana
 | proxyServer.entrypointLoadBalancer |                                        | <code>false</code>                                                                                                                                                                              |
 | proxyServer.entrypointAddress      |                                        | <code>""</code>                                                                                                                                                                                 |
 | proxyServer.port                   |                                        | <code>8091</code>                                                                                                                                                                               |
-| kubeconfigSecretName               | required for multicluster controlplane | <code>""</code>                                                                                                                                                                                 |
-| kubectl.image                      |                                        | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code>                                                                                                                                              |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

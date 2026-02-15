@@ -28,20 +28,5 @@ spec:
             - --leader-elect=true
             {{- end }}
             - --signer-secret-namespace={{ .Release.Namespace }}
-            {{- if .Values.kubeconfigSecretName }}
-            - --multicluster-kubeconfig=/var/run/secrets/ocm/auth/kubeconfig
-            {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          volumeMounts:
-          {{- if .Values.kubeconfigSecretName }}
-            - mountPath: /var/run/secrets/ocm/auth
-              name: ocm-auth
-          {{- end }}
-      volumes:
-        {{- if .Values.kubeconfigSecretName }}
-        - name: ocm-auth
-          secret:
-            defaultMode: 420
-            secretName: {{ .Values.kubeconfigSecretName }}
-        {{- end }}

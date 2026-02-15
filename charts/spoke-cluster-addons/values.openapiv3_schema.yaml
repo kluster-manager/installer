@@ -32,18 +32,8 @@ properties:
     type: object
   fullnameOverride:
     type: string
-  kubeconfigSecretName:
-    type: string
-  kubectl:
-    properties:
-      image:
-        type: string
-    required:
-    - image
-    type: object
   nameOverride:
     type: string
 required:
 - addons
-- kubectl
 type: object

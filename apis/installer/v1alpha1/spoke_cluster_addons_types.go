@@ -47,10 +47,7 @@ type SpokeClusterAddonsSpec struct {
 	NameOverride string `json:"nameOverride"`
 	//+optional
 	FullnameOverride string `json:"fullnameOverride"`
-	// +optional
-	KubeconfigSecretName string      `json:"kubeconfigSecretName"`
-	Kubectl              DockerImage `json:"kubectl"`
-	Addons               Addons      `json:"addons"`
+	Addons           Addons `json:"addons"`
 }
 
 type Addons struct {

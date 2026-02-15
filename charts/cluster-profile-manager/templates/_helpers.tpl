@@ -62,13 +62,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Addon manager namespace
-*/}}
-{{- define "cluster-profile-manager.namespace" -}}
-{{ ternary .Release.Namespace (required "A valid .Values.addonManagerNamespace is required!" .Values.addonManagerNamespace) (empty .Values.kubeconfigSecretName) }}
-{{- end }}
-
-{{/*
 Registry Proxy Templates
 */}}
 {{- define "registry.dockerHub" -}}
