@@ -17,6 +17,7 @@ spec:
       type: Hostname
       hostname:
         value: {{ .Values.proxyServer.entrypointAddress }}
+        port: {{ .Values.proxyServer.port }}
       {{- else if .Values.proxyServer.entrypointLoadBalancer }}
       type: LoadBalancerService
       loadBalancerService: {}
@@ -27,3 +28,14 @@ spec:
   proxyAgent:
     image: {{ .Values.proxyAgentImage }}:{{ .Values.tag | default .Chart.AppVersion }}
     replicas: {{ .Values.replicas }}
+    additionalValues:
+      enableImpersonation: {{ .Values.enableImpersonation | quote }}
+  {{- if .Values.userServer.enabled }}
+  userServer:
+  {{- if .Values.userServer.additionalSANs }}
+    additionalSANs:
+      {{- toYaml .Values.userServer.additionalSANs | nindent 6 }}
+  {{- else }}
+    {}
+  {{- end }}
+  {{- end }}

@@ -28,3 +28,32 @@ proxyServer:
   entrypointLoadBalancer: false
   entrypointAddress: ""
   port: 8091
+  imagePullPolicy: IfNotPresent
+
+enableKubeApiProxy: true
+
+# Enable user server deployment
+# Note: When userServer.enabled is true, the user server certificate will be automatically
+# generated and rotated by the controller. No manual secret creation is required.
+enableServiceProxy: false
+enableImpersonation: true
+
+# Feature gates for alpha/experimental features
+# Format: key=value pairs separated by commas
+# Example: "clusterProfileAccessProvider=true,someOtherFeature=false"
+# Available feature gates:
+#   clusterProfileAccessProvider: Enable ClusterProfile controller for cluster-inventory-api integration (default: false)
+featureGates:
+  clusterProfileAccessProvider: false
+
+# User server configuration for automatic certificate rotation
+# When enabled, certificates are automatically generated and rotated by the controller.
+# The certificate is stored in the ProxyServer namespace with fixed names:
+# - Secret: cluster-proxy-user-serving-cert
+# - Service: cluster-proxy-addon-user
+userServer:
+  # Enable automatic certificate rotation for user server
+  enabled: false
+  # Additional SANs for the certificate (e.g., external hostnames)
+  # Example: ["user-server.example.com", "10.0.0.100"]
+  additionalSANs: []

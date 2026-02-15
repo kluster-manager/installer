@@ -7,8 +7,8 @@
 ```bash
 $ helm repo add appscode https://charts.appscode.com/stable
 $ helm repo update
-$ helm search repo appscode/hub-cluster-robot --version=v2024.8.9
-$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2024.8.9
+$ helm search repo appscode/hub-cluster-robot --version=v2026.2.16
+$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2026.2.16
 ```
 
 ## Introduction
@@ -24,7 +24,7 @@ This chart deploys a Hub Cluster Robot on a [Kubernetes](http://kubernetes.io) c
 To install/upgrade the chart with the release name `hub-cluster-robot`:
 
 ```bash
-$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2024.8.9
+$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2026.2.16
 ```
 
 The command deploys a Hub Cluster Robot on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -54,12 +54,12 @@ The following table lists the configurable parameters of the `hub-cluster-robot`
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2024.8.9 --set -- generate from values file --
+$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2026.2.16 --set -- generate from values file --
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
 installing the chart. For example:
 
 ```bash
-$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2024.8.9 --values values.yaml
+$ helm upgrade -i hub-cluster-robot appscode/hub-cluster-robot -n open-cluster-management --create-namespace --version=v2026.2.16 --values values.yaml
 ```
