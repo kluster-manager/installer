@@ -33,14 +33,8 @@ clusterProxy:
     proxyClientCASecretName: proxy-server-ca
     proxyClientSecretName: proxy-client
 
-kubeconfigSecretName: ""
-addonManagerNamespace: open-cluster-management-cluster-gateway
-
 placement:
   create: true
   name: global
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34
 
 clusterAuthNamespace: open-cluster-management-cluster-auth

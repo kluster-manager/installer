@@ -1,21 +1,10 @@
 properties:
-  addonManagerNamespace:
-    type: string
   fullnameOverride:
     type: string
   image:
     type: string
   imagePullPolicy:
     type: string
-  kubeconfigSecretName:
-    type: string
-  kubectl:
-    properties:
-      image:
-        type: string
-    required:
-    - image
-    type: object
   nameOverride:
     type: string
   placement:
@@ -107,7 +96,6 @@ properties:
 required:
 - image
 - imagePullPolicy
-- kubectl
 - placement
 - registryFQDN
 type: object

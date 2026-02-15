@@ -48,15 +48,10 @@ type ClusterProfileManagerSpec struct {
 	//+optional
 	NameOverride string `json:"nameOverride"`
 	//+optional
-	FullnameOverride string   `json:"fullnameOverride"`
-	RegistryFQDN     string   `json:"registryFQDN"`
-	Managed          AppImage `json:"manager"`
-	// +optional
-	KubeconfigSecretName string `json:"kubeconfigSecretName"`
-	// +optional
-	AddonManagerNamespace string        `json:"addonManagerNamespace"`
-	Placement             PlacementSpec `json:"placement"`
-	Kubectl               DockerImage   `json:"kubectl"`
+	FullnameOverride string        `json:"fullnameOverride"`
+	RegistryFQDN     string        `json:"registryFQDN"`
+	Managed          AppImage      `json:"manager"`
+	Placement        PlacementSpec `json:"placement"`
 
 	// opscenter-feature value
 

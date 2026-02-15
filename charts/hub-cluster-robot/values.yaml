@@ -1,8 +1,2 @@
 nameOverride: ""
 fullnameOverride: ""
-
-kubeconfigSecretName: ""
-addonManagerNamespace: open-cluster-management
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34

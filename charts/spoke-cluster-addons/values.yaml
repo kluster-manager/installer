@@ -1,11 +1,6 @@
 nameOverride: ""
 fullnameOverride: ""
 
-kubeconfigSecretName: ""
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34
-
 addons:
   cluster-proxy:
     enabled: false

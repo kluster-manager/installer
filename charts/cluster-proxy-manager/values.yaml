@@ -28,9 +28,3 @@ proxyServer:
   entrypointLoadBalancer: false
   entrypointAddress: ""
   port: 8091
-
-# required for multicluster controlplane
-kubeconfigSecretName: ""
-
-kubectl:
-  image: ghcr.io/appscode/kubectl-nonroot:1.34

@@ -42,7 +42,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: NAMESPACE
-              value: {{ include "cluster-gateway-manager.namespace" . }}
+              value: {{ .Release.Namespace }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           volumeMounts:

@@ -1,0 +1,13 @@
+apiVersion: fluxcd.open-cluster-management.io/v1alpha1
+kind: FluxCDConfig
+metadata:
+  labels:
+    app.kubernetes.io/name: fluxcdconfig
+    app.kubernetes.io/instance: fluxcdconfig
+    app.kubernetes.io/part-of: api
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: api
+  name: fluxcd-config
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- toYaml .Values.fluxcdConfig | nindent 2 }}

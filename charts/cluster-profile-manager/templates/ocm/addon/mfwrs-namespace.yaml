@@ -1,0 +1,36 @@
+apiVersion: work.open-cluster-management.io/v1alpha1
+kind: ManifestWorkReplicaSet
+metadata:
+  name: ace-namespace
+  namespace: {{ .Release.Namespace }}
+spec:
+  placementRefs:
+    - name: {{ .Values.placement.name }}
+  manifestWorkTemplate:
+    # deleteOption:
+    #   propagationPolicy: SelectivelyOrphan
+    #   selectivelyOrphans:
+    #     orphaningRules:
+    #       - group: ''
+    #         name: ocm-ns
+    #         namespace: ''
+    #         resource: Namespace
+    # manifestConfigs:
+    #   - feedbackRules:
+    #       - jsonPaths:
+    #           - name: lastScheduleTime
+    #             path: .status.lastScheduleTime
+    #           - name: lastSuccessfulTime
+    #             path: .status.lastSuccessfulTime
+    #         type: JSONPaths
+    #     resourceIdentifier:
+    #       group: batch
+    #       name: sync-cronjob
+    #       namespace: ocm-ns
+    #       resource: cronjobs
+    workload:
+      manifests:
+        - kind: Namespace
+          apiVersion: v1
+          metadata:
+            name: kubeops

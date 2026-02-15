@@ -45,22 +45,20 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `spoke-cluster-addons` chart and their default values.
 
-|                Parameter                 | Description |                      Default                       |
-|------------------------------------------|-------------|----------------------------------------------------|
-| nameOverride                             |             | <code>""</code>                                    |
-| fullnameOverride                         |             | <code>""</code>                                    |
-| kubeconfigSecretName                     |             | <code>""</code>                                    |
-| kubectl.image                            |             | <code>ghcr.io/appscode/kubectl-nonroot:1.34</code> |
-| addons.cluster-proxy.enabled             |             | <code>false</code>                                 |
-| addons.kubeslice.enabled                 |             | <code>false</code>                                 |
-| addons.kubeslice.values.projectNamespace |             | <code>""</code>                                    |
-| addons.kubeslice.values.networkInterface |             | <code>""</code>                                    |
+|                Parameter                 | Description |      Default       |
+|------------------------------------------|-------------|--------------------|
+| nameOverride                             |             | <code>""</code>    |
+| fullnameOverride                         |             | <code>""</code>    |
+| addons.cluster-proxy.enabled             |             | <code>false</code> |
+| addons.kubeslice.enabled                 |             | <code>false</code> |
+| addons.kubeslice.values.projectNamespace |             | <code>""</code>    |
+| addons.kubeslice.values.networkInterface |             | <code>""</code>    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i spoke-cluster-addons appscode/spoke-cluster-addons -n c1 --create-namespace --version=v2025.8.31 --set kubectl.image=ghcr.io/appscode/kubectl-nonroot:1.34
+$ helm upgrade -i spoke-cluster-addons appscode/spoke-cluster-addons -n c1 --create-namespace --version=v2025.8.31 --set -- generate from values file --
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

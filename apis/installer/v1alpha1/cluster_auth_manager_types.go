@@ -56,12 +56,7 @@ type ClusterAuthManagerSpec struct {
 	// Security options the pod should run with.
 	// +optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
-	// +optional
-	KubeconfigSecretName string `json:"kubeconfigSecretName"`
-	// +optional
-	AddonManagerNamespace string        `json:"addonManagerNamespace"`
-	Placement             PlacementSpec `json:"placement"`
-	Kubectl               DockerImage   `json:"kubectl"`
+	Placement       PlacementSpec         `json:"placement"`
 }
 
 type DockerImage struct {
