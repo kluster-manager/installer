@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: {{ .Release.Namespace }}
-  name: cluster-proxy-manager
+  name: cluster-proxy-addon-manager
   labels:
     component: cluster-proxy-manager
     {{ include "cluster-proxy-manager.labels" . | nindent 4 }}

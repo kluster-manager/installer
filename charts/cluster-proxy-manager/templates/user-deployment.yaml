@@ -6,6 +6,7 @@ metadata:
   name: cluster-proxy-addon-user
   labels:
     component: cluster-proxy-addon-user
+    {{ include "cluster-proxy-manager.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
