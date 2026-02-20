@@ -2,7 +2,7 @@
 - ghcr.io/kluster-manager/cluster-auth:v0.5.0
 - ghcr.io/kluster-manager/cluster-gateway-manager:v1.12.0
 - ghcr.io/kluster-manager/cluster-gateway:v1.12.0
-- ghcr.io/kluster-manager/cluster-profile:v0.11.0
+- ghcr.io/kluster-manager/cluster-profile:v0.11.1
 - ghcr.io/kluster-manager/cluster-proxy:v0.10.0
 - ghcr.io/kluster-manager/clusteradm:v1.2.0
 - ghcr.io/kluster-manager/fluxcd-addon:v0.0.10
