@@ -1,4 +1,11 @@
 properties:
+  addOnKubeClientRegistrationDriver:
+    properties:
+      authType:
+        type: string
+    required:
+    - authType
+    type: object
   aws:
     properties:
       hubClusterArn:
@@ -246,6 +253,7 @@ properties:
       type: object
     type: array
 required:
+- addOnKubeClientRegistrationDriver
 - bootstrap
 - clusterMetadata
 - clusteradm
