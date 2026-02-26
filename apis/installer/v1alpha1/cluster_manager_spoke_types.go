@@ -76,6 +76,8 @@ type ClusterManagerSpokeSpec struct {
 	WorkFeatures []FeatureGate `json:"workFeatures"`
 
 	Clusteradm ClusteradmSpec `json:"clusteradm"`
+
+	AddOnKubeClientRegistrationDriver AddOnKubeClientRegistrationDriverSpec `json:"addOnKubeClientRegistrationDriver"`
 }
 
 type ClusteradmSpec struct {
@@ -83,6 +85,10 @@ type ClusteradmSpec struct {
 	// Security options the pod should run with.
 	// +optional
 	SecurityContext *core.SecurityContext `json:"securityContext"`
+}
+
+type AddOnKubeClientRegistrationDriverSpec struct {
+	AuthType string `json:"authType"`
 }
 
 type KubectlSpec struct {

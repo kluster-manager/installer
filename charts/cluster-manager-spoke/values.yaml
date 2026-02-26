@@ -60,3 +60,6 @@ registrationFeatures: []
 workFeatures: # +doc-gen:break
   - feature: RawFeedbackJsonString
     mode: Enable
+
+addOnKubeClientRegistrationDriver:
+  authType: "token"

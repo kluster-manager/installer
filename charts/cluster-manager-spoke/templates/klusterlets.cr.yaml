@@ -110,6 +110,8 @@ spec:
   - url: {{ $spokeServer }}
   {{- end }}
   registrationConfiguration:
+    addOnKubeClientRegistrationDriver:
+      authType: {{ .Values.addOnKubeClientRegistrationDriver.authType | quote }}
     {{if and .Values.aws.hubClusterArn .Values.aws.managedClusterArn}}
     registrationDriver:
       authType: "awsirsa"
