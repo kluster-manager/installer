@@ -18,8 +18,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1VwoXQT9A3Wy9MM3WgvqSxFWenqJduM=
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/docker/cli v29.0.3+incompatible h1:8J+PZIcF2xLd6h5sHPsp5pvvJA+Sr2wGQxHkRl53a1E=
-github.com/docker/cli v29.0.3+incompatible/go.mod h1:JLrzqnKDaYBop7H2jaqPtU4hHvMKP+vjCwu2uszcLI8=
+github.com/docker/cli v29.2.0+incompatible h1:9oBd9+YM7rxjZLfyMGxjraKBKE4/nVyvVfN4qNl9XRM=
+github.com/docker/cli v29.2.0+incompatible/go.mod h1:JLrzqnKDaYBop7H2jaqPtU4hHvMKP+vjCwu2uszcLI8=
 github.com/docker/distribution v2.8.3+incompatible h1:AtKxIZ36LoNK51+Z6RpzLpddBirtxJnzDrHLEKxTAYk=
 github.com/docker/distribution v2.8.3+incompatible/go.mod h1:J2gT2udsDAN96Uj4KfcMRqY0/ypR+oyYUYmja8H+y+w=
 github.com/docker/docker-credential-helpers v0.9.4 h1:76ItO69/AP/V4yT9V4uuuItG0B1N8hvt0T0c0NN/DzI=
@@ -281,8 +281,8 @@ kmodules.xyz/go-containerregistry v0.0.15 h1:PRY5FDOzb6u23KOulQ4SWNdeUkBKmezLyJX
 kmodules.xyz/go-containerregistry v0.0.15/go.mod h1:rO0DEbYYEu1BfVcZ1pXV+3RgzVXr/k5hXcO+BQYVVDI=
 kmodules.xyz/image-packer v0.0.0-20260211014345-daa6afa3ceba h1:P82nC0t/58RhAdwqVX+9fVf+8s8DoslVAu2fp3Bud+k=
 kmodules.xyz/image-packer v0.0.0-20260211014345-daa6afa3ceba/go.mod h1:KAJL4ldPTSpHuKf/yYMSSCMnWZI68TR8O2fXbm1bRro=
-kmodules.xyz/resource-metadata v0.42.4 h1:nFVo+PKmwWdzVwk7U3VZuKBQj3tPo6fyY5BC7gE2OB8=
-kmodules.xyz/resource-metadata v0.42.4/go.mod h1:++18wSB28Wrw3ZxnOd8o8IVg7oMyWPwaPfuLw21QnPc=
+kmodules.xyz/resource-metadata v0.42.9 h1:b1+CcGWh1fv0p5GhkI7NDEByxBX99Tu+WHdtfX//9cw=
+kmodules.xyz/resource-metadata v0.42.9/go.mod h1:bqm4/ZqHxA04H1/Mz79YhHgrePSKJfUVL7cpG8teKsA=
 kmodules.xyz/schema-checker v0.4.2 h1:tAbxEtM759GxDM/3sQi/+OKKwUsEF+Ih4KReV3Eb/Xw=
 kmodules.xyz/schema-checker v0.4.2/go.mod h1:N7ETPwfY4LbTHbydC9jjssPmYKKgZ8DC0IuLCU55wwc=
 kubeops.dev/scanner v0.0.19 h1:J8C94k4j3NY3Y8UGHcG4nCZtmpSqPneCmkuvGNUOv4s=

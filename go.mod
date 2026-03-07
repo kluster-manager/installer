@@ -6,7 +6,7 @@ require (
 	k8s.io/api v0.34.3
 	k8s.io/apimachinery v0.34.3
 	kmodules.xyz/image-packer v0.0.0-20260211014345-daa6afa3ceba
-	kmodules.xyz/resource-metadata v0.42.4
+	kmodules.xyz/resource-metadata v0.42.9
 	kmodules.xyz/schema-checker v0.4.2
 )
 
@@ -20,7 +20,7 @@ require (
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0 // indirect
 	github.com/containerd/stargz-snapshotter/estargz v0.18.1 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
-	github.com/docker/cli v29.0.3+incompatible // indirect
+	github.com/docker/cli v29.2.0+incompatible // indirect
 	github.com/docker/distribution v2.8.3+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.9.4 // indirect
 	github.com/emicklei/go-restful/v3 v3.12.2 // indirect
