@@ -60,6 +60,7 @@ rules:
       - managedclusteraddons
       - clustermanagementaddons/status
       - managedclusteraddons/status
+      - managedclusteraddons/finalizers
     verbs:
       - get
       - list
