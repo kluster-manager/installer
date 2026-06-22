@@ -179,6 +179,8 @@ rules:
       - list
       - watch
       - delete
+      - update
+      - patch
   - apiGroups:
       - authentication.k8s.io
     resources:
