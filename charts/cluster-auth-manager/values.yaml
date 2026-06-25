@@ -12,7 +12,7 @@ securityContext: # +doc-gen:break
   allowPrivilegeEscalation: false
   capabilities:
     drop:
-      - ALL
+    - ALL
   privileged: false
   runAsNonRoot: true
   readOnlyRootFilesystem: true
