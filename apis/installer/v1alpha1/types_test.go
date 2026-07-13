@@ -25,7 +25,8 @@ import (
 )
 
 func TestDefaultValues(t *testing.T) {
-	checker := sc.New(os.DirFS("../../.."),
+	checker := sc.New(
+		os.DirFS("../../.."),
 		sc.TestCase{Obj: v1alpha1.ClusterAuthSpec{}},
 		sc.TestCase{Obj: v1alpha1.ClusterAuthManagerSpec{}},
 		sc.TestCase{Obj: v1alpha1.ClusterManagerHubSpec{}},
