@@ -4,7 +4,7 @@ hub:
   tokenID: ""
   # randAlpha 16
   tokenSecret: ""
-  registry: quay.io/open-cluster-management
+  registry: ghcr.io/kluster-manager
   securityContext: # +doc-gen:break
     allowPrivilegeEscalation: false
     capabilities:
