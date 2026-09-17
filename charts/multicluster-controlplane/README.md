@@ -45,46 +45,46 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `multicluster-controlplane` chart and their default values.
 
-|                     Parameter                     |                       Description                        |                                    Default                                    |
-|---------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------|
-| image                                             |                                                          | <code>quay.io/open-cluster-management/multicluster-controlplane:latest</code> |
-| imagePullPolicy                                   |                                                          | <code>IfNotPresent</code>                                                     |
-| replicas                                          |                                                          | <code>1</code>                                                                |
-| features                                          |                                                          | <code>"DefaultClusterSet=true,ManagedClusterAutoApproval=true"</code>         |
-| autoApprovalBootstrapUsers                        |                                                          | <code>""</code>                                                               |
-| enableSelfManagement                              | TODO: should add restriction while enable selfmanagement | <code>false</code>                                                            |
-| selfManagementClusterName                         |                                                          | <code>""</code>                                                               |
-| enableDelegatingAuthentication                    |                                                          | <code>false</code>                                                            |
-| apiserver.externalHostname                        |                                                          | <code>""</code>                                                               |
-| apiserver.externalPort                            |                                                          | <code>443</code>                                                              |
-| apiserver.ca                                      |                                                          | <code>""</code>                                                               |
-| apiserver.cakey                                   |                                                          | <code>""</code>                                                               |
-| apiserver.generateCA                              |                                                          | <code>false</code>                                                            |
-| etcd.mode                                         |                                                          | <code>"embed"</code>                                                          |
-| etcd.snapshotCount                                |                                                          | <code>5000</code>                                                             |
-| etcd.servers                                      |                                                          | <code>[]</code>                                                               |
-| etcd.ca                                           |                                                          | <code>""</code>                                                               |
-| etcd.cert                                         |                                                          | <code>""</code>                                                               |
-| etcd.certkey                                      |                                                          | <code>""</code>                                                               |
-| pvc.storageCapacity                               |                                                          | <code>1Gi</code>                                                              |
-| pvc.storageClassName                              |                                                          | <code>""</code>                                                               |
-| pvc.selector                                      |                                                          | <code>{}</code>                                                               |
-| route.enabled                                     |                                                          | <code>false</code>                                                            |
-| loadbalancer.enabled                              |                                                          | <code>false</code>                                                            |
-| loadbalancer.ip                                   |                                                          | <code>""</code>                                                               |
-| nodeport.enabled                                  |                                                          | <code>false</code>                                                            |
-| nodeport.port                                     |                                                          | <code>30443</code>                                                            |
-| containerSecurityContext.allowPrivilegeEscalation |                                                          | <code>false</code>                                                            |
-| containerSecurityContext.privileged               |                                                          | <code>false</code>                                                            |
-| containerSecurityContext.runAsNonRoot             |                                                          | <code>true</code>                                                             |
-| containerSecurityContext.seccompProfile.type      |                                                          | <code>RuntimeDefault</code>                                                   |
-| securityContext                                   |                                                          | <code></code>                                                                 |
+|                     Parameter                     |                       Description                        |                                Default                                |
+|---------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------|
+| image                                             |                                                          | <code>ghcr.io/kluster-manager/multicluster-controlplane:latest</code> |
+| imagePullPolicy                                   |                                                          | <code>IfNotPresent</code>                                             |
+| replicas                                          |                                                          | <code>1</code>                                                        |
+| features                                          |                                                          | <code>"DefaultClusterSet=true,ManagedClusterAutoApproval=true"</code> |
+| autoApprovalBootstrapUsers                        |                                                          | <code>""</code>                                                       |
+| enableSelfManagement                              | TODO: should add restriction while enable selfmanagement | <code>false</code>                                                    |
+| selfManagementClusterName                         |                                                          | <code>""</code>                                                       |
+| enableDelegatingAuthentication                    |                                                          | <code>false</code>                                                    |
+| apiserver.externalHostname                        |                                                          | <code>""</code>                                                       |
+| apiserver.externalPort                            |                                                          | <code>443</code>                                                      |
+| apiserver.ca                                      |                                                          | <code>""</code>                                                       |
+| apiserver.cakey                                   |                                                          | <code>""</code>                                                       |
+| apiserver.generateCA                              |                                                          | <code>false</code>                                                    |
+| etcd.mode                                         |                                                          | <code>"embed"</code>                                                  |
+| etcd.snapshotCount                                |                                                          | <code>5000</code>                                                     |
+| etcd.servers                                      |                                                          | <code>[]</code>                                                       |
+| etcd.ca                                           |                                                          | <code>""</code>                                                       |
+| etcd.cert                                         |                                                          | <code>""</code>                                                       |
+| etcd.certkey                                      |                                                          | <code>""</code>                                                       |
+| pvc.storageCapacity                               |                                                          | <code>1Gi</code>                                                      |
+| pvc.storageClassName                              |                                                          | <code>""</code>                                                       |
+| pvc.selector                                      |                                                          | <code>{}</code>                                                       |
+| route.enabled                                     |                                                          | <code>false</code>                                                    |
+| loadbalancer.enabled                              |                                                          | <code>false</code>                                                    |
+| loadbalancer.ip                                   |                                                          | <code>""</code>                                                       |
+| nodeport.enabled                                  |                                                          | <code>false</code>                                                    |
+| nodeport.port                                     |                                                          | <code>30443</code>                                                    |
+| containerSecurityContext.allowPrivilegeEscalation |                                                          | <code>false</code>                                                    |
+| containerSecurityContext.privileged               |                                                          | <code>false</code>                                                    |
+| containerSecurityContext.runAsNonRoot             |                                                          | <code>true</code>                                                     |
+| containerSecurityContext.seccompProfile.type      |                                                          | <code>RuntimeDefault</code>                                           |
+| securityContext                                   |                                                          | <code></code>                                                         |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i multicluster-controlplane appscode/multicluster-controlplane -n multicluster-controlplane --create-namespace --version=v2025.4.30 --set image=quay.io/open-cluster-management/multicluster-controlplane:latest
+$ helm upgrade -i multicluster-controlplane appscode/multicluster-controlplane -n multicluster-controlplane --create-namespace --version=v2025.4.30 --set image=ghcr.io/kluster-manager/multicluster-controlplane:latest
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while

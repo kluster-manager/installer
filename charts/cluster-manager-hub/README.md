@@ -50,7 +50,7 @@ The following table lists the configurable parameters of the `cluster-manager-hu
 | hub.useBootstrapToken                  |              | <code>false</code>                                                                                                                                                |
 | hub.tokenID                            | randAlpha 6  | <code>""</code>                                                                                                                                                   |
 | hub.tokenSecret                        | randAlpha 16 | <code>""</code>                                                                                                                                                   |
-| hub.registry                           |              | <code>quay.io/open-cluster-management</code>                                                                                                                      |
+| hub.registry                           |              | <code>ghcr.io/kluster-manager</code>                                                                                                                              |
 | hub.securityContext                    |              | <code>{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"privileged":false,"runAsNonRoot":true,"seccompProfile":{"type":"RuntimeDefault"}}</code> |
 | aws.hubClusterArn                      |              | <code>""</code>                                                                                                                                                   |
 | bundleVersion.registrationImageVersion |              | <code>""</code>                                                                                                                                                   |
@@ -67,7 +67,7 @@ The following table lists the configurable parameters of the `cluster-manager-hu
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:
 
 ```bash
-$ helm upgrade -i cluster-manager-hub appscode/cluster-manager-hub -n open-cluster-management --create-namespace --version=v2026.2.16 --set hub.registry=quay.io/open-cluster-management
+$ helm upgrade -i cluster-manager-hub appscode/cluster-manager-hub -n open-cluster-management --create-namespace --version=v2026.2.16 --set hub.registry=ghcr.io/kluster-manager
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while
