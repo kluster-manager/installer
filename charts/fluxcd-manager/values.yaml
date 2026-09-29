@@ -22,22 +22,22 @@ placement:
 fluxcdConfig:
   installCRDs: true
   cli:
-    image: ghcr.io/appscode/flux-cli
+    image: ghcr.io/appscode-images/fluxcd-cli
   helmController:
     create: true
-    image: ghcr.io/fluxcd/helm-controller
+    image: ghcr.io/appscode-images/fluxcd-helm-controller
   imageAutomationController:
     create: false
-    image: ghcr.io/fluxcd/image-automation-controller
+    image: ghcr.io/appscode-images/fluxcd-image-automation-controller
   imageReflectionController:
     create: false
-    image: ghcr.io/fluxcd/image-reflector-controller
+    image: ghcr.io/appscode-images/fluxcd-image-reflector-controller
   kustomizeController:
     create: true
-    image: ghcr.io/fluxcd/kustomize-controller
+    image: ghcr.io/appscode-images/fluxcd-kustomize-controller
   notificationController:
     create: true
-    image: ghcr.io/fluxcd/notification-controller
+    image: ghcr.io/appscode-images/fluxcd-notification-controller
   sourceController:
     create: true
-    image: ghcr.io/fluxcd/source-controller
+    image: ghcr.io/appscode-images/fluxcd-source-controller
