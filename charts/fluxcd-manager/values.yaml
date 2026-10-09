@@ -22,7 +22,7 @@ placement:
 fluxcdConfig:
   installCRDs: true
   cli:
-    image: ghcr.io/appscode-images/fluxcd-cli
+    image: ghcr.io/appscode/flux-cli
   helmController:
     create: true
     image: ghcr.io/appscode-images/fluxcd-helm-controller
