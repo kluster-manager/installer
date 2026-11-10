@@ -30,7 +30,7 @@ crd-importer \
     --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authorization.k8s.appscode.com_managedclusterrolebindings.yaml \
     --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authorization.k8s.appscode.com_managedclusterroles.yaml \
     --input=https://github.com/kluster-manager/cluster-auth/raw/${KLUSTER_MANAGER_CLUSTER_AUTH_TAG}/crds/authorization.k8s.appscode.com_managedclustersetrolebindings.yaml \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1beta1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/work/v1alpha1/0000_00_work.open-cluster-management.io_manifestworkreplicasets.crd.yaml \
@@ -38,7 +38,7 @@ crd-importer \
 
 crd-importer \
     --input=https://github.com/kluster-manager/cluster-gateway/raw/master/hack/crd/bases/config.gateway.open-cluster-management.io_clustergatewayconfigurations.yaml \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1beta1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --out=./charts/cluster-gateway-manager/crds
@@ -61,7 +61,7 @@ crd-importer \
     --out=./charts/cluster-profile-manager/crds
 
 crd-importer \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1beta1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --input=https://github.com/kluster-manager/cluster-proxy/raw/${KLUSTER_MANAGER_CLUSTER_PROFILE_TAG}/hack/crd/bases/proxy.open-cluster-management.io_managedproxyconfigurations.yaml \
@@ -70,13 +70,13 @@ crd-importer \
 
 crd-importer \
     --input=https://github.com/kluster-manager/fluxcd-addon/raw/${KLUSTER_MANAGER_FLUXCD_ADDON_TAG}/crds/fluxcd.open-cluster-management.io_fluxcdconfigs.yaml \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1beta1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --out=./charts/fluxcd-manager/crds
 
 crd-importer \
-    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1alpha1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
+    --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/addon/v1beta1/0000_00_addon.open-cluster-management.io_clustermanagementaddons.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta1/0000_02_clusters.open-cluster-management.io_placements.crd.yaml \
     --input=https://github.com/open-cluster-management-io/api/raw/${OPEN_CLUSTER_MANAGEMENT_IO_API_TAG}/cluster/v1beta2/0000_01_clusters.open-cluster-management.io_managedclustersetbindings.crd.yaml \
     --input=https://github.com/kluster-manager/managed-serviceaccount/raw/main/config/crd/bases/authentication.open-cluster-management.io_managedserviceaccounts.yaml \
