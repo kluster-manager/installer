@@ -1,4 +1,9 @@
 properties:
+  autodba:
+    properties:
+      token:
+        type: string
+    type: object
   fullnameOverride:
     type: string
   helm:

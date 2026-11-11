@@ -57,6 +57,17 @@ type ClusterProfileManagerSpec struct {
 
 	shared.BootstrapPresets `json:",inline,omitempty"`
 	Platform                AceOcmAddonsPlatformSpec `json:"platform"`
+	// +optional
+	AutoDBA AceOcmAddonsAutoDBASpec `json:"autodba"`
+}
+
+// AceOcmAddonsAutoDBASpec is what every spoke's AutoDBA controller needs from
+// the platform. b3 fills it at the hub import; empty leaves AutoDBA without
+// docs search.
+type AceOcmAddonsAutoDBASpec struct {
+	// Token is a b3 AutoDBA token: it may only call the docs search route.
+	// +optional
+	Token string `json:"token"`
 }
 
 type AceOcmAddonsPlatformSpec struct {

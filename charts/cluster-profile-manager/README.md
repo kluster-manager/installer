@@ -80,6 +80,7 @@ The following table lists the configurable parameters of the `cluster-profile-ma
 | platform.baseURL                          |                                                                                    | <code>""</code>                                                                                                                                                                                 |
 | platform.token                            |                                                                                    | <code>""</code>                                                                                                                                                                                 |
 | platform.caBundle                         |                                                                                    | <code>""</code>                                                                                                                                                                                 |
+| autodba.token                             |                                                                                    | <code>""</code>                                                                                                                                                                                 |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm upgrade -i`. For example:

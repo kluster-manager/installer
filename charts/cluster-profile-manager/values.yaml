@@ -87,3 +87,8 @@ platform:
   baseURL: ""
   token: ""
   caBundle: ""
+
+# AutoDBA docs search. b3 fills the token at the hub import; it may only call
+# the docs search route. Empty: spokes run AutoDBA without docs.
+autodba:
+  token: ""

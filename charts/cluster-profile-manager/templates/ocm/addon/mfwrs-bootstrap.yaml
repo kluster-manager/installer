@@ -47,6 +47,11 @@ spec:
               {{- dict "platform" (dict "baseURL" .Values.platform.baseURL "caBundle" .Values.platform.caBundle) | toYaml | nindent 14 }}
             cluster-profile-manager.yaml: |
               {{- dict "platform" .Values.platform | toYaml | nindent 14 }}
+            {{- with (default (dict) .Values.autodba).token }}
+            # Read by the autodba Feature's valuesFrom (key autodba.yaml).
+            autodba.yaml: |
+              {{- dict "autodba-controller" (dict "platform" (dict "baseURL" $.Values.platform.baseURL "token" . "caBundle" $.Values.platform.caBundle)) | toYaml | nindent 14 }}
+            {{- end }}
 
         - apiVersion: rbac.authorization.k8s.io/v1
           kind: ClusterRole
