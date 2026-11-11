@@ -18,7 +18,7 @@ spec:
         open-cluster-management.io/addon: cluster-proxy
         component: cluster-proxy-manager
     spec:
-      serviceAccount: cluster-proxy
+      serviceAccountName: cluster-proxy-manager
       automountServiceAccountToken: true
       containers:
         - name: manager
